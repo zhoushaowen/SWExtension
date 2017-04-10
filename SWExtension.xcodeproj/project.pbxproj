@@ -48,6 +48,7 @@
 		369B7ACB1E9B839700F99CB3 /* UIImageView+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SWExtension.m"; sourceTree = "<group>"; };
 		369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Date.h"; sourceTree = "<group>"; };
 		369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Date.m"; sourceTree = "<group>"; };
+		369B7AD31E9B892200F99CB3 /* SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWExtension.h; sourceTree = "<group>"; };
 		5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D1440579FE0C70CD38447 /* Pods-SWExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C896F51E9648F40135965C46 /* Pods-SWExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				369B7AC51E9B7E0E00F99CB3 /* UIColor+Hex.m */,
 				369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */,
 				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
+				369B7AD31E9B892200F99CB3 /* SWExtension.h */,
 			);
 			path = SWExtension;
 			sourceTree = "<group>";
