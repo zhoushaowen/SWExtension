@@ -14,9 +14,15 @@
 #import "UIView+SWAutoLayout.h"
 #import "UIView+Shake.h"
 #import "UIView+HUD.h"
-#import "UIImage+SWExtension.h"
+#import "UIImageView+SWExtension.h"
 #import "UIColor+Hex.h"
 #import "NSString+Date.h"
+
+#ifdef __cplusplus
+#define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))
+#else
+#define SWKIT_EXTERN	        extern __attribute__((visibility ("default")))
+#endif
 
 #endif
 
