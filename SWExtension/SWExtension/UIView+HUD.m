@@ -28,7 +28,7 @@
 }
 
 - (MBProgressHUD *)showHUDAndHideWithDefaultDelayWithMessage:(NSString *)message {
-    MBProgressHUD *hud = [self showHUDAndHideWithDefaultDelay];
+    MBProgressHUD *hud = [self showHUDAndHideWithDelay:1];
     hud.mode = MBProgressHUDModeText;
     hud.label.text = message;
     return hud;
