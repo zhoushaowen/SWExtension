@@ -13,8 +13,10 @@
 
 - (MBProgressHUD *)showHUDAndHideWithDelay:(NSTimeInterval)delay;
 - (MBProgressHUD *)showHUDAndHideWithDefaultDelay;
+- (MBProgressHUD *)showHUDAndHideWithDefaultDelayWithMessage:(NSString *)message;
+- (MBProgressHUD *)showHUDAndHideWithDelay:(NSTimeInterval)delay withMessage:(NSString *)message;
 - (MBProgressHUD *)showHUDWithCustomView:(UIView *)customView;
-- (void)showHUDWithCustomView:(UIView *)customView hideWithDelay:(NSTimeInterval)delay;
+- (MBProgressHUD *)showHUDWithCustomView:(UIView *)customView hideWithDelay:(NSTimeInterval)delay;
 - (MBProgressHUD *)showHUD;
 - (BOOL)hideHUDAnimated:(BOOL)animated;
 

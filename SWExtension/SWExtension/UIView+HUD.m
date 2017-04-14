@@ -27,6 +27,20 @@
     return hud;
 }
 
+- (MBProgressHUD *)showHUDAndHideWithDefaultDelayWithMessage:(NSString *)message {
+    MBProgressHUD *hud = [self showHUDAndHideWithDefaultDelay];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = message;
+    return hud;
+}
+
+- (MBProgressHUD *)showHUDAndHideWithDelay:(NSTimeInterval)delay withMessage:(NSString *)message {
+    MBProgressHUD *hud = [self showHUDAndHideWithDelay:delay];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = message;
+    return hud;
+}
+
 - (MBProgressHUD *)showHUDWithCustomView:(UIView *)customView
 {
     [self hideHUDAnimated:NO];
@@ -47,10 +61,11 @@
     return hud;
 }
 
-- (void)showHUDWithCustomView:(UIView *)customView hideWithDelay:(NSTimeInterval)delay
+- (MBProgressHUD *)showHUDWithCustomView:(UIView *)customView hideWithDelay:(NSTimeInterval)delay
 {
     MBProgressHUD *hud = [self showHUDWithCustomView:customView];
     [hud hideAnimated:YES afterDelay:delay];
+    return hud;
 }
 
 - (MBProgressHUD *)showHUD
