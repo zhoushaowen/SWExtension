@@ -10,7 +10,7 @@
 
 @interface UIView (SWAutoLayout)
 
-- (NSArray<__kindof NSLayoutConstraint*> *)sw_addAutoLayoutWithFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary*)metrics views:(NSDictionary*)views;
+- (NSArray<__kindof NSLayoutConstraint*> *)sw_addConstraintsWithFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary*)metrics views:(NSDictionary*)views;
 
 - (NSLayoutConstraint *)sw_addConstraintToView:(UIView *)view attribute:(NSLayoutAttribute)attribute constant:(CGFloat)constant;
 
