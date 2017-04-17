@@ -26,7 +26,7 @@
     return array;
 }
 
-- (NSLayoutConstraint *)sw_addConstraintToView:(UIView *)view attribute:(NSLayoutAttribute)attribute constant:(CGFloat)constant
+- (NSLayoutConstraint *)sw_addConstraintToView:(UIView *)view withEqualAttribute:(NSLayoutAttribute)attribute constant:(CGFloat)constant
 {
     if(self.translatesAutoresizingMaskIntoConstraints)
     {
