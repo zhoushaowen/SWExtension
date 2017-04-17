@@ -22,6 +22,7 @@
 		369B7ACC1E9B839700F99CB3 /* UIImageView+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7ACB1E9B839700F99CB3 /* UIImageView+SWExtension.m */; };
 		369B7ACF1E9B85C300F99CB3 /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */; };
 		36B454E41E9FA699001F176A /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B454E31E9FA699001F176A /* NSString+Hash.m */; };
+		36E15C981EA4BFD90087D5DD /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		369B7AD31E9B892200F99CB3 /* SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWExtension.h; sourceTree = "<group>"; };
 		36B454E21E9FA699001F176A /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		36B454E31E9FA699001F176A /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		36E15C961EA4BFD90087D5DD /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D1440579FE0C70CD38447 /* Pods-SWExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C896F51E9648F40135965C46 /* Pods-SWExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
 				36B454E21E9FA699001F176A /* NSString+Hash.h */,
 				36B454E31E9FA699001F176A /* NSString+Hash.m */,
+				36E15C961EA4BFD90087D5DD /* NSString+Emoji.h */,
+				36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */,
 				369B7AD31E9B892200F99CB3 /* SWExtension.h */,
 			);
 			path = SWExtension;
@@ -282,6 +287,7 @@
 				36B454E41E9FA699001F176A /* NSString+Hash.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
 				369B7AC31E9B7D6700F99CB3 /* UIView+Shake.m in Sources */,
+				36E15C981EA4BFD90087D5DD /* NSString+Emoji.m in Sources */,
 				369B7ACF1E9B85C300F99CB3 /* NSString+Date.m in Sources */,
 				369B7AC91E9B7F8A00F99CB3 /* UIView+HUD.m in Sources */,
 				369B7AC61E9B7E0E00F99CB3 /* UIColor+Hex.m in Sources */,

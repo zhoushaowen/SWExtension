@@ -18,6 +18,7 @@
 #import "UIColor+Hex.h"
 #import "NSString+Date.h"
 #import "NSString+Hash.h"
+#import "NSString+Emoji.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))

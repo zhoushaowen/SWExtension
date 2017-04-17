@@ -15,7 +15,7 @@
     [self hideHUDAnimated:NO];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:NO afterDelay:delay];
+    [hud hideAnimated:YES afterDelay:delay];
     
     return hud;
 }
