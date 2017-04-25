@@ -11,9 +11,10 @@
 @implementation NSString (Valid)
 
 //判断手机号码格式是否正确
-+ (BOOL)isValidPhoneNumber:(NSString *)number
+- (BOOL)isValidPhoneNumber
 {
-    number = [number stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(![self isKindOfClass:[NSString class]]) return NO;
+    NSString *number = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if (number.length != 11)
     {
         return NO;
