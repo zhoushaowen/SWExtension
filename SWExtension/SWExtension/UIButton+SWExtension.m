@@ -9,7 +9,7 @@
 #import "UIButton+SWExtension.h"
 #import <objc/runtime.h>
 
-static void* disableHightedImageWhenTouchDown = &disableHightedImageWhenTouchDown;
+static void* DisableAdjustImageWhenTouchDown_key = &DisableAdjustImageWhenTouchDown_key;
 
 @implementation UIButton (SWExtension)
 
@@ -28,11 +28,11 @@ static void* disableHightedImageWhenTouchDown = &disableHightedImageWhenTouchDow
 }
 
 - (void)setSw_disableHightedImageWhenTouchDown:(BOOL)sw_disableHightedImageWhenTouchDown {
-    objc_setAssociatedObject(self, disableHightedImageWhenTouchDown, @(sw_disableHightedImageWhenTouchDown), OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self, DisableAdjustImageWhenTouchDown_key, @(sw_disableHightedImageWhenTouchDown), OBJC_ASSOCIATION_RETAIN);
 }
 
 - (BOOL)sw_disableHightedImageWhenTouchDown {
-    return [objc_getAssociatedObject(self, disableHightedImageWhenTouchDown) boolValue];
+    return [objc_getAssociatedObject(self, DisableAdjustImageWhenTouchDown_key) boolValue];
 }
 
 @end
