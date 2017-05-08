@@ -32,7 +32,7 @@ static void* disableHightedImageWhenTouchDown = &disableHightedImageWhenTouchDow
 }
 
 - (BOOL)sw_disableHightedImageWhenTouchDown {
-    return objc_getAssociatedObject(self, disableHightedImageWhenTouchDown);
+    return [objc_getAssociatedObject(self, disableHightedImageWhenTouchDown) boolValue];
 }
 
 @end
