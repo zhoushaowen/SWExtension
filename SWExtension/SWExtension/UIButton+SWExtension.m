@@ -22,17 +22,18 @@ static void* DisableAdjustImageWhenTouchDown_key = &DisableAdjustImageWhenTouchD
 }
 
 - (void)sw_setHighlighted:(BOOL)highlighted {
-    if(!self.sw_disableHightedImageWhenTouchDown){
+    if(!self.sw_disableAdjustImageWhenTouchDown){
         [self sw_setHighlighted:highlighted];
     }
 }
 
-- (void)setSw_disableHightedImageWhenTouchDown:(BOOL)sw_disableHightedImageWhenTouchDown {
-    objc_setAssociatedObject(self, DisableAdjustImageWhenTouchDown_key, @(sw_disableHightedImageWhenTouchDown), OBJC_ASSOCIATION_RETAIN);
+- (void)setSw_disableAdjustImageWhenTouchDown:(BOOL)sw_disableAdjustImageWhenTouchDown {
+    objc_setAssociatedObject(self, DisableAdjustImageWhenTouchDown_key, @(sw_disableAdjustImageWhenTouchDown), OBJC_ASSOCIATION_RETAIN);
 }
 
-- (BOOL)sw_disableHightedImageWhenTouchDown {
+- (BOOL)sw_disableAdjustImageWhenTouchDown {
     return [objc_getAssociatedObject(self, DisableAdjustImageWhenTouchDown_key) boolValue];
 }
+
 
 @end
