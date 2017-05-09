@@ -32,7 +32,7 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     {
         if(![self sw_isHaveCameraAuthorization])
             return nil;
-    }else if (sourceType ==UIImagePickerControllerSourceTypePhotoLibrary)
+    }else if (sourceType == UIImagePickerControllerSourceTypePhotoLibrary || sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum)
     {
         if(![self sw_isHavePhotoLibarayAuthorization])
             return nil;
