@@ -17,6 +17,6 @@
  @param formatterString 日期格式
  @return 创建的日期
  */
-+ (instancetype)sw_createDateWithDateString:(NSString *)dateString dateFormate:(NSString *)formatterString;
++ (instancetype)sw_createDateWithDateString:(NSString *)dateString dateFormat:(NSString *)formatterString;
 
 @end

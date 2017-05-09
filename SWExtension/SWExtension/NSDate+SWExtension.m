@@ -12,10 +12,11 @@
 
 @implementation NSDate (SWExtension)
 
-+ (instancetype)sw_createDateWithDateString:(NSString *)dateString dateFormate:(NSString *)formatterString {
++ (instancetype)sw_createDateWithDateString:(NSString *)dateString dateFormat:(NSString *)formatterString {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = formatterString;
-    return [formatter dateFromString:formatterString];
+    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en"];
+    return [formatter dateFromString:dateString];
 }
 
 @end
