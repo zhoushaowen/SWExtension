@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
+		360C257D1EC1A668003423B2 /* UIViewController+SWAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */; };
 		361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */; };
 		361A54301EC16A3900B1A5FC /* UIViewController+SWImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */; };
 		362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		360C257B1EC1A668003423B2 /* UIViewController+SWAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SWAlertController.h"; sourceTree = "<group>"; };
+		360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SWAlertController.m"; sourceTree = "<group>"; };
 		361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Authorization.h"; sourceTree = "<group>"; };
 		361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Authorization.m"; sourceTree = "<group>"; };
 		361A542E1EC16A3900B1A5FC /* UIViewController+SWImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SWImagePicker.h"; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */,
 				361A542E1EC16A3900B1A5FC /* UIViewController+SWImagePicker.h */,
 				361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */,
+				360C257B1EC1A668003423B2 /* UIViewController+SWAlertController.h */,
+				360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */,
 				369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */,
 				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
 				36B454E21E9FA699001F176A /* NSString+Hash.h */,
@@ -327,6 +332,7 @@
 				369B7AC61E9B7E0E00F99CB3 /* UIColor+Hex.m in Sources */,
 				369B7ABD1E9B7B4A00F99CB3 /* UIImage+SWExtension.m in Sources */,
 				36448F251EC060060017E8A7 /* UIButton+SWExtension.m in Sources */,
+				360C257D1EC1A668003423B2 /* UIViewController+SWAlertController.m in Sources */,
 				3655FD461EAEFBAE005B730C /* NSString+Valid.m in Sources */,
 				369B7AC01E9B7CA100F99CB3 /* UIView+SWAutoLayout.m in Sources */,
 			);
