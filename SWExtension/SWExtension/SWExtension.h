@@ -22,6 +22,7 @@
 #import "NSString+Emoji.h"
 #import "NSString+Valid.h"
 #import "UIButton+SWExtension.h"
+#import "NSDate+SWExtension.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))

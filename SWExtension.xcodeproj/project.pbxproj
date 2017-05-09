@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
+		362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */; };
 		36448F251EC060060017E8A7 /* UIButton+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F241EC060060017E8A7 /* UIButton+SWExtension.m */; };
 		36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */; };
 		3655FD461EAEFBAE005B730C /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655FD451EAEFBAE005B730C /* NSString+Valid.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SWExtension.h"; sourceTree = "<group>"; };
+		362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SWExtension.m"; sourceTree = "<group>"; };
 		36448F231EC060060017E8A7 /* UIButton+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SWExtension.h"; sourceTree = "<group>"; };
 		36448F241EC060060017E8A7 /* UIButton+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SWExtension.m"; sourceTree = "<group>"; };
 		36448F261EC063590017E8A7 /* UIView+ExpandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ExpandResponse.h"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				369B7AC51E9B7E0E00F99CB3 /* UIColor+Hex.m */,
 				36448F231EC060060017E8A7 /* UIButton+SWExtension.h */,
 				36448F241EC060060017E8A7 /* UIButton+SWExtension.m */,
+				362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */,
+				362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */,
 				369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */,
 				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
 				36B454E21E9FA699001F176A /* NSString+Hash.h */,
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */,
 				369B7ACC1E9B839700F99CB3 /* UIImageView+SWExtension.m in Sources */,
 				369B7AAB1E9B7A6C00F99CB3 /* ViewController.m in Sources */,
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
