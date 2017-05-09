@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
+		361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */; };
+		361A54301EC16A3900B1A5FC /* UIViewController+SWImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */; };
 		362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */; };
 		36448F251EC060060017E8A7 /* UIButton+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F241EC060060017E8A7 /* UIButton+SWExtension.m */; };
 		36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */; };
@@ -30,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Authorization.h"; sourceTree = "<group>"; };
+		361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Authorization.m"; sourceTree = "<group>"; };
+		361A542E1EC16A3900B1A5FC /* UIViewController+SWImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SWImagePicker.h"; sourceTree = "<group>"; };
+		361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SWImagePicker.m"; sourceTree = "<group>"; };
 		362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SWExtension.h"; sourceTree = "<group>"; };
 		362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SWExtension.m"; sourceTree = "<group>"; };
 		36448F231EC060060017E8A7 /* UIButton+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SWExtension.h"; sourceTree = "<group>"; };
@@ -148,6 +154,10 @@
 				36448F241EC060060017E8A7 /* UIButton+SWExtension.m */,
 				362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */,
 				362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */,
+				361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */,
+				361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */,
+				361A542E1EC16A3900B1A5FC /* UIViewController+SWImagePicker.h */,
+				361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */,
 				369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */,
 				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
 				36B454E21E9FA699001F176A /* NSString+Hash.h */,
@@ -307,6 +317,8 @@
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */,
 				36B454E41E9FA699001F176A /* NSString+Hash.m in Sources */,
+				361A54301EC16A3900B1A5FC /* UIViewController+SWImagePicker.m in Sources */,
+				361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
 				369B7AC31E9B7D6700F99CB3 /* UIView+Shake.m in Sources */,
 				36E15C981EA4BFD90087D5DD /* NSString+Emoji.m in Sources */,

@@ -23,6 +23,8 @@
 #import "NSString+Valid.h"
 #import "UIButton+SWExtension.h"
 #import "NSDate+SWExtension.h"
+#import "UIViewController+SWImagePicker.h"
+#import "UIViewController+Authorization.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))
