@@ -16,6 +16,11 @@
 @property (nonatomic,strong) UIView *sw_emptyView;
 
 /**
+ 禁止自动显示和隐藏空数据View,默认是NO
+ */
+@property (nonatomic) BOOL disableAutomaticShowAndHideEmptyView;
+
+/**
  显示设置的view
  */
 - (void)sw_showEmptyView;
