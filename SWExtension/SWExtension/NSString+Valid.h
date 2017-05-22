@@ -17,4 +17,14 @@
  */
 - (BOOL)isValidPhoneNumber;
 
+/**
+ 判断是否是邮箱账号
+ */
+- (BOOL)isEmailString;
+
+/**
+ 判断是否是身份证号码
+ */
+- (BOOL)isValidateIdentityCard;
+
 @end
