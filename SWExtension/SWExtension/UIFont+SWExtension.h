@@ -16,6 +16,6 @@
  @param size 字体大小
  @return 字体
  */
-+ (UIFont *)sw_lightFontWithSize:(UIFont *)size;
++ (UIFont *)sw_lightFontWithSize:(CGFloat)size;
 
 @end

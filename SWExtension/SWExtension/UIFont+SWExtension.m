@@ -10,11 +10,11 @@
 
 @implementation UIFont (SWExtension)
 
-+ (UIFont *)sw_lightFontWithSize:(UIFont *)size {
++ (UIFont *)sw_lightFontWithSize:(CGFloat)size {
     if([[[UIDevice currentDevice] systemVersion] compare:@"8.2" options:NSNumericSearch] != NSOrderedAscending){
-        return [UIFont systemFontOfSize:16 weight:UIFontWeightLight];
+        return [UIFont systemFontOfSize:size weight:UIFontWeightLight];
     }else{
-        return [UIFont systemFontOfSize:16 weight:-0.4];
+        return [UIFont systemFontOfSize:size weight:-0.4];
     }
 }
 
