@@ -14,6 +14,7 @@
 		361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */; };
 		361A54301EC16A3900B1A5FC /* UIViewController+SWImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */; };
 		362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */; };
+		3641C3FA1ED2DD2A00A697D4 /* UIFont+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */; };
 		36448F251EC060060017E8A7 /* UIButton+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F241EC060060017E8A7 /* UIButton+SWExtension.m */; };
 		36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */; };
 		3655FD461EAEFBAE005B730C /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655FD451EAEFBAE005B730C /* NSString+Valid.m */; };
@@ -47,6 +48,8 @@
 		361A542F1EC16A3900B1A5FC /* UIViewController+SWImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SWImagePicker.m"; sourceTree = "<group>"; };
 		362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SWExtension.h"; sourceTree = "<group>"; };
 		362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SWExtension.m"; sourceTree = "<group>"; };
+		3641C3F81ED2DD2A00A697D4 /* UIFont+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SWExtension.h"; sourceTree = "<group>"; };
+		3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SWExtension.m"; sourceTree = "<group>"; };
 		36448F231EC060060017E8A7 /* UIButton+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SWExtension.h"; sourceTree = "<group>"; };
 		36448F241EC060060017E8A7 /* UIButton+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SWExtension.m"; sourceTree = "<group>"; };
 		36448F261EC063590017E8A7 /* UIView+ExpandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ExpandResponse.h"; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				3655FD451EAEFBAE005B730C /* NSString+Valid.m */,
 				360E57111EC4497300642F70 /* NSString+SWDevice.h */,
 				360E57121EC4497300642F70 /* NSString+SWDevice.m */,
+				3641C3F81ED2DD2A00A697D4 /* UIFont+SWExtension.h */,
+				3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */,
 				369B7AD31E9B892200F99CB3 /* SWExtension.h */,
 			);
 			path = SWExtension;
@@ -342,6 +347,7 @@
 				369B7ACF1E9B85C300F99CB3 /* NSString+Date.m in Sources */,
 				369B7AC91E9B7F8A00F99CB3 /* UIView+HUD.m in Sources */,
 				369B7AC61E9B7E0E00F99CB3 /* UIColor+Hex.m in Sources */,
+				3641C3FA1ED2DD2A00A697D4 /* UIFont+SWExtension.m in Sources */,
 				369B7ABD1E9B7B4A00F99CB3 /* UIImage+SWExtension.m in Sources */,
 				36448F251EC060060017E8A7 /* UIButton+SWExtension.m in Sources */,
 				360C257D1EC1A668003423B2 /* UIViewController+SWAlertController.m in Sources */,
