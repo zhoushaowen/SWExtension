@@ -58,5 +58,15 @@
  */
 - (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles handler:(void(^)(UIAlertAction *action))handler;
 
+/**
+ 弹出一个可以自定义取消按钮和多个action按钮的actionSheet
+
+ @param actionTitles 按钮标题数组
+ @param cancelTitle 取消按钮的标题
+ @param handler 按钮点击回调
+ */
+- (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles cancelTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler;
+
+
 
 @end

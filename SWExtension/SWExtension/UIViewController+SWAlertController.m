@@ -37,11 +37,15 @@
 }
 
 - (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles handler:(void(^)(UIAlertAction *action))handler {
+    [self sw_showActionSheetWithActionTitles:actionTitles cancelTitle:@"取消" handler:handler];
+}
+
+- (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles cancelTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [actionTitles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [alertController addAction:[UIAlertAction actionWithTitle:actionTitles[idx] style:UIAlertActionStyleDefault handler:handler]];
     }];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:nil]];
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
