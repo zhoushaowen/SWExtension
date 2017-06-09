@@ -35,7 +35,7 @@
 }
 
 - (MBProgressHUD *)showHUDWithMessage:(NSString *)message {
-    return [self showHUDWithDetailMessage:message hideWithDelay:1];
+    return [self showHUDWithMessage:message hideWithDelay:1];
 }
 
 - (MBProgressHUD *)showHUDWithMessage:(NSString *)message hideWithDelay:(NSTimeInterval)delay {
@@ -53,7 +53,7 @@
     MBProgressHUD *hud = [self showHUDAndHideWithDelay:delay];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text = message;
-    hud.detailsLabel.font = [UIFont systemFontOfSize:16];
+    hud.detailsLabel.font = [UIFont boldSystemFontOfSize:16];
     return hud;
 }
 

@@ -54,8 +54,9 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     }else{
         image = info[UIImagePickerControllerOriginalImage];
     }
+    //    NSData *imageData = UIImageJPEGRepresentation(image, 0.3f);
     //正确的做法是:通过上下文绘制一个新的图片可以解决进行图片选择的时候内存暴增的问题
-    UIImage *resultImage = [self drawImageWithOriginalImage:image width:[UIScreen mainScreen].bounds.size.width];
+    UIImage *resultImage = [self drawImageWithOriginalImage:[self compressImage:image] width:300];
     [self dismissViewControllerAnimated:YES completion:nil];
     if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerController:didFinishPickingImage:)]){
         [self.swImagePickerDelegate sw_imagePickerController:picker didFinishPickingImage:resultImage];
@@ -80,6 +81,21 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return resultImage;
+}
+
+//压缩图片至100k以下
+- (UIImage *)compressImage:(UIImage *)originalImage {
+    NSData *data = UIImageJPEGRepresentation(originalImage, 1.0f);
+    if(data.length > 100*1024){
+        if(data.length > 1024*1024){
+            data = UIImageJPEGRepresentation(originalImage, 0.1f);
+        }else if (data.length > 512*1024){
+            data = UIImageJPEGRepresentation(originalImage, 0.5f);
+        }else if (data.length > 200*1024){
+            data = UIImageJPEGRepresentation(originalImage, 0.9f);
+        }
+    }
+    return [[UIImage alloc] initWithData:data];
 }
 
 - (void)showAlertWithSourceType:(UIImagePickerControllerSourceType)type
