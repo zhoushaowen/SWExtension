@@ -28,6 +28,7 @@
 #import "UIViewController+Authorization.h"
 #import "UIViewController+SWAlertController.h"
 #import "UITableView+SWEmptyView.h"
+#import "UIDevice+SWExtension.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))
