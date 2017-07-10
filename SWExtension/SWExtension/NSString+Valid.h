@@ -15,7 +15,7 @@
 
  @return YES是手机号码,NO不是
  */
-- (BOOL)isValidPhoneNumber;
+//- (BOOL)isValidPhoneNumber;
 
 /**
  判断是否是邮箱账号
