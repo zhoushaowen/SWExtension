@@ -9,6 +9,27 @@
 #import "UIViewController+SWImagePicker.h"
 #import "UIViewController+Authorization.h"
 #import <objc/runtime.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+
+typedef NS_ENUM(NSUInteger, SWImagePickerControllerMediaType) {
+    SWImagePickerControllerMediaTypeImage = 1990,//图片
+    SWImagePickerControllerMediaTypeMovie,//视频
+};
+
+@interface SWImagePickerController : UIImagePickerController
+
+@property (nonatomic) SWImagePickerControllerMediaType sw_PickerControllerMediaType;
+
+@end
+
+@implementation SWImagePickerController
+
+- (void)dealloc {
+    NSLog(@"%s",__func__);
+}
+
+@end
+
 
 static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
 
@@ -37,7 +58,8 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
         if(![self sw_isHavePhotoLibarayAuthorization])
             return nil;
     }
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    SWImagePickerController *imagePickerController = [[SWImagePickerController alloc] init];
+    imagePickerController.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeImage;
     imagePickerController.sourceType = sourceType;
     imagePickerController.delegate = self;
     imagePickerController.allowsEditing = YES;
@@ -45,21 +67,35 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     return imagePickerController;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    //在选择图片的时候如果什么不做处理会导致内存暴增
-    //然而,通过压缩图片的方式并不能解决内存暴增的弊端(UIImageJPEGRepresentation)
-    UIImage *image = nil;
-    if(picker.allowsEditing){
-        image = info[UIImagePickerControllerEditedImage];
-    }else{
-        image = info[UIImagePickerControllerOriginalImage];
-    }
-    //    NSData *imageData = UIImageJPEGRepresentation(image, 0.3f);
-    //正确的做法是:通过上下文绘制一个新的图片可以解决进行图片选择的时候内存暴增的问题
-    UIImage *resultImage = [self drawImageWithOriginalImage:[self compressImage:image] width:300];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerController:didFinishPickingImage:)]){
-        [self.swImagePickerDelegate sw_imagePickerController:picker didFinishPickingImage:resultImage];
+- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate {
+    SWImagePickerController *picker = (SWImagePickerController *)[self sw_presentImagePickerControllerWithSourceType:sourceType delegate:delegate];
+    picker.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeMovie;
+    NSString *type = (__bridge_transfer NSString *)kUTTypeMovie;
+    picker.mediaTypes = @[type];
+    return picker;
+}
+
+- (void)imagePickerController:(SWImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    if(picker.sw_PickerControllerMediaType == SWImagePickerControllerMediaTypeImage){
+        //在选择图片的时候如果什么不做处理会导致内存暴增
+        //然而,通过压缩图片的方式并不能解决内存暴增的弊端(UIImageJPEGRepresentation)
+        UIImage *image = nil;
+        if(picker.allowsEditing){
+            image = info[UIImagePickerControllerEditedImage];
+        }else{
+            image = info[UIImagePickerControllerOriginalImage];
+        }
+        //    NSData *imageData = UIImageJPEGRepresentation(image, 0.3f);
+        //正确的做法是:通过上下文绘制一个新的图片可以解决进行图片选择的时候内存暴增的问题
+        UIImage *resultImage = [self drawImageWithOriginalImage:[self compressImage:image] width:300];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerController:didFinishPickingImage:)]){
+            [self.swImagePickerDelegate sw_imagePickerController:picker didFinishPickingImage:resultImage];
+        }
+    }else if (picker.sw_PickerControllerMediaType == SWImagePickerControllerMediaTypeMovie){
+        if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_videoPickerController:didFinishPickingVideoInfo:)]){
+            [self.swImagePickerDelegate sw_videoPickerController:picker didFinishPickingVideoInfo:info];
+        }
     }
 }
 

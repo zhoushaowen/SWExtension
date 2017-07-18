@@ -10,9 +10,9 @@
 
 @protocol SWImagePickerControllerDelegate <NSObject>
 
-- (void)sw_imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image;
-
 @optional
+- (void)sw_imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image;
+- (void)sw_videoPickerController:(UIImagePickerController *)picker didFinishPickingVideoInfo:(NSDictionary<NSString *,id> *)videoInfo;
 - (void)sw_imagePickerControllerDidCancel:(UIImagePickerController *)picker;
 
 @end
@@ -27,5 +27,14 @@
  @return 照片选择器
  */
 - (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate;
+
+/**
+ 弹出视频选择
+
+ @param sourceType 资源类型
+ @param delegate 代理
+ @return 选择器
+ */
+- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate;
 
 @end
