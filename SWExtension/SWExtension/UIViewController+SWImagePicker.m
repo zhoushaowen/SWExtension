@@ -93,6 +93,7 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
             [self.swImagePickerDelegate sw_imagePickerController:picker didFinishPickingImage:resultImage];
         }
     }else if (picker.sw_PickerControllerMediaType == SWImagePickerControllerMediaTypeMovie){
+        [self dismissViewControllerAnimated:YES completion:nil];
         if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_videoPickerController:didFinishPickingVideoInfo:)]){
             [self.swImagePickerDelegate sw_videoPickerController:picker didFinishPickingVideoInfo:info];
         }

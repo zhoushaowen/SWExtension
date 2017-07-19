@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const kSWAlertActionStyle;
+extern NSString *const kSWAlertActionTitle;
+
 @interface UIViewController (SWAlertController)
 
 /**
@@ -53,20 +56,33 @@
 /**
  弹出一个带取消按钮和多个action按钮的actionSheet
 
- @param actionTitles 按钮标题数组
+ @param title 标题
+ @param message 标题下方的文字
+ @param actionTitles 按钮标题
  @param handler 按钮点击回调
  */
-- (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles handler:(void(^)(UIAlertAction *action))handler;
+- (void)sw_showActionSheetWithTitle:(NSString *)title messgae:(NSString *)message actionTitles:(NSArray<NSString *> *)actionTitles handler:(void(^)(UIAlertAction *action))handler;
 
 /**
  弹出一个可以自定义取消按钮和多个action按钮的actionSheet
 
- @param actionTitles 按钮标题数组
- @param cancelTitle 取消按钮的标题
+ @param title 标题
+ @param message 标题下方的文字
+ @param actionTitles 按钮标题
+ @param cancelTitle 取消按钮标题
  @param handler 按钮点击回调
  */
-- (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles cancelTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler;
+- (void)sw_showActionSheetWithTitle:(NSString *)title messgae:(NSString *)message actionTitles:(NSArray<NSString *> *)actionTitles cancelTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler;
 
+/**
+ 弹出一个带TextFiled的alert
 
+ @param title 标题
+ @param message 标题下方的文字
+ @param configurationHandler textField配置回调
+ @param actionInfo 按钮信息字典
+ @param handler 按钮点击回调
+ */
+- (void)sw_showTextFieldAlertWithTitle:(NSString *)title message:(NSString *)message textFieldConfigurationHandler:(void(^)(UITextField *textField))configurationHandler actionInfo:(NSArray<NSDictionary *> *)actionInfo handler:(void(^)(UIAlertAction *action))handler;
 
 @end

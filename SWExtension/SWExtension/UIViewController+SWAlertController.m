@@ -8,6 +8,9 @@
 
 #import "UIViewController+SWAlertController.h"
 
+NSString *const kSWAlertActionStyle = @"kSWAlertActionStyle";
+NSString *const kSWAlertActionTitle = @"kSWAlertActionTitle";
+
 @implementation UIViewController (SWAlertController)
 
 - (void)sw_showAlertWithDestructiveActionTitle:(NSString *)destructiveTitle title:(NSString *)title message:(NSString *)message handler:(void(^)(UIAlertAction *action))handler {
@@ -36,17 +39,26 @@
     [self sw_showAlertWithActionTitles:@[onlyActionTitle?:nil] title:title message:message handler:handler];
 }
 
-- (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles handler:(void(^)(UIAlertAction *action))handler {
-    [self sw_showActionSheetWithActionTitles:actionTitles cancelTitle:@"取消" handler:handler];
+- (void)sw_showActionSheetWithTitle:(NSString *)title messgae:(NSString *)message actionTitles:(NSArray<NSString *> *)actionTitles handler:(void(^)(UIAlertAction *action))handler {
+    [self sw_showActionSheetWithTitle:title messgae:message actionTitles:actionTitles cancelTitle:@"取消" handler:handler];
 }
 
-- (void)sw_showActionSheetWithActionTitles:(NSArray<NSString *> *)actionTitles cancelTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+- (void)sw_showActionSheetWithTitle:(NSString *)title messgae:(NSString *)message actionTitles:(NSArray<NSString *> *)actionTitles cancelTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
     [actionTitles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [alertController addAction:[UIAlertAction actionWithTitle:actionTitles[idx] style:UIAlertActionStyleDefault handler:handler]];
     }];
     [alertController addAction:[UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:nil]];
     
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)sw_showTextFieldAlertWithTitle:(NSString *)title message:(NSString *)message textFieldConfigurationHandler:(void(^)(UITextField *textField))configurationHandler actionInfo:(NSArray<NSDictionary *> *)actionInfo handler:(void(^)(UIAlertAction *action))handler {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:configurationHandler];
+    [actionInfo enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [alertController addAction:[UIAlertAction actionWithTitle:obj[kSWAlertActionTitle] style:[obj[kSWAlertActionStyle] integerValue] handler:handler]];
+    }];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
