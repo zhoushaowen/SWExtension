@@ -10,10 +10,19 @@
 
 @implementation UIView (HUD)
 
+- (MBProgressHUD *)createAndShowHUD {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+    hud.animationType = MBProgressHUDAnimationZoomIn;
+    hud.removeFromSuperViewOnHide = YES;
+    [self addSubview:hud];
+    [hud showAnimated:YES];
+    return hud;
+}
+
 - (MBProgressHUD *)showHUDAndHideWithDelay:(NSTimeInterval)delay
 {
     [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    MBProgressHUD *hud = [self createAndShowHUD];
     //去除高斯模糊效果
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;//bezelView是在backgroundView上的一个view
@@ -22,7 +31,7 @@
     hud.backgroundColor = [UIColor clearColor];
     //设置文字颜色
     hud.contentColor = [UIColor whiteColor];
-    hud.removeFromSuperViewOnHide = YES;
+    hud.animationType = MBProgressHUDAnimationFade;
     [hud hideAnimated:YES afterDelay:delay];
     return hud;
 }
@@ -60,7 +69,7 @@
 - (MBProgressHUD *)showHUDWithCustomView:(UIView *)customView
 {
     [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:NO];
+    MBProgressHUD *hud = [self createAndShowHUD];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
@@ -89,7 +98,7 @@
 - (MBProgressHUD *)showHUD
 {
     [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    MBProgressHUD *hud = [self createAndShowHUD];
     hud.removeFromSuperViewOnHide = YES;
     //去除高斯模糊效果
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
@@ -104,7 +113,14 @@
 
 - (BOOL)hideHUDAnimated:(BOOL)animated
 {
-    return [MBProgressHUD hideHUDForView:self animated:animated];
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:self];
+    hud.animationType = MBProgressHUDAnimationFade;
+    if (hud != nil) {
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hideAnimated:animated];
+        return YES;
+    }
+    return NO;
 }
 
 
