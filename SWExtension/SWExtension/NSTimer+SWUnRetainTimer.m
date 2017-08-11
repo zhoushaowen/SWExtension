@@ -10,8 +10,12 @@
 
 @implementation NSTimer (SWUnRetainTimer)
 
-+ (NSTimer *)sw_scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget block:(void(^)(NSTimer *timer))block repeats:(BOOL)yesOrNo {
-    return [NSTimer timerWithTimeInterval:ti target:aTarget selector:@selector(sw_blockInvoke:) userInfo:[block copy] repeats:yesOrNo];
++ (NSTimer *)sw_scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)(NSTimer *timer))block repeats:(BOOL)yesOrNo {
+    return [NSTimer scheduledTimerWithTimeInterval:ti target:self selector:@selector(sw_blockInvoke:) userInfo:[block copy] repeats:yesOrNo];
+}
+
++ (NSTimer *)sw_timerWithTimeInterval:(NSTimeInterval)ti block:(void(^)(NSTimer *timer))block repeats:(BOOL)yesOrNo {
+    return [NSTimer timerWithTimeInterval:ti target:self selector:@selector(sw_blockInvoke:) userInfo:[block copy] repeats:yesOrNo];
 }
 
 + (void)sw_blockInvoke:(NSTimer *)timer {
