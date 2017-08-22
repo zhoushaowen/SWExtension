@@ -10,7 +10,6 @@
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
 		360783591EC2F31200095C00 /* UITableView+SWEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 360783581EC2F31200095C00 /* UITableView+SWEmptyView.m */; };
 		360C257D1EC1A668003423B2 /* UIViewController+SWAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */; };
-		360E57131EC4497300642F70 /* NSString+SWDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 360E57121EC4497300642F70 /* NSString+SWDevice.m */; };
 		361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */; };
 		362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */; };
 		3641C3FA1ED2DD2A00A697D4 /* UIFont+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */; };
@@ -18,6 +17,7 @@
 		36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */; };
 		3653B0C51F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3653B0C41F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m */; };
 		3655FD461EAEFBAE005B730C /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655FD451EAEFBAE005B730C /* NSString+Valid.m */; };
+		365666051F4BE20500097BE6 /* UIApplication+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */; };
 		369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA41E9B7A6C00F99CB3 /* main.m */; };
 		369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */; };
 		369B7AAB1E9B7A6C00F99CB3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AAA1E9B7A6C00F99CB3 /* ViewController.m */; };
@@ -42,8 +42,6 @@
 		360783581EC2F31200095C00 /* UITableView+SWEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SWEmptyView.m"; sourceTree = "<group>"; };
 		360C257B1EC1A668003423B2 /* UIViewController+SWAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SWAlertController.h"; sourceTree = "<group>"; };
 		360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SWAlertController.m"; sourceTree = "<group>"; };
-		360E57111EC4497300642F70 /* NSString+SWDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SWDevice.h"; sourceTree = "<group>"; };
-		360E57121EC4497300642F70 /* NSString+SWDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SWDevice.m"; sourceTree = "<group>"; };
 		361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Authorization.h"; sourceTree = "<group>"; };
 		361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Authorization.m"; sourceTree = "<group>"; };
 		362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SWExtension.h"; sourceTree = "<group>"; };
@@ -58,6 +56,8 @@
 		3653B0C41F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+SWUnRetainTimer.m"; sourceTree = "<group>"; };
 		3655FD441EAEFBAE005B730C /* NSString+Valid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Valid.h"; sourceTree = "<group>"; };
 		3655FD451EAEFBAE005B730C /* NSString+Valid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Valid.m"; sourceTree = "<group>"; };
+		365666031F4BE20500097BE6 /* UIApplication+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SWExtension.h"; sourceTree = "<group>"; };
+		365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SWExtension.m"; sourceTree = "<group>"; };
 		369B7AA01E9B7A6C00F99CB3 /* SWExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369B7AA41E9B7A6C00F99CB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		369B7AA61E9B7A6C00F99CB3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -168,6 +168,8 @@
 				369B7AC81E9B7F8A00F99CB3 /* UIView+HUD.m */,
 				36EB8BEF1EFCC6F700FD00D1 /* UIDevice+SWExtension.h */,
 				36EB8BF01EFCC6F700FD00D1 /* UIDevice+SWExtension.m */,
+				365666031F4BE20500097BE6 /* UIApplication+SWExtension.h */,
+				365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */,
 				369B7ACA1E9B839700F99CB3 /* UIImageView+SWExtension.h */,
 				369B7ACB1E9B839700F99CB3 /* UIImageView+SWExtension.m */,
 				369B7AC41E9B7E0E00F99CB3 /* UIColor+Hex.h */,
@@ -192,8 +194,6 @@
 				36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */,
 				3655FD441EAEFBAE005B730C /* NSString+Valid.h */,
 				3655FD451EAEFBAE005B730C /* NSString+Valid.m */,
-				360E57111EC4497300642F70 /* NSString+SWDevice.h */,
-				360E57121EC4497300642F70 /* NSString+SWDevice.m */,
 				3641C3F81ED2DD2A00A697D4 /* UIFont+SWExtension.h */,
 				3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */,
 				369B7AD31E9B892200F99CB3 /* SWExtension.h */,
@@ -345,6 +345,7 @@
 				369B7ACC1E9B839700F99CB3 /* UIImageView+SWExtension.m in Sources */,
 				369B7AAB1E9B7A6C00F99CB3 /* ViewController.m in Sources */,
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
+				365666051F4BE20500097BE6 /* UIApplication+SWExtension.m in Sources */,
 				36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */,
 				36B454E41E9FA699001F176A /* NSString+Hash.m in Sources */,
 				361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */,
@@ -352,7 +353,6 @@
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
 				369B7AC31E9B7D6700F99CB3 /* UIView+Shake.m in Sources */,
 				36EB8BF11EFCC6F700FD00D1 /* UIDevice+SWExtension.m in Sources */,
-				360E57131EC4497300642F70 /* NSString+SWDevice.m in Sources */,
 				36E15C981EA4BFD90087D5DD /* NSString+Emoji.m in Sources */,
 				369B7ACF1E9B85C300F99CB3 /* NSString+Date.m in Sources */,
 				369B7AC91E9B7F8A00F99CB3 /* UIView+HUD.m in Sources */,

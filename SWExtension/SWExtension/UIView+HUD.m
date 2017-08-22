@@ -10,9 +10,9 @@
 
 @implementation UIView (HUD)
 
-- (MBProgressHUD *)createAndShowHUD {
+- (MBProgressHUD *)createAndShowHUDWithAnimationType:(MBProgressHUDAnimation)animationType {
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
-    hud.animationType = MBProgressHUDAnimationZoomIn;
+    hud.animationType = animationType;
     hud.removeFromSuperViewOnHide = YES;
     [self addSubview:hud];
     [hud showAnimated:YES];
@@ -22,7 +22,7 @@
 - (MBProgressHUD *)showHUDAndHideWithDelay:(NSTimeInterval)delay
 {
     [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [self createAndShowHUD];
+    MBProgressHUD *hud = [self createAndShowHUDWithAnimationType:MBProgressHUDAnimationZoomIn];
     //去除高斯模糊效果
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;//bezelView是在backgroundView上的一个view
@@ -32,19 +32,14 @@
     //设置文字颜色
     hud.contentColor = [UIColor whiteColor];
     hud.animationType = MBProgressHUDAnimationFade;
-    [hud hideAnimated:YES afterDelay:delay];
-    return hud;
-}
-
-- (MBProgressHUD *)showHUDAndHideWithDefaultDelay
-{
-    [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [self showHUDAndHideWithDelay:0.25f];
+    if(delay > 0){
+        [hud hideAnimated:YES afterDelay:delay];
+    }
     return hud;
 }
 
 - (MBProgressHUD *)showHUDWithMessage:(NSString *)message {
-    return [self showHUDWithMessage:message hideWithDelay:1];
+    return [self showHUDWithMessage:message hideWithDelay:-1];
 }
 
 - (MBProgressHUD *)showHUDWithMessage:(NSString *)message hideWithDelay:(NSTimeInterval)delay {
@@ -55,7 +50,7 @@
 }
 
 - (MBProgressHUD *)showHUDWithDetailMessage:(NSString *)message {
-    return [self showHUDWithDetailMessage:message hideWithDelay:1];
+    return [self showHUDWithDetailMessage:message hideWithDelay:-1];
 }
 
 - (MBProgressHUD *)showHUDWithDetailMessage:(NSString *)message hideWithDelay:(NSTimeInterval)delay {
@@ -69,7 +64,7 @@
 - (MBProgressHUD *)showHUDWithCustomView:(UIView *)customView
 {
     [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [self createAndShowHUD];
+    MBProgressHUD *hud = [self createAndShowHUDWithAnimationType:MBProgressHUDAnimationZoomIn];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
@@ -98,7 +93,7 @@
 - (MBProgressHUD *)showHUD
 {
     [self hideHUDAnimated:NO];
-    MBProgressHUD *hud = [self createAndShowHUD];
+    MBProgressHUD *hud = [self createAndShowHUDWithAnimationType:MBProgressHUDAnimationFade];
     hud.removeFromSuperViewOnHide = YES;
     //去除高斯模糊效果
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;

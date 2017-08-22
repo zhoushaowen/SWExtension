@@ -31,9 +31,14 @@
  */
 + (BOOL)sw_isIOS11OrLater;
 /**
- 是否是指定的iOS版本或者更高版本
+ 是否是指定的iOS版本或者更高版本 (e.g. 11.0)
  */
 + (BOOL)sw_isSpecifiedIOSOrLater:(NSString *)specifiedIOSVersion;
+
+/**
+ 获取当前设备名称（e.g. iPhone 4s）
+ */
+@property (nonatomic,readonly,copy) NSString *sw_deviceString;
 
 
 @end
