@@ -14,6 +14,8 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = format;
+    //解决时差问题，将NSDate转换成北京时间
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     return [formatter stringFromDate:date];
 }
 

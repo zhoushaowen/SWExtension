@@ -11,7 +11,7 @@
 @interface NSString (Date)
 
 /**
- 通过NSDate创建一个带格式的时间字符串
+ 通过NSDate创建一个带格式的时间字符串，默认转换之后的时间是北京时间
  */
 + (instancetype)sw_createStringWithDate:(NSDate *)date dateFormat:(NSString *)format;
 
