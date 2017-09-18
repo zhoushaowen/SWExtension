@@ -18,7 +18,6 @@
 		3653B0C51F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3653B0C41F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m */; };
 		3655FD461EAEFBAE005B730C /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655FD451EAEFBAE005B730C /* NSString+Valid.m */; };
 		365666051F4BE20500097BE6 /* UIApplication+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */; };
-		36730A621F6FAEB90015381B /* SWTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36730A611F6FAEB90015381B /* SWTimer.m */; };
 		369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA41E9B7A6C00F99CB3 /* main.m */; };
 		369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */; };
 		369B7AAB1E9B7A6C00F99CB3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AAA1E9B7A6C00F99CB3 /* ViewController.m */; };
@@ -59,8 +58,6 @@
 		3655FD451EAEFBAE005B730C /* NSString+Valid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Valid.m"; sourceTree = "<group>"; };
 		365666031F4BE20500097BE6 /* UIApplication+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SWExtension.h"; sourceTree = "<group>"; };
 		365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SWExtension.m"; sourceTree = "<group>"; };
-		36730A601F6FAEB90015381B /* SWTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimer.h; sourceTree = "<group>"; };
-		36730A611F6FAEB90015381B /* SWTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimer.m; sourceTree = "<group>"; };
 		369B7AA01E9B7A6C00F99CB3 /* SWExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369B7AA41E9B7A6C00F99CB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		369B7AA61E9B7A6C00F99CB3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,8 +156,6 @@
 			children = (
 				3653B0C31F3D642D0015E554 /* NSTimer+SWUnRetainTimer.h */,
 				3653B0C41F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m */,
-				36730A601F6FAEB90015381B /* SWTimer.h */,
-				36730A611F6FAEB90015381B /* SWTimer.m */,
 				369B7ABB1E9B7B4A00F99CB3 /* UIImage+SWExtension.h */,
 				369B7ABC1E9B7B4A00F99CB3 /* UIImage+SWExtension.m */,
 				369B7ABE1E9B7CA100F99CB3 /* UIView+SWAutoLayout.h */,
@@ -368,7 +363,6 @@
 				36E03B1A1F1E351B004FEA8C /* UIViewController+SWImagePicker.m in Sources */,
 				36448F251EC060060017E8A7 /* UIButton+SWExtension.m in Sources */,
 				360C257D1EC1A668003423B2 /* UIViewController+SWAlertController.m in Sources */,
-				36730A621F6FAEB90015381B /* SWTimer.m in Sources */,
 				3655FD461EAEFBAE005B730C /* NSString+Valid.m in Sources */,
 				369B7AC01E9B7CA100F99CB3 /* UIView+SWAutoLayout.m in Sources */,
 			);

@@ -7,16 +7,15 @@
 //
 
 #import "NSTimer+SWUnRetainTimer.h"
-#import "SWTimer.h"
 
 @implementation NSTimer (SWUnRetainTimer)
 
 + (NSTimer *)sw_scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)(NSTimer *timer))block repeats:(BOOL)yesOrNo {
-    return [SWTimer scheduledTimerWithTimeInterval:ti target:self selector:@selector(sw_blockInvoke:) userInfo:[block copy] repeats:yesOrNo];
+    return [NSTimer scheduledTimerWithTimeInterval:ti target:self selector:@selector(sw_blockInvoke:) userInfo:block repeats:yesOrNo];
 }
 
 + (NSTimer *)sw_timerWithTimeInterval:(NSTimeInterval)ti block:(void(^)(NSTimer *timer))block repeats:(BOOL)yesOrNo {
-    return [SWTimer timerWithTimeInterval:ti target:self selector:@selector(sw_blockInvoke:) userInfo:[block copy] repeats:yesOrNo];
+    return [NSTimer timerWithTimeInterval:ti target:self selector:@selector(sw_blockInvoke:) userInfo:block repeats:yesOrNo];
 }
 
 + (void)sw_blockInvoke:(NSTimer *)timer {
