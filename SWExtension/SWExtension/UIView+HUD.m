@@ -46,6 +46,7 @@
     MBProgressHUD *hud = [self showHUDAndHideWithDelay:delay];
     hud.mode = MBProgressHUDModeText;
     hud.label.text = message;
+    hud.label.font = [UIFont systemFontOfSize:13];
     return hud;
 }
 
@@ -57,7 +58,7 @@
     MBProgressHUD *hud = [self showHUDAndHideWithDelay:delay];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text = message;
-    hud.detailsLabel.font = [UIFont boldSystemFontOfSize:16];
+    hud.detailsLabel.font = [UIFont boldSystemFontOfSize:13];
     return hud;
 }
 
