@@ -62,6 +62,17 @@
     return flag;
 }
 
++ (BOOL)sw_isIPhoneX {
+    static BOOL flag;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if([UIScreen mainScreen].bounds.size.width == 375 && [UIScreen mainScreen].bounds.size.height == 812) {
+            flag = YES;
+        }
+    });
+    return flag;
+}
+
 - (NSString *)sw_deviceString {
     static NSString *name;
     static dispatch_once_t onceToken;
@@ -165,6 +176,8 @@
     
     return platform;
 }
+
+
 
 
 

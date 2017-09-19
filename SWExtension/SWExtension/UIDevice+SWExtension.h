@@ -34,6 +34,10 @@
  是否是指定的iOS版本或者更高版本 (e.g. 11.0)
  */
 + (BOOL)sw_isSpecifiedIOSOrLater:(NSString *)specifiedIOSVersion;
+/**
+ 是否是iPhone X
+ */
++ (BOOL)sw_isIPhoneX;
 
 /**
  获取当前设备名称（e.g. iPhone 4s）
