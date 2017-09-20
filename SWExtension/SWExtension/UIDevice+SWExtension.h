@@ -38,6 +38,18 @@
  是否是iPhone X
  */
 + (BOOL)sw_isIPhoneX;
+/**
+ 导航高度
+ */
++ (CGFloat)sw_navigationBarHeight;
+/**
+ tabbar高度
+ */
++ (CGFloat)sw_tabBarHeight;
+/**
+ 状态栏高度
+ */
++ (CGFloat)sw_statusBarHeight;
 
 /**
  获取当前设备名称（e.g. iPhone 4s）

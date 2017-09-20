@@ -73,6 +73,21 @@
     return flag;
 }
 
++ (CGFloat)sw_navigationBarHeight {
+    if([self sw_isIPhoneX]) return 88;
+    return 64;
+}
+
++ (CGFloat)sw_tabBarHeight {
+    if([self sw_isIPhoneX]) return 83;
+    return 49;
+}
+
++ (CGFloat)sw_statusBarHeight {
+    if([self sw_isIPhoneX]) return 44;
+    return 20;
+}
+
 - (NSString *)sw_deviceString {
     static NSString *name;
     static dispatch_once_t onceToken;
