@@ -18,7 +18,7 @@
 #import "NSDate+SWExtension.h"
 #import "UIImage+SWExtension.h"
 #import "UIView+SWAutoLayout.h"
-#import "UIView+Shake.h"
+#import "UIView+ShakeAnimation.h"
 #import "UIView+HUD.h"
 #import "UIView+ExpandResponse.h"
 #import "UIImageView+SWExtension.h"

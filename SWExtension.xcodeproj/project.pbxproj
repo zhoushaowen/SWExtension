@@ -27,7 +27,7 @@
 		369B7AB31E9B7A6C00F99CB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AB11E9B7A6C00F99CB3 /* LaunchScreen.storyboard */; };
 		369B7ABD1E9B7B4A00F99CB3 /* UIImage+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7ABC1E9B7B4A00F99CB3 /* UIImage+SWExtension.m */; };
 		369B7AC01E9B7CA100F99CB3 /* UIView+SWAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7ABF1E9B7CA100F99CB3 /* UIView+SWAutoLayout.m */; };
-		369B7AC31E9B7D6700F99CB3 /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AC21E9B7D6700F99CB3 /* UIView+Shake.m */; };
+		369B7AC31E9B7D6700F99CB3 /* UIView+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AC21E9B7D6700F99CB3 /* UIView+ShakeAnimation.m */; };
 		369B7AC61E9B7E0E00F99CB3 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AC51E9B7E0E00F99CB3 /* UIColor+Hex.m */; };
 		369B7AC91E9B7F8A00F99CB3 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AC81E9B7F8A00F99CB3 /* UIView+HUD.m */; };
 		369B7ACC1E9B839700F99CB3 /* UIImageView+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7ACB1E9B839700F99CB3 /* UIImageView+SWExtension.m */; };
@@ -75,8 +75,8 @@
 		369B7ABC1E9B7B4A00F99CB3 /* UIImage+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SWExtension.m"; sourceTree = "<group>"; };
 		369B7ABE1E9B7CA100F99CB3 /* UIView+SWAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SWAutoLayout.h"; sourceTree = "<group>"; };
 		369B7ABF1E9B7CA100F99CB3 /* UIView+SWAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SWAutoLayout.m"; sourceTree = "<group>"; };
-		369B7AC11E9B7D6700F99CB3 /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
-		369B7AC21E9B7D6700F99CB3 /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
+		369B7AC11E9B7D6700F99CB3 /* UIView+ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ShakeAnimation.h"; sourceTree = "<group>"; };
+		369B7AC21E9B7D6700F99CB3 /* UIView+ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ShakeAnimation.m"; sourceTree = "<group>"; };
 		369B7AC41E9B7E0E00F99CB3 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		369B7AC51E9B7E0E00F99CB3 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		369B7AC71E9B7F8A00F99CB3 /* UIView+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HUD.h"; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 				369B7ABF1E9B7CA100F99CB3 /* UIView+SWAutoLayout.m */,
 				36448F261EC063590017E8A7 /* UIView+ExpandResponse.h */,
 				36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */,
-				369B7AC11E9B7D6700F99CB3 /* UIView+Shake.h */,
-				369B7AC21E9B7D6700F99CB3 /* UIView+Shake.m */,
+				369B7AC11E9B7D6700F99CB3 /* UIView+ShakeAnimation.h */,
+				369B7AC21E9B7D6700F99CB3 /* UIView+ShakeAnimation.m */,
 				369B7AC71E9B7F8A00F99CB3 /* UIView+HUD.h */,
 				369B7AC81E9B7F8A00F99CB3 /* UIView+HUD.m */,
 				36EB8BEF1EFCC6F700FD00D1 /* UIDevice+SWExtension.h */,
@@ -356,7 +356,7 @@
 				361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */,
 				360783591EC2F31200095C00 /* UITableView+SWEmptyView.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
-				369B7AC31E9B7D6700F99CB3 /* UIView+Shake.m in Sources */,
+				369B7AC31E9B7D6700F99CB3 /* UIView+ShakeAnimation.m in Sources */,
 				36EB8BF11EFCC6F700FD00D1 /* UIDevice+SWExtension.m in Sources */,
 				36E15C981EA4BFD90087D5DD /* NSString+Emoji.m in Sources */,
 				369B7ACF1E9B85C300F99CB3 /* NSString+Date.m in Sources */,
