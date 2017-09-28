@@ -24,6 +24,7 @@
 #import "UIImageView+SWExtension.h"
 #import "UIColor+Hex.h"
 #import "UIScrollView+FitIOS11.h"
+#import "UITableView+FitIOS11.h"
 #import "UIButton+SWExtension.h"
 #import "UIViewController+SWImagePicker.h"
 #import "UIViewController+Authorization.h"

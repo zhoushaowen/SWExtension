@@ -36,6 +36,7 @@
 		36E03B1A1F1E351B004FEA8C /* UIViewController+SWImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E03B191F1E351B004FEA8C /* UIViewController+SWImagePicker.m */; };
 		36E15C981EA4BFD90087D5DD /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */; };
 		36EB8BF11EFCC6F700FD00D1 /* UIDevice+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 36EB8BF01EFCC6F700FD00D1 /* UIDevice+SWExtension.m */; };
+		36F247AF1F7BAE98001B79CB /* UITableView+FitIOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F247AE1F7BAE98001B79CB /* UITableView+FitIOS11.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,8 @@
 		36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		36EB8BEF1EFCC6F700FD00D1 /* UIDevice+SWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SWExtension.h"; sourceTree = "<group>"; };
 		36EB8BF01EFCC6F700FD00D1 /* UIDevice+SWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SWExtension.m"; sourceTree = "<group>"; };
+		36F247AD1F7BAE98001B79CB /* UITableView+FitIOS11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+FitIOS11.h"; sourceTree = "<group>"; };
+		36F247AE1F7BAE98001B79CB /* UITableView+FitIOS11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FitIOS11.m"; sourceTree = "<group>"; };
 		5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D1440579FE0C70CD38447 /* Pods-SWExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C896F51E9648F40135965C46 /* Pods-SWExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				36EB8BF01EFCC6F700FD00D1 /* UIDevice+SWExtension.m */,
 				36224E351F76496D0002AF8E /* UIScrollView+FitIOS11.h */,
 				36224E361F76496E0002AF8E /* UIScrollView+FitIOS11.m */,
+				36F247AD1F7BAE98001B79CB /* UITableView+FitIOS11.h */,
+				36F247AE1F7BAE98001B79CB /* UITableView+FitIOS11.m */,
 				365666031F4BE20500097BE6 /* UIApplication+SWExtension.h */,
 				365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */,
 				369B7ACA1E9B839700F99CB3 /* UIImageView+SWExtension.h */,
@@ -349,6 +354,7 @@
 				362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */,
 				369B7ACC1E9B839700F99CB3 /* UIImageView+SWExtension.m in Sources */,
 				369B7AAB1E9B7A6C00F99CB3 /* ViewController.m in Sources */,
+				36F247AF1F7BAE98001B79CB /* UITableView+FitIOS11.m in Sources */,
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				365666051F4BE20500097BE6 /* UIApplication+SWExtension.m in Sources */,
 				36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */,
