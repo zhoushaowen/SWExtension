@@ -13,7 +13,7 @@ extern NSString *const SWShakeRepeatAnimation;
 
 @interface UIView (ShakeAnimation)
 
-- (void)shakeOnceAnimation;
-- (void)shakeRepeatAnimation;
+- (void)sw_addShakeOnceAnimation;
+- (void)sw_addShakeRepeatAnimation;
 
 @end

@@ -15,7 +15,7 @@ NSString *const SWShakeRepeatAnimation = @"SWShakeRepeatAnimation";
 
 @implementation UIView (ShakeAnimation)
 
-- (void)shakeOnceAnimation {
+- (void)sw_addShakeOnceAnimation {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
     animation.duration = 0.35f;
     CGFloat x = self.layer.position.x;
@@ -23,7 +23,7 @@ NSString *const SWShakeRepeatAnimation = @"SWShakeRepeatAnimation";
     [self.layer addAnimation:animation forKey:SWShakeOnceAnimation];
 }
 
-- (void)shakeRepeatAnimation {
+- (void)sw_addShakeRepeatAnimation {
     CAKeyframeAnimation* anim = [CAKeyframeAnimation animation];
     anim.keyPath = @"transform.rotation";
     anim.values = @[@(angelToRandian(-1)),@(angelToRandian(1)),@(angelToRandian(-1))];
