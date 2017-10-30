@@ -14,8 +14,9 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = format;
+    formatter.timeZone = [self sw_localTimeZone];
     //解决时差问题，将NSDate转换成北京时间
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    //    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     return [formatter stringFromDate:date];
 }
 
@@ -38,5 +39,12 @@
     return [self sw_createStringWithDate:date dateFormat:format];
 }
 
++ (NSTimeZone *)sw_localTimeZone {
+    //设置转换后的目标日期时区
+    NSTimeZone *toTimeZone = [NSTimeZone localTimeZone];
+    //转换后源日期与世界标准时间的偏移量
+    NSInteger toGMTOffset = [toTimeZone secondsFromGMTForDate:[NSDate date]];
+    return [NSTimeZone timeZoneForSecondsFromGMT:toGMTOffset];
+}
 
 @end
