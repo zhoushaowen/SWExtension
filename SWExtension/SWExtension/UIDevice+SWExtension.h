@@ -52,6 +52,11 @@
 + (CGFloat)sw_statusBarHeight;
 
 /**
+ 竖屏的情况下距离屏幕底部的安全距离
+ */
++ (CGFloat)sw_safeBottomInset;
+
+/**
  获取当前设备名称（e.g. iPhone 4s）
  */
 @property (nonatomic,readonly,copy) NSString *sw_deviceString;

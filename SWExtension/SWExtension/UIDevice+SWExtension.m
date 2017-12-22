@@ -88,6 +88,11 @@
     return 20;
 }
 
++ (CGFloat)sw_safeBottomInset {
+    if([self sw_isIPhoneX]) return 34.0f;
+    return 0.0;
+}
+
 - (NSString *)sw_deviceString {
     static NSString *name;
     static dispatch_once_t onceToken;
