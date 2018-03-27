@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SWExtension.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    UIAlertActionStyle arr[2] = {UIAlertActionStyleDefault,UIAlertActionStyleDestructive};
+//    [self sw_presentAlertWithActionTitles:@[@"取消",@"确定"] styleArray:arr alertTitle:@"温馨提示" alertMessage:nil handler:^(UIAlertAction *action) {
+//
+//    } completion:^{
+//
+//    }];
+//    [self sw_presentTextFieldAlertWithAlertTitle:@"esdsfsf" alertMessgae:@"sfesfs" actionTitles:@[@"ewdw",@"dwd"] styleArray:NULL textFieldConfigurationHandler:^(UITextField *textField) {
+//        textField.textColor = [UIColor redColor];
+//    } handler:^(UIAlertAction *action) {
+//
+//    } completion:^{
+//
+//    }];
+//    [self sw_presentActionSheetWithSheetTitle:@"edwdddw" sheetMessgae:@"sefsfs" actionTitles:@[@"edsfsf",@"esfsfsf"] styleArray:arr cancelActionTitle:@"sdcssds" handler:^(UIAlertAction *action) {
+//
+//    } completion:^{
+//
+//    }];
 }
 
 
