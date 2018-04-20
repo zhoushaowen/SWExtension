@@ -107,6 +107,12 @@
     return hud;
 }
 
+- (MBProgressHUD *)showHUDWithBottomText:(NSString *)bottomText {
+    MBProgressHUD *hud = [self showHUD];
+    hud.detailsLabel.text = bottomText;
+    return hud;
+}
+
 - (BOOL)hideHUDAnimated:(BOOL)animated
 {
     MBProgressHUD *hud = [MBProgressHUD HUDForView:self];

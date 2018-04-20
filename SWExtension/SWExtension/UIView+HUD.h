@@ -70,6 +70,14 @@
 - (MBProgressHUD *)showHUD;
 
 /**
+ 显示可以指定底部文字的菊花指示器类型的MBProgressHUD，不会自动隐藏
+
+ @param bottomText 底部文字
+ @return MBProgressHUD
+ */
+- (MBProgressHUD *)showHUDWithBottomText:(NSString *)bottomText;
+
+/**
  隐藏一个MBProgressHUD
 
  @param animated 是否以动画形式结束
