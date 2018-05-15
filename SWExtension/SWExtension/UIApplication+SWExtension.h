@@ -27,4 +27,9 @@
  */
 @property (nonatomic,readonly,copy) NSString *sw_appBundleID;
 
+/**
+ 获取当前显示在app最前面的viewController
+ */
+- (UIViewController *)sw_frontVC;
+
 @end
