@@ -10,6 +10,7 @@
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
 		360783591EC2F31200095C00 /* UITableView+SWEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 360783581EC2F31200095C00 /* UITableView+SWEmptyView.m */; };
 		360C257D1EC1A668003423B2 /* UIViewController+SWAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */; };
+		360F0B5A20B6BF6C004458F6 /* UILabel+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 360F0B5820B6BF6B004458F6 /* UILabel+Animation.m */; };
 		361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */; };
 		36224E371F76496E0002AF8E /* UIScrollView+FitIOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = 36224E361F76496E0002AF8E /* UIScrollView+FitIOS11.m */; };
 		362DFEBF1EC15E5A00232A34 /* NSDate+SWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */; };
@@ -44,6 +45,8 @@
 		360783581EC2F31200095C00 /* UITableView+SWEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SWEmptyView.m"; sourceTree = "<group>"; };
 		360C257B1EC1A668003423B2 /* UIViewController+SWAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SWAlertController.h"; sourceTree = "<group>"; };
 		360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SWAlertController.m"; sourceTree = "<group>"; };
+		360F0B5820B6BF6B004458F6 /* UILabel+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Animation.m"; sourceTree = "<group>"; };
+		360F0B5920B6BF6C004458F6 /* UILabel+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Animation.h"; sourceTree = "<group>"; };
 		361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Authorization.h"; sourceTree = "<group>"; };
 		361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Authorization.m"; sourceTree = "<group>"; };
 		36224E351F76496D0002AF8E /* UIScrollView+FitIOS11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FitIOS11.h"; sourceTree = "<group>"; };
@@ -114,6 +117,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360F0B5B20B6C02D004458F6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				369B7ABB1E9B7B4A00F99CB3 /* UIImage+SWExtension.h */,
+				369B7ABC1E9B7B4A00F99CB3 /* UIImage+SWExtension.m */,
+				369B7ABE1E9B7CA100F99CB3 /* UIView+SWAutoLayout.h */,
+				369B7ABF1E9B7CA100F99CB3 /* UIView+SWAutoLayout.m */,
+				36448F261EC063590017E8A7 /* UIView+ExpandResponse.h */,
+				36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */,
+				369B7AC11E9B7D6700F99CB3 /* UIView+ShakeAnimation.h */,
+				369B7AC21E9B7D6700F99CB3 /* UIView+ShakeAnimation.m */,
+				369B7AC71E9B7F8A00F99CB3 /* UIView+HUD.h */,
+				369B7AC81E9B7F8A00F99CB3 /* UIView+HUD.m */,
+				36EB8BEF1EFCC6F700FD00D1 /* UIDevice+SWExtension.h */,
+				36EB8BF01EFCC6F700FD00D1 /* UIDevice+SWExtension.m */,
+				36224E351F76496D0002AF8E /* UIScrollView+FitIOS11.h */,
+				36224E361F76496E0002AF8E /* UIScrollView+FitIOS11.m */,
+				36F247AD1F7BAE98001B79CB /* UITableView+FitIOS11.h */,
+				36F247AE1F7BAE98001B79CB /* UITableView+FitIOS11.m */,
+				365666031F4BE20500097BE6 /* UIApplication+SWExtension.h */,
+				365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */,
+				369B7ACA1E9B839700F99CB3 /* UIImageView+SWExtension.h */,
+				369B7ACB1E9B839700F99CB3 /* UIImageView+SWExtension.m */,
+				360F0B5920B6BF6C004458F6 /* UILabel+Animation.h */,
+				360F0B5820B6BF6B004458F6 /* UILabel+Animation.m */,
+				369B7AC41E9B7E0E00F99CB3 /* UIColor+Hex.h */,
+				369B7AC51E9B7E0E00F99CB3 /* UIColor+Hex.m */,
+				36448F231EC060060017E8A7 /* UIButton+SWExtension.h */,
+				36448F241EC060060017E8A7 /* UIButton+SWExtension.m */,
+				361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */,
+				361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */,
+				36E03B181F1E351B004FEA8C /* UIViewController+SWImagePicker.h */,
+				36E03B191F1E351B004FEA8C /* UIViewController+SWImagePicker.m */,
+				360C257B1EC1A668003423B2 /* UIViewController+SWAlertController.h */,
+				360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */,
+				360783571EC2F31200095C00 /* UITableView+SWEmptyView.h */,
+				360783581EC2F31200095C00 /* UITableView+SWEmptyView.m */,
+				3641C3F81ED2DD2A00A697D4 /* UIFont+SWExtension.h */,
+				3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		360F0B5C20B6C077004458F6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				3653B0C31F3D642D0015E554 /* NSTimer+SWUnRetainTimer.h */,
+				3653B0C41F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m */,
+				362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */,
+				362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */,
+				369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */,
+				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
+				36B454E21E9FA699001F176A /* NSString+Hash.h */,
+				36B454E31E9FA699001F176A /* NSString+Hash.m */,
+				36E15C961EA4BFD90087D5DD /* NSString+Emoji.h */,
+				36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */,
+				3655FD441EAEFBAE005B730C /* NSString+Valid.h */,
+				3655FD451EAEFBAE005B730C /* NSString+Valid.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		369B7A971E9B7A6C00F99CB3 = {
 			isa = PBXGroup;
 			children = (
@@ -160,53 +225,9 @@
 		369B7ABA1E9B7B0000F99CB3 /* SWExtension */ = {
 			isa = PBXGroup;
 			children = (
-				3653B0C31F3D642D0015E554 /* NSTimer+SWUnRetainTimer.h */,
-				3653B0C41F3D642D0015E554 /* NSTimer+SWUnRetainTimer.m */,
-				369B7ABB1E9B7B4A00F99CB3 /* UIImage+SWExtension.h */,
-				369B7ABC1E9B7B4A00F99CB3 /* UIImage+SWExtension.m */,
-				369B7ABE1E9B7CA100F99CB3 /* UIView+SWAutoLayout.h */,
-				369B7ABF1E9B7CA100F99CB3 /* UIView+SWAutoLayout.m */,
-				36448F261EC063590017E8A7 /* UIView+ExpandResponse.h */,
-				36448F271EC063590017E8A7 /* UIView+ExpandResponse.m */,
-				369B7AC11E9B7D6700F99CB3 /* UIView+ShakeAnimation.h */,
-				369B7AC21E9B7D6700F99CB3 /* UIView+ShakeAnimation.m */,
-				369B7AC71E9B7F8A00F99CB3 /* UIView+HUD.h */,
-				369B7AC81E9B7F8A00F99CB3 /* UIView+HUD.m */,
-				36EB8BEF1EFCC6F700FD00D1 /* UIDevice+SWExtension.h */,
-				36EB8BF01EFCC6F700FD00D1 /* UIDevice+SWExtension.m */,
-				36224E351F76496D0002AF8E /* UIScrollView+FitIOS11.h */,
-				36224E361F76496E0002AF8E /* UIScrollView+FitIOS11.m */,
-				36F247AD1F7BAE98001B79CB /* UITableView+FitIOS11.h */,
-				36F247AE1F7BAE98001B79CB /* UITableView+FitIOS11.m */,
-				365666031F4BE20500097BE6 /* UIApplication+SWExtension.h */,
-				365666041F4BE20500097BE6 /* UIApplication+SWExtension.m */,
-				369B7ACA1E9B839700F99CB3 /* UIImageView+SWExtension.h */,
-				369B7ACB1E9B839700F99CB3 /* UIImageView+SWExtension.m */,
-				369B7AC41E9B7E0E00F99CB3 /* UIColor+Hex.h */,
-				369B7AC51E9B7E0E00F99CB3 /* UIColor+Hex.m */,
-				36448F231EC060060017E8A7 /* UIButton+SWExtension.h */,
-				36448F241EC060060017E8A7 /* UIButton+SWExtension.m */,
-				362DFEBD1EC15E5A00232A34 /* NSDate+SWExtension.h */,
-				362DFEBE1EC15E5A00232A34 /* NSDate+SWExtension.m */,
-				361A542B1EC168D100B1A5FC /* UIViewController+Authorization.h */,
-				361A542C1EC168D100B1A5FC /* UIViewController+Authorization.m */,
-				36E03B181F1E351B004FEA8C /* UIViewController+SWImagePicker.h */,
-				36E03B191F1E351B004FEA8C /* UIViewController+SWImagePicker.m */,
-				360C257B1EC1A668003423B2 /* UIViewController+SWAlertController.h */,
-				360C257C1EC1A668003423B2 /* UIViewController+SWAlertController.m */,
-				360783571EC2F31200095C00 /* UITableView+SWEmptyView.h */,
-				360783581EC2F31200095C00 /* UITableView+SWEmptyView.m */,
-				369B7ACD1E9B85C300F99CB3 /* NSString+Date.h */,
-				369B7ACE1E9B85C300F99CB3 /* NSString+Date.m */,
-				36B454E21E9FA699001F176A /* NSString+Hash.h */,
-				36B454E31E9FA699001F176A /* NSString+Hash.m */,
-				36E15C961EA4BFD90087D5DD /* NSString+Emoji.h */,
-				36E15C971EA4BFD90087D5DD /* NSString+Emoji.m */,
-				3655FD441EAEFBAE005B730C /* NSString+Valid.h */,
-				3655FD451EAEFBAE005B730C /* NSString+Valid.m */,
-				3641C3F81ED2DD2A00A697D4 /* UIFont+SWExtension.h */,
-				3641C3F91ED2DD2A00A697D4 /* UIFont+SWExtension.m */,
 				369B7AD31E9B892200F99CB3 /* SWExtension.h */,
+				360F0B5C20B6C077004458F6 /* Foundation */,
+				360F0B5B20B6C02D004458F6 /* UIKit */,
 			);
 			path = SWExtension;
 			sourceTree = "<group>";
@@ -358,6 +379,7 @@
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				365666051F4BE20500097BE6 /* UIApplication+SWExtension.m in Sources */,
 				36448F281EC063590017E8A7 /* UIView+ExpandResponse.m in Sources */,
+				360F0B5A20B6BF6C004458F6 /* UILabel+Animation.m in Sources */,
 				36B454E41E9FA699001F176A /* NSString+Hash.m in Sources */,
 				361A542D1EC168D100B1A5FC /* UIViewController+Authorization.m in Sources */,
 				360783591EC2F31200095C00 /* UITableView+SWEmptyView.m in Sources */,

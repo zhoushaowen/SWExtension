@@ -10,16 +10,20 @@
 
 #ifndef _SWEXTENSION_
     #define _SWEXTENSION_
+//Foundation
 #import "NSString+Date.h"
 #import "NSString+Hash.h"
 #import "NSString+Emoji.h"
 #import "NSString+Valid.h"
 #import "NSTimer+SWUnRetainTimer.h"
 #import "NSDate+SWExtension.h"
+
+//UIKit
 #import "UIImage+SWExtension.h"
 #import "UIView+SWAutoLayout.h"
 #import "UIView+ShakeAnimation.h"
 #import "UIView+HUD.h"
+#import "UILabel+Animation.h"
 #import "UIView+ExpandResponse.h"
 #import "UIImageView+SWExtension.h"
 #import "UIColor+Hex.h"

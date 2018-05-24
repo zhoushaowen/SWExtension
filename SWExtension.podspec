@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SWExtension"
 
-  s.version      = "1.4.4"
+  s.version      = "1.4.5"
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/zhoushaowen/SWExtension.git", :tag => s.version }
   
-  s.source_files  = "SWExtension/SWExtension/*.{h,m}"
+  s.source_files  = "SWExtension/SWExtension/*.{h,m}","SWExtension/SWExtension/**/*.{h,m}"
   
   s.requires_arc = true
 
