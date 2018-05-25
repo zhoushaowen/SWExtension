@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, SWImagePickerControllerMediaType) {
 @interface SWImagePickerController : UIImagePickerController
 
 @property (nonatomic) SWImagePickerControllerMediaType sw_PickerControllerMediaType;
+@property (nonatomic,strong) id sw_imagePickerUserInfo;
 
 @end
 
@@ -42,7 +43,7 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
 @implementation UIViewController (SWImagePicker)
 
 #pragma mark - Public
-- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate {
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
     self.swImagePickerDelegate = delegate;
     if(![UIImagePickerController isSourceTypeAvailable:sourceType])
     {
@@ -63,16 +64,25 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     imagePickerController.sourceType = sourceType;
     imagePickerController.delegate = self;
     imagePickerController.allowsEditing = YES;
+    imagePickerController.sw_imagePickerUserInfo = userInfo;
     [self presentViewController:imagePickerController animated:YES completion:nil];
     return imagePickerController;
 }
 
-- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate {
-    SWImagePickerController *picker = (SWImagePickerController *)[self sw_presentImagePickerControllerWithSourceType:sourceType delegate:delegate];
+- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+    SWImagePickerController *picker = (SWImagePickerController *)[self sw_presentImagePickerControllerWithSourceType:sourceType delegate:delegate userInfo:userInfo];
     picker.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeMovie;
     NSString *type = (__bridge_transfer NSString *)kUTTypeMovie;
     picker.mediaTypes = @[type];
     return picker;
+}
+
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate __deprecated_msg("Use 'sw_presentImagePickerControllerWithSourceType:delegate:userInfo:'") {
+    return [self sw_presentImagePickerControllerWithSourceType:sourceType delegate:delegate userInfo:nil];
+}
+
+- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate __deprecated_msg("Use 'sw_presentVideoPickerControllerWithSourceType:delegate:userInfo:'") {
+    return [self sw_presentVideoPickerControllerWithSourceType:sourceType delegate:delegate userInfo:nil];
 }
 
 - (void)imagePickerController:(SWImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -92,10 +102,16 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
         if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerController:didFinishPickingImage:)]){
             [self.swImagePickerDelegate sw_imagePickerController:picker didFinishPickingImage:resultImage];
         }
+        if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerController:didFinishPickingImage:userInfo:)]){
+            [self.swImagePickerDelegate sw_imagePickerController:picker didFinishPickingImage:resultImage userInfo:picker.sw_imagePickerUserInfo];
+        }
     }else if (picker.sw_PickerControllerMediaType == SWImagePickerControllerMediaTypeMovie){
         [self dismissViewControllerAnimated:YES completion:nil];
         if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_videoPickerController:didFinishPickingVideoInfo:)]){
             [self.swImagePickerDelegate sw_videoPickerController:picker didFinishPickingVideoInfo:info];
+        }
+        if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_videoPickerController:didFinishPickingVideoInfo:userInfo:)]){
+            [self.swImagePickerDelegate sw_videoPickerController:picker didFinishPickingVideoInfo:info userInfo:picker.sw_imagePickerUserInfo];
         }
     }
 }
@@ -104,6 +120,9 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     [self dismissViewControllerAnimated:YES completion:nil];
     if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerControllerDidCancel:)]){
         [self.swImagePickerDelegate sw_imagePickerControllerDidCancel:picker];
+    }
+    if(self.swImagePickerDelegate && [self.swImagePickerDelegate respondsToSelector:@selector(sw_imagePickerControllerDidCancel:userInfo:)]){
+        [self.swImagePickerDelegate sw_imagePickerControllerDidCancel:picker userInfo:((SWImagePickerController *)picker).sw_imagePickerUserInfo];
     }
 }
 
@@ -157,6 +176,8 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
 - (id<SWImagePickerControllerDelegate>)swImagePickerDelegate {
     return objc_getAssociatedObject(self, SWImagePickerDelegate_Key);
 }
+
+
 
 
 @end

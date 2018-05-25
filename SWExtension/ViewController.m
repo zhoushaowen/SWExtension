@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <SWExtension.h>
 
-@interface ViewController ()
+@interface ViewController ()<SWImagePickerControllerDelegate>
 
 @end
 
@@ -39,6 +39,15 @@
 //    } completion:^{
 //
 //    }];
+    [self sw_presentImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary delegate:self userInfo:@123];
+}
+
+- (void)sw_imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image userInfo:(id)userInfo {
+    NSLog(@"-------%@",userInfo);
+}
+
+- (void)sw_imagePickerControllerDidCancel:(UIImagePickerController *)picker userInfo:(id)userInfo {
+    NSLog(@"+++++++%@",userInfo);
 }
 
 
