@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "SWExtension.h"
+#import <SWExtension.h>
 
 @interface ViewController ()
 

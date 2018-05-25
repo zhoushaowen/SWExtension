@@ -3,4 +3,6 @@ platform :ios, ‘8.0’
 target “SWExtension” do
 pod 'MBProgressHUD'
 
+pod "SWExtension" , :path => './'
+
 end

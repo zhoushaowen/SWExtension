@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SWExtension"
 
-  s.version      = "1.4.5"
+  s.version      = "1.4.6"
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
@@ -16,11 +16,25 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/zhoushaowen/SWExtension.git", :tag => s.version }
   
-  s.source_files  = "SWExtension/SWExtension/*.{h,m}","SWExtension/SWExtension/**/*.{h,m}"
+  # s.source_files  = "SWExtension/SWExtension/*.{h,m}","SWExtension/SWExtension/**/*.{h,m}"
+
+    s.source_files  = "SWExtension/SWExtension/SWExtension.h"
   
   s.requires_arc = true
 
   s.dependency 'MBProgressHUD'
+
+  s.subspec 'UIKit' do |ss|
+
+  ss.source_files = "SWExtension/SWExtension/UIKit/*.{h,m}"
+
+  end
+
+  s.subspec 'Foundation' do |ss|
+
+  ss.source_files = "SWExtension/SWExtension/Foundation/*.{h,m}"
+
+  end
 
 
 
