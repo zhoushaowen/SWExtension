@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SWExtension"
 
-  s.version      = "1.4.7"
+  s.version      = "1.4.8"
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency 'MBProgressHUD'
-
+  
   s.subspec 'UIKit' do |ss|
 
   ss.source_files = "SWExtension/SWExtension/UIKit/*.{h,m}"

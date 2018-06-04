@@ -33,7 +33,6 @@
 #import "UIViewController+SWImagePicker.h"
 #import "UIViewController+Authorization.h"
 #import "UIViewController+SWAlertController.h"
-#import "UITableView+SWEmptyView.h"
 #import "UIDevice+SWExtension.h"
 #import "UIApplication+SWExtension.h"
 
