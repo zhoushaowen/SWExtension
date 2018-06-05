@@ -1,16 +1,12 @@
 PODS:
-  - DZNEmptyDataSet (1.8.1)
   - MBProgressHUD (1.0.0)
-  - SWExtension (1.4.7):
-    - DZNEmptyDataSet
+  - SWExtension (1.4.8):
     - MBProgressHUD
-    - SWExtension/Foundation (= 1.4.7)
-    - SWExtension/UIKit (= 1.4.7)
-  - SWExtension/Foundation (1.4.7):
-    - DZNEmptyDataSet
+    - SWExtension/Foundation (= 1.4.8)
+    - SWExtension/UIKit (= 1.4.8)
+  - SWExtension/Foundation (1.4.8):
     - MBProgressHUD
-  - SWExtension/UIKit (1.4.7):
-    - DZNEmptyDataSet
+  - SWExtension/UIKit (1.4.8):
     - MBProgressHUD
 
 DEPENDENCIES:
@@ -19,7 +15,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - DZNEmptyDataSet
     - MBProgressHUD
 
 EXTERNAL SOURCES:
@@ -27,9 +22,8 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  SWExtension: 944c61602620e8832710cf7be1710e68002edd12
+  SWExtension: 28bff6867b2b7493a3c297c7145bdd0dae360485
 
 PODFILE CHECKSUM: 77adf7fab7464977a739aa4b0ad61bb6999b9957
 

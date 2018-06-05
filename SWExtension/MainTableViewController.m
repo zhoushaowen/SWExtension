@@ -20,7 +20,8 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     _dataSource = @[
-                    @"ImagePickerController"
+                    @"ImagePickerController",
+                    @"ArrayAndDictionaryChineseOutputController"
                     ];
 }
 

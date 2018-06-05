@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
+		364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */; };
 		3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1BD20C521A2006492FD /* MainTableViewController.m */; };
 		3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1C520C52C8F006492FD /* ImagePickerController.m */; };
 		3657F1C820C52D00006492FD /* ImagePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3657F1C720C52D00006492FD /* ImagePickerController.xib */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		364FF88C20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayAndDictionaryChineseOutputController.h; sourceTree = "<group>"; };
+		364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayAndDictionaryChineseOutputController.m; sourceTree = "<group>"; };
 		3657F1BC20C521A2006492FD /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		3657F1BD20C521A2006492FD /* MainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		3657F1C420C52C8F006492FD /* ImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 				3657F1C420C52C8F006492FD /* ImagePickerController.h */,
 				3657F1C520C52C8F006492FD /* ImagePickerController.m */,
 				3657F1C720C52D00006492FD /* ImagePickerController.xib */,
+				364FF88C20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.h */,
+				364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
+				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
 				3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
