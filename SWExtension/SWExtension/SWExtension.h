@@ -23,6 +23,7 @@
 #import "UIView+SWAutoLayout.h"
 #import "UIView+ShakeAnimation.h"
 #import "UIView+HUD.h"
+#import "UIView+SWExtension.h"
 #import "UILabel+Animation.h"
 #import "UIView+ExpandResponse.h"
 #import "UIImageView+SWExtension.h"
