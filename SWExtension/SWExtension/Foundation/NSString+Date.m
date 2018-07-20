@@ -28,12 +28,17 @@
     }
     if(unknownSecond.length < 1) return @"";
     NSTimeInterval second = [unknownSecond doubleValue];
-    if(unknownSecond.length == 13){//毫秒
+//    if(unknownSecond.length == 13){//毫秒
+//        second /= 1000;
+//    }else if (unknownSecond.length == 10){//秒
+//        //不处理
+//    }else if(unknownSecond.length > 13){
+//        second /= pow(10, unknownSecond.length - 13)*1000;
+//    }
+    if(unknownSecond.length > 10){//毫秒
         second /= 1000;
-    }else if (unknownSecond.length == 10){//秒
+    }else{//秒
         //不处理
-    }else if(unknownSecond.length > 13){
-        second /= pow(10, unknownSecond.length - 13)*1000;
     }
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:second];
     return [self sw_createStringWithDate:date dateFormat:format];
