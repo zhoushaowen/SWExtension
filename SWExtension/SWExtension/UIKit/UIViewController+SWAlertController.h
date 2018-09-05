@@ -11,6 +11,12 @@
 extern NSString *const kSWAlertActionStyle;
 extern NSString *const kSWAlertActionTitle;
 
+@interface SWAlertAction : UIAlertAction
+
+@property (nonatomic,readonly) NSInteger index;
+
+@end
+
 @interface UIViewController (SWAlertController)
 
 /**
@@ -23,7 +29,7 @@ extern NSString *const kSWAlertActionTitle;
  @param handler 按钮点击回调
  @param completedBlock 弹出完成的回调
  */
-- (UIAlertController *)sw_presentAlertWithDestructiveActionTitle:(NSString *)destructiveTitle cancelActionTitle:(NSString *)cancelTitle alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(UIAlertAction *action))handler completion:(void(^)(void))completedBlock;
+- (UIAlertController *)sw_presentAlertWithDestructiveActionTitle:(NSString *)destructiveTitle cancelActionTitle:(NSString *)cancelTitle alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
 /**
  弹出一个默认按钮和一个取消按钮的alert
 
@@ -34,7 +40,7 @@ extern NSString *const kSWAlertActionTitle;
  @param handler 按钮点击回调
  @param completedBlock 弹出完成的回调
  */
-- (UIAlertController *)sw_presentAlertWithDefaultActionTitle:(NSString *)defaultTitle cancelActionTitle:(NSString *)cancelTitle alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(UIAlertAction *action))handler completion:(void(^)(void))completedBlock;
+- (UIAlertController *)sw_presentAlertWithDefaultActionTitle:(NSString *)defaultTitle cancelActionTitle:(NSString *)cancelTitle alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
 /**
  弹出多个可自定义按钮的alert
 
@@ -45,7 +51,7 @@ extern NSString *const kSWAlertActionTitle;
  @param handler 按钮点击回调
  @param completedBlock 弹出完成的回调
  */
-- (UIAlertController *)sw_presentAlertWithActionTitles:(NSArray<NSString *> *)actionTitles styleArray:(UIAlertActionStyle *)styleArray alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(UIAlertAction *action))handler completion:(void(^)(void))completedBlock;
+- (UIAlertController *)sw_presentAlertWithActionTitles:(NSArray<NSString *> *)actionTitles styleArray:(UIAlertActionStyle *)styleArray alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
 /**
  弹出仅有一个按钮的alert
 
@@ -56,7 +62,7 @@ extern NSString *const kSWAlertActionTitle;
  @param handler 按钮点击回调
  @param completedBlock 弹出完成的回调
  */
-- (UIAlertController *)sw_presentAlertWithOnlyActionTitle:(NSString *)onlyActionTitle style:(UIAlertActionStyle)style alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(UIAlertAction *action))handler completion:(void(^)(void))completedBlock;
+- (UIAlertController *)sw_presentAlertWithOnlyActionTitle:(NSString *)onlyActionTitle style:(UIAlertActionStyle)style alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
 /**
  弹出actionSheet,带有取消按钮和多个action按钮
 
@@ -68,7 +74,7 @@ extern NSString *const kSWAlertActionTitle;
  @param handler 按钮点击回调
  @param completedBlock 弹出完成的回调
  */
-- (UIAlertController *)sw_presentActionSheetWithSheetTitle:(NSString *)sheetTitle sheetMessgae:(NSString *)sheetMessgae actionTitles:(NSArray<NSString *> *)actionTitles styleArray:(UIAlertActionStyle *)styleArray cancelActionTitle:(NSString *)cancelTitle handler:(void(^)(UIAlertAction *action))handler completion:(void(^)(void))completedBlock;
+- (UIAlertController *)sw_presentActionSheetWithSheetTitle:(NSString *)sheetTitle sheetMessgae:(NSString *)sheetMessgae actionTitles:(NSArray<NSString *> *)actionTitles styleArray:(UIAlertActionStyle *)styleArray cancelActionTitle:(NSString *)cancelTitle handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
 
 /**
  弹出一个带TextFiled的alert
@@ -81,7 +87,7 @@ extern NSString *const kSWAlertActionTitle;
  @param handler 按钮点击回调
  @param completedBlock 弹出完成的回调
  */
-- (UIAlertController *)sw_presentTextFieldAlertWithAlertTitle:(NSString *)alertTitle alertMessgae:(NSString *)alertMessage actionTitles:(NSArray<NSString *> *)actionTitles styleArray:(UIAlertActionStyle *)styleArray textFieldConfigurationHandler:(void(^)(UITextField *textField))configurationHandler handler:(void(^)(UIAlertAction *action))handler completion:(void(^)(void))completedBlock;
+- (UIAlertController *)sw_presentTextFieldAlertWithAlertTitle:(NSString *)alertTitle alertMessgae:(NSString *)alertMessage actionTitles:(NSArray<NSString *> *)actionTitles styleArray:(UIAlertActionStyle *)styleArray textFieldConfigurationHandler:(void(^)(UITextField *textField))configurationHandler handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
 
 
 /**
