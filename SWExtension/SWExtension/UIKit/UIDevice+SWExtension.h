@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+//typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
+//    SWDeviceModelTypeNormal,//普通屏幕手机
+//    SWDeviceModelTypeIPhoneX,//iPhone X
+//    SWDeviceModelTypeIPhoneXR,//iPhone XR
+//    SWDeviceModelTypeIPhoneXS,//iPhone XS
+//    SWDeviceModelTypeIPhoneXSMax,//iPhone XS Max
+//};
+
 @interface UIDevice (SWExtension)
 
 /**
@@ -37,9 +45,14 @@
 /**
  是否是iPhone X
  */
-+ (BOOL)sw_isIPhoneX;
++ (BOOL)sw_isIPhoneX __deprecated_msg("Use 'sw_isIPhoneXSeries'");
+
 /**
- 导航高度
+ 是否是iPhone X系列(包含X、XR、XS、XS Max等刘海屏机型)
+ */
++ (BOOL)sw_isIPhoneXSeries;
+/**
+ 导航高度(包含状态栏的高度)
  */
 + (CGFloat)sw_navigationBarHeight;
 /**

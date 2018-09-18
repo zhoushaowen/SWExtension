@@ -62,7 +62,7 @@
     return flag;
 }
 
-+ (BOOL)sw_isIPhoneX {
++ (BOOL)sw_isIPhoneX __deprecated_msg("Use 'sw_isIPhoneXSeries'"){
     static BOOL flag;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -73,23 +73,38 @@
     return flag;
 }
 
++ (BOOL)sw_isIPhoneXSeries {
+    static BOOL flag;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
+            flag = YES;
+        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
+            flag = YES;
+        }
+    });
+    return flag;
+}
+
 + (CGFloat)sw_navigationBarHeight {
-    if([self sw_isIPhoneX]) return 88;
+    if([self sw_isIPhoneXSeries]) return 88;//44 + 44
     return 64;
 }
 
 + (CGFloat)sw_tabBarHeight {
-    if([self sw_isIPhoneX]) return 83;
+    if([self sw_isIPhoneXSeries]) return 83;
     return 49;
 }
 
 + (CGFloat)sw_statusBarHeight {
-    if([self sw_isIPhoneX]) return 44;
+    if([self sw_isIPhoneXSeries]) return 44;
     return 20;
 }
 
 + (CGFloat)sw_safeBottomInset {
-    if([self sw_isIPhoneX]) return 34.0f;
+    if([self sw_isIPhoneXSeries]) return 34.0f;
     return 0.0;
 }
 
