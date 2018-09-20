@@ -77,11 +77,18 @@
     static BOOL flag;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        CGFloat height = [UIScreen mainScreen].bounds.size.height;
-        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
-            flag = YES;
-        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
+//        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+//        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
+//            flag = YES;
+//        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
+//            flag = YES;
+//        }
+        CGSize size = [UIScreen mainScreen].currentMode.size;
+        if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size) ||//iPhone X
+           CGSizeEqualToSize(CGSizeMake(828, 1792), size) ||//iPhone XR
+           CGSizeEqualToSize(CGSizeMake(1242, 2688), size)//iPhone XS Max
+           ){
             flag = YES;
         }
     });
