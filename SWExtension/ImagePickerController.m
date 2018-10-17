@@ -8,6 +8,7 @@
 
 #import "ImagePickerController.h"
 #import <UIViewController+SWImagePicker.h>
+#import <UIView+SWExtension.h>
 
 @interface ImagePickerController ()<SWImagePickerControllerDelegate>
 
@@ -17,10 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self sw_presentImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary delegate:self userInfo:@123];
+    __weak typeof(self) weakSelf = self;
+    [self.view sw_addGestureRecognizerWithClass:[UITapGestureRecognizer class] delegate:nil actionBlock:^(UIGestureRecognizerState state) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf sw_presentImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary delegate:strongSelf userInfo:@123];
+    }];
 }
 
 - (void)sw_imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image userInfo:(id)userInfo {
@@ -31,7 +33,9 @@
     NSLog(@"+++++++%@",userInfo);
 }
 
-
+- (void)dealloc {
+    
+}
 
 
 @end
