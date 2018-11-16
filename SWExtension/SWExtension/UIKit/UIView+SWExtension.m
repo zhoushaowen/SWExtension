@@ -44,9 +44,18 @@
     self.sw_gestureActionBlock = gestureActionBlock;
 }
 
+- (void)sw_addGestureRecognizerWithGesture:(UIGestureRecognizer *)gestureRecognizer actionBlock:(SWGestureActionBlock)gestureActionBlock {
+    NSAssert([gestureRecognizer isKindOfClass:[UIGestureRecognizer class]], @"必须是UIGestureRecognizer类");
+    [gestureRecognizer addTarget:self action:@selector(sw_handleGesture:)];
+    self.userInteractionEnabled = YES;
+    [self addGestureRecognizer:gestureRecognizer];
+    self.sw_gestureActionBlock = gestureActionBlock;
+}
+
+
 - (void)sw_handleGesture:(UITapGestureRecognizer *)gesture {
     if(self.sw_gestureActionBlock){
-        self.sw_gestureActionBlock(gesture.state);
+        self.sw_gestureActionBlock(gesture);
     }
 }
 

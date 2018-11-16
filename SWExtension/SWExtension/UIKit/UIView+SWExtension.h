@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^SWGestureActionBlock)(UIGestureRecognizerState state);
+typedef void(^SWGestureActionBlock)(UIGestureRecognizer *gestureRecognizer);
 
 @interface UIView (SWExtension)
 
@@ -24,6 +24,6 @@ typedef void(^SWGestureActionBlock)(UIGestureRecognizerState state);
  给UIView添加手势
  */
 - (void)sw_addGestureRecognizerWithClass:(Class)gestureRecognizerClass delegate:(id<UIGestureRecognizerDelegate> _Nullable)delegate actionBlock:(SWGestureActionBlock)gestureActionBlock;
-
+- (void)sw_addGestureRecognizerWithGesture:(UIGestureRecognizer *)gestureRecognizer actionBlock:(SWGestureActionBlock)gestureActionBlock;
 
 @end
