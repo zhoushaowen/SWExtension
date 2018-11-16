@@ -24,6 +24,6 @@ typedef void(^SWGestureActionBlock)(UIGestureRecognizer *gestureRecognizer);
  给UIView添加手势
  */
 - (void)sw_addGestureRecognizerWithClass:(Class)gestureRecognizerClass delegate:(id<UIGestureRecognizerDelegate> _Nullable)delegate actionBlock:(SWGestureActionBlock)gestureActionBlock;
-- (void)sw_addGestureRecognizerWithGesture:(UIGestureRecognizer *)gestureRecognizer actionBlock:(SWGestureActionBlock)gestureActionBlock;
+- (void)sw_addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer actionBlock:(SWGestureActionBlock)gestureActionBlock;
 
 @end
