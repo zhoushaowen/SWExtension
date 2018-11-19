@@ -16,9 +16,9 @@
 - (void)sw_registerCellWithNibName:(NSString *_Nonnull)nibName;
 - (void)sw_registerHeaderFooterViewWithNibName:(NSString *_Nonnull)nibName bundle:(NSBundle *_Nullable)bundle;
 - (void)sw_registerHeaderFooterViewWithNibName:(NSString *_Nonnull)nibName;
-- (UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass;
-- (UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass forIndexPath:(NSIndexPath *)indexPath;
-- (UITableViewHeaderFooterView *)sw_dequeueReusableHeaderFooterViewWithClass:(Class _Nonnull)aClass;
+- (__kindof UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass;
+- (__kindof UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass forIndexPath:(NSIndexPath *)indexPath;
+- (__kindof UITableViewHeaderFooterView *)sw_dequeueReusableHeaderFooterViewWithClass:(Class _Nonnull)aClass;
 
 
 @end

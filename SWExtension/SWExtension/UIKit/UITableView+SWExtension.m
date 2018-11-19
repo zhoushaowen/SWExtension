@@ -33,15 +33,15 @@
     [self sw_registerHeaderFooterViewWithNibName:nibName bundle:nil];
 }
 
-- (UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass {
+- (__kindof UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass {
     return [self dequeueReusableCellWithIdentifier:[self sw_getIdentifierWithClass:cellClass]];
 }
 
-- (UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass forIndexPath:(NSIndexPath *)indexPath {
+- (__kindof UITableViewCell *)sw_dequeueReusableCellWithClass:(Class _Nonnull)cellClass forIndexPath:(NSIndexPath *)indexPath {
     return [self dequeueReusableCellWithIdentifier:[self sw_getIdentifierWithClass:cellClass] forIndexPath:indexPath];
 }
 
-- (UITableViewHeaderFooterView *)sw_dequeueReusableHeaderFooterViewWithClass:(Class _Nonnull)aClass {
+- (__kindof UITableViewHeaderFooterView *)sw_dequeueReusableHeaderFooterViewWithClass:(Class _Nonnull)aClass {
     return [self dequeueReusableHeaderFooterViewWithIdentifier:[self sw_getIdentifierWithClass:aClass]];
 }
 
