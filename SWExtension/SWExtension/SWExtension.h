@@ -31,6 +31,7 @@
 #import "UIScrollView+FitIOS11.h"
 #import "UITableView+FitIOS11.h"
 #import "UITableView+SWExtension.h"
+#import "UICollectionView+SWExtension.h"
 #import "UIButton+SWExtension.h"
 #import "UIViewController+SWImagePicker.h"
 #import "UIViewController+Authorization.h"
