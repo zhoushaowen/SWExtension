@@ -14,6 +14,8 @@
 
 + (instancetype)sw_createDateWithDateString:(NSString *)dateString dateFormat:(NSString *)formatterString {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //设置为公历日历
+    formatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     formatter.dateFormat = formatterString;
     formatter.timeZone = [self sw_localTimeZone];
     return [formatter dateFromString:dateString];

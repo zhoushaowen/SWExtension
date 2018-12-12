@@ -13,6 +13,8 @@
 + (instancetype)sw_createStringWithDate:(NSDate *)date dateFormat:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //设置为公历日历
+    formatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     formatter.dateFormat = format;
     formatter.timeZone = [self sw_localTimeZone];
     //解决时差问题，将NSDate转换成北京时间
