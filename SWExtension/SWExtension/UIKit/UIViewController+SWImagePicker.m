@@ -43,7 +43,7 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
 @implementation UIViewController (SWImagePicker)
 
 #pragma mark - Public
-- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType isAllowsEditing:(BOOL)allowsEditing delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
     self.swImagePickerDelegate = delegate;
     if(![UIImagePickerController isSourceTypeAvailable:sourceType])
     {
@@ -63,10 +63,13 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     imagePickerController.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeImage;
     imagePickerController.sourceType = sourceType;
     imagePickerController.delegate = self;
-    imagePickerController.allowsEditing = YES;
+    imagePickerController.allowsEditing = allowsEditing;
     imagePickerController.sw_imagePickerUserInfo = userInfo;
     [self presentViewController:imagePickerController animated:YES completion:nil];
     return imagePickerController;
+}
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+    return [self sw_presentImagePickerControllerWithSourceType:sourceType isAllowsEditing:NO delegate:delegate userInfo:userInfo];
 }
 
 - (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {

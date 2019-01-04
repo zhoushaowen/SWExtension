@@ -30,4 +30,9 @@
  */
 - (BOOL)sw_isHaveSpeechRecognizerAuthorization;
 
+/**
+ 是否有定位权限
+ */
+- (BOOL)sw_isHaveLocationAuthorization;
+
 @end

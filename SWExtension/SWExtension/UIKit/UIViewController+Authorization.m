@@ -7,9 +7,10 @@
 //
 
 #import "UIViewController+Authorization.h"
-@import AVFoundation;
-@import AssetsLibrary;
-@import Speech;
+#import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Speech/Speech.h>
+#import <CoreLocation/CoreLocation.h>
 
 @implementation UIViewController (Authorization)
 
@@ -55,6 +56,15 @@
     SFSpeechRecognizerAuthorizationStatus status = [SFSpeechRecognizer authorizationStatus];
     if(status == SFSpeechRecognizerAuthorizationStatusDenied | status == SFSpeechRecognizerAuthorizationStatusRestricted){
         [self showAlertWithTitle:@"无法进行语音识别" type:@"语音识别"];
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)sw_isHaveLocationAuthorization {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if(status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted){
+        [self showAlertWithTitle:@"无法进行定位" type:@"定位"];
         return NO;
     }
     return YES;

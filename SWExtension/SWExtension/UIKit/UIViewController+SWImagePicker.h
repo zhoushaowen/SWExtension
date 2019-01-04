@@ -24,13 +24,15 @@
 @interface UIViewController (SWImagePicker)
 
 /**
- 弹出照片选择器
+ 弹出照片选择器 allowsEditing NO
  
  @param sourceType 资源类型
  @param delegate 代理
  @return 照片选择器
  */
 - (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo;
+
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType isAllowsEditing:(BOOL)allowsEditing delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo;
 
 /**
  弹出视频选择
