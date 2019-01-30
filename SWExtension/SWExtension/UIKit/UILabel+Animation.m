@@ -35,7 +35,9 @@ static void *isOmitAnimating_key = &isOmitAnimating_key;
 
 - (void)stopOmitAnimation {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handlePerform) object:SWOmitAnimationPerformObjKey];
-    self.text = [self.text substringToIndex:self.text.length - self.performCount];
+    if(self.text.length - self.performCount < self.text.length){
+        self.text = [self.text substringToIndex:self.text.length - self.performCount];
+    }
     self.performCount = 0;
     self.isOmitAnimating = NO;
 }
@@ -63,7 +65,9 @@ static void *isOmitAnimating_key = &isOmitAnimating_key;
 
 - (void)handlePerform {
     if(self.performCount == 3){
-        self.text = [self.text substringToIndex:self.text.length - 3];
+        if(self.text.length - 3 < self.text.length){
+            self.text = [self.text substringToIndex:self.text.length - 3];
+        }
         self.performCount = 0;
         [self performAnimation];
         return;
