@@ -1,12 +1,12 @@
 PODS:
   - MBProgressHUD (1.0.0)
-  - SWExtension (1.6.0):
+  - SWExtension (1.6.5):
     - MBProgressHUD
-    - SWExtension/Foundation (= 1.6.0)
-    - SWExtension/UIKit (= 1.6.0)
-  - SWExtension/Foundation (1.6.0):
+    - SWExtension/Foundation (= 1.6.5)
+    - SWExtension/UIKit (= 1.6.5)
+  - SWExtension/Foundation (1.6.5):
     - MBProgressHUD
-  - SWExtension/UIKit (1.6.0):
+  - SWExtension/UIKit (1.6.5):
     - MBProgressHUD
 
 DEPENDENCIES:
@@ -23,7 +23,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  SWExtension: 268b0883537ed5c857a3543e7838161117b4cce6
+  SWExtension: f518d3577b884aa457d106c0fe6f66545e7df440
 
 PODFILE CHECKSUM: 77adf7fab7464977a739aa4b0ad61bb6999b9957
 

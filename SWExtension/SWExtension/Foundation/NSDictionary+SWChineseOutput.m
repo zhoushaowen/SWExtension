@@ -33,7 +33,7 @@
     //去掉最后一个逗号（,）
     if ([msr hasSuffix:@","]) {
         NSString *str = [msr substringToIndex:msr.length - 1];
-        msr = [NSMutableString stringWithString:str];
+        msr = [NSMutableString stringWithString:str?:@""];
     }
     [msr appendString:@"\n}"];
     return msr;

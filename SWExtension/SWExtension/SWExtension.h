@@ -15,6 +15,7 @@
 #import "NSString+Hash.h"
 #import "NSString+Emoji.h"
 #import "NSString+Valid.h"
+#import "NSString+SWExtension.h"
 #import "NSTimer+SWUnRetainTimer.h"
 #import "NSDate+SWExtension.h"
 
