@@ -53,12 +53,17 @@
 }
 
 - (BOOL)sw_isHaveSpeechRecognizerAuthorization {
-    SFSpeechRecognizerAuthorizationStatus status = [SFSpeechRecognizer authorizationStatus];
-    if(status == SFSpeechRecognizerAuthorizationStatusDenied | status == SFSpeechRecognizerAuthorizationStatusRestricted){
-        [self showAlertWithTitle:@"无法进行语音识别" type:@"语音识别"];
+    if (@available(iOS 10.0, *)) {
+        SFSpeechRecognizerAuthorizationStatus status = [SFSpeechRecognizer authorizationStatus];
+        if(status == SFSpeechRecognizerAuthorizationStatusDenied | status == SFSpeechRecognizerAuthorizationStatusRestricted){
+            [self showAlertWithTitle:@"无法进行语音识别" type:@"语音识别"];
+            return NO;
+        }
+        return YES;
+    } else {
+        // Fallback on earlier versions
         return NO;
     }
-    return YES;
 }
 
 - (BOOL)sw_isHaveLocationAuthorization {
