@@ -26,4 +26,16 @@
     return [self substringWithRange:range];
 }
 
+- (NSString *_Nullable)sw_encodeToBase64String {
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64Str = [data base64EncodedStringWithOptions:0];
+    return base64Str;
+}
+
+- (NSString *_Nullable)sw_decodeBase64String {
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return str;
+}
+
 @end
