@@ -17,6 +17,10 @@
 		369B7AAE1E9B7A6C00F99CB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AAC1E9B7A6C00F99CB3 /* Main.storyboard */; };
 		369B7AB01E9B7A6C00F99CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AAF1E9B7A6C00F99CB3 /* Assets.xcassets */; };
 		369B7AB31E9B7A6C00F99CB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AB11E9B7A6C00F99CB3 /* LaunchScreen.storyboard */; };
+		36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436C2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m */; };
+		36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436F2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m */; };
+		36F143732297CDA100408E60 /* MicrophoneAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F143722297CDA100408E60 /* MicrophoneAuthorizationViewController.m */; };
+		36F143792297D10D00408E60 /* CameraAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F143782297D10D00408E60 /* CameraAuthorizationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,18 @@
 		369B7AAF1E9B7A6C00F99CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		369B7AB21E9B7A6C00F99CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		369B7AB41E9B7A6C00F99CB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36AB4536229BB20A007CA644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		36AB4537229BB20A007CA644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		36F1436B2297C41B00408E60 /* PhotoLibraryAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoLibraryAuthorizationViewController.h; sourceTree = "<group>"; };
+		36F1436C2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoLibraryAuthorizationViewController.m; sourceTree = "<group>"; };
+		36F1436E2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechRecognizerAuthorizationViewController.h; sourceTree = "<group>"; };
+		36F1436F2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechRecognizerAuthorizationViewController.m; sourceTree = "<group>"; };
+		36F143712297CDA100408E60 /* MicrophoneAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MicrophoneAuthorizationViewController.h; sourceTree = "<group>"; };
+		36F143722297CDA100408E60 /* MicrophoneAuthorizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MicrophoneAuthorizationViewController.m; sourceTree = "<group>"; };
+		36F143772297D10D00408E60 /* CameraAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraAuthorizationViewController.h; sourceTree = "<group>"; };
+		36F143782297D10D00408E60 /* CameraAuthorizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraAuthorizationViewController.m; sourceTree = "<group>"; };
+		36F143812297F3FD00408E60 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		36F143822297F3FD00408E60 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D1440579FE0C70CD38447 /* Pods-SWExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C896F51E9648F40135965C46 /* Pods-SWExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +76,14 @@
 				3657F1C720C52D00006492FD /* ImagePickerController.xib */,
 				364FF88C20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.h */,
 				364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */,
+				36F1436B2297C41B00408E60 /* PhotoLibraryAuthorizationViewController.h */,
+				36F1436C2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m */,
+				36F1436E2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.h */,
+				36F1436F2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m */,
+				36F143712297CDA100408E60 /* MicrophoneAuthorizationViewController.h */,
+				36F143722297CDA100408E60 /* MicrophoneAuthorizationViewController.m */,
+				36F143772297D10D00408E60 /* CameraAuthorizationViewController.h */,
+				36F143782297D10D00408E60 /* CameraAuthorizationViewController.m */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -135,6 +159,7 @@
 				369B7A9C1E9B7A6C00F99CB3 /* Sources */,
 				369B7A9D1E9B7A6C00F99CB3 /* Frameworks */,
 				369B7A9E1E9B7A6C00F99CB3 /* Resources */,
+				3ABE60E115A82DE5DAEB95BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,8 +191,11 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 369B7A971E9B7A6C00F99CB3;
 			productRefGroup = 369B7AA11E9B7A6C00F99CB3 /* Products */;
@@ -194,6 +222,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3ABE60E115A82DE5DAEB95BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SWExtension/Pods-SWExtension-resources.sh",
+				"${PODS_ROOT}/../SWExtension/SWExtension/Authorization/Camera/SWCameraAuthorization.bundle",
+				"${PODS_ROOT}/../SWExtension/SWExtension/Authorization/Microphone/SWMicrophoneAuthorization.bundle",
+				"${PODS_ROOT}/../SWExtension/SWExtension/Authorization/PhotoLibrary/SWPhotoLibraryAuthorization.bundle",
+				"${PODS_ROOT}/../SWExtension/SWExtension/Authorization/SpeechRecognizer/SWSpeechRecognizerAuthorization.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SWCameraAuthorization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SWMicrophoneAuthorization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SWPhotoLibraryAuthorization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SWSpeechRecognizerAuthorization.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SWExtension/Pods-SWExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		42B4256E54BA58F91BDCD01A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -222,8 +278,12 @@
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
+				36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */,
 				3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */,
+				36F143792297D10D00408E60 /* CameraAuthorizationViewController.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
+				36F143732297CDA100408E60 /* MicrophoneAuthorizationViewController.m in Sources */,
+				36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +294,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				369B7AAD1E9B7A6C00F99CB3 /* Base */,
+				36F143812297F3FD00408E60 /* zh-Hans */,
+				36AB4536229BB20A007CA644 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -242,6 +304,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				369B7AB21E9B7A6C00F99CB3 /* Base */,
+				36F143822297F3FD00408E60 /* zh-Hans */,
+				36AB4537229BB20A007CA644 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -253,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -301,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

@@ -1,0 +1,12 @@
+/* 
+  SWCameraAuthorization.strings
+  SWExtension
+
+  Created by zhoushaowen on 2019/5/27.
+  Copyright © 2019 yidu. All rights reserved.
+*/
+
+"AlertTitle" = "无法访问麦克风";
+"Message" = "请开启XXX的麦克风权限";
+"Cancel" = "取消";
+"Set" = "现在设置";

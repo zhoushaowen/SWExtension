@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [UIDevice sw_isIPhoneXSeries];
-    NSString *str = @"123";
+//    NSString *str = @"123";
 //    NSString *sub = [str substringFromIndex:4];
 //    NSString *sub = [str sw_safeSubstringFromIndex:4];
 //    NSString *sub = [str substringToIndex:4];
@@ -30,6 +30,8 @@
 //    NSString *sub = [str sw_safeSubstringWithRange:NSMakeRange(3, 1)];
 //    NSString *sub = [str sw_safeSubstringWithRange:NSMakeRange(0, 4)];
 //    NSString *sub = [str sw_safeSubstringWithRange:NSMakeRange(NSNotFound, 0)];
+    
+    
     return YES;
 }
 

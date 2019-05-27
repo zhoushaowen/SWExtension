@@ -1,17 +1,29 @@
 PODS:
   - MBProgressHUD (1.0.0)
-  - SWExtension (1.6.6):
+  - SWExtension/Authorization/Camera (1.6.8):
     - MBProgressHUD
-    - SWExtension/Foundation (= 1.6.6)
-    - SWExtension/UIKit (= 1.6.6)
-  - SWExtension/Foundation (1.6.6):
+  - SWExtension/Authorization/Microphone (1.6.8):
     - MBProgressHUD
-  - SWExtension/UIKit (1.6.6):
+  - SWExtension/Authorization/PhotoLibrary (1.6.8):
+    - MBProgressHUD
+  - SWExtension/Authorization/SpeechRecognizer (1.6.8):
+    - MBProgressHUD
+  - SWExtension/Core (1.6.8):
+    - MBProgressHUD
+    - SWExtension/Core/Foundation (= 1.6.8)
+    - SWExtension/Core/UIKit (= 1.6.8)
+  - SWExtension/Core/Foundation (1.6.8):
+    - MBProgressHUD
+  - SWExtension/Core/UIKit (1.6.8):
     - MBProgressHUD
 
 DEPENDENCIES:
   - MBProgressHUD
-  - SWExtension (from `./`)
+  - SWExtension/Authorization/Camera (from `./`)
+  - SWExtension/Authorization/Microphone (from `./`)
+  - SWExtension/Authorization/PhotoLibrary (from `./`)
+  - SWExtension/Authorization/SpeechRecognizer (from `./`)
+  - SWExtension/Core (from `./`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -23,8 +35,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  SWExtension: cc1a81a0b30b8c0d6d0991d25ee3937bc937c4bb
+  SWExtension: a6bbb467b80c6b104aca27454237ba69bd4941b4
 
-PODFILE CHECKSUM: 77adf7fab7464977a739aa4b0ad61bb6999b9957
+PODFILE CHECKSUM: 90920f119958cbd5b316e502c3117c57840da2b9
 
 COCOAPODS: 1.6.1

@@ -1,0 +1,12 @@
+/* 
+  SWCameraAuthorization.strings
+  SWExtension
+
+  Created by zhoushaowen on 2019/5/27.
+  Copyright © 2019 yidu. All rights reserved.
+*/
+
+"AlertTitle" = "Unable to access microphone";
+"Message" = "Please enable microphone access on XXX";
+"Cancel" = "Cancel";
+"Set" = "Now set";

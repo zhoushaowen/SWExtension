@@ -1,0 +1,12 @@
+/* 
+  SWCameraAuthorization.strings
+  SWExtension
+
+  Created by zhoushaowen on 2019/5/27.
+  Copyright © 2019 yidu. All rights reserved.
+*/
+
+"AlertTitle" = "無法訪問相冊";
+"Message" = "請開啟XXX的相冊權限";
+"Cancel" = "取消";
+"Set" = "現在設置";

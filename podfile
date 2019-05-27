@@ -3,6 +3,13 @@ platform :ios, ‘8.0’
 target “SWExtension” do
 pod 'MBProgressHUD'
 
-pod "SWExtension" , :path => './'
+#pod "SWExtension" , :path => './'
+
+pod "SWExtension/Core" , :path => './'
+#pod "SWExtension/Authorization" , :path => './'
+pod "SWExtension/Authorization/PhotoLibrary" , :path => './'
+pod "SWExtension/Authorization/Camera" , :path => './'
+pod "SWExtension/Authorization/SpeechRecognizer" , :path => './'
+pod "SWExtension/Authorization/Microphone" , :path => './'
 
 end

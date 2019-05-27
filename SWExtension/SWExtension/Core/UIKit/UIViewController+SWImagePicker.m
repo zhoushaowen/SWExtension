@@ -7,7 +7,6 @@
 //
 
 #import "UIViewController+SWImagePicker.h"
-#import "UIViewController+Authorization.h"
 #import <objc/runtime.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 
@@ -52,11 +51,19 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     }
     if(sourceType == UIImagePickerControllerSourceTypeCamera)
     {
-        if(![self sw_isHaveCameraAuthorization])
+        SEL sel = NSSelectorFromString(@"sw_isHaveCameraAuthorizationWithAlertViewController:");
+        if(![NSObject respondsToSelector:sel]){
+            NSAssert(NO, @"\"sw_isHaveCameraAuthorizationWithAlertViewController:\"方法找不到,请导入 pod \"SWExtension/Authorization/Camera\"");
+        }
+        if(![[NSObject performSelector:sel withObject:self] boolValue])
             return nil;
     }else if (sourceType == UIImagePickerControllerSourceTypePhotoLibrary || sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum)
     {
-        if(![self sw_isHavePhotoLibarayAuthorization])
+        SEL sel = NSSelectorFromString(@"sw_isHavePhotoLibarayAuthorizationWithAlertViewController:");
+        if(![NSObject respondsToSelector:sel]){
+            NSAssert(NO, @"\"sw_isHavePhotoLibarayAuthorizationWithAlertViewController:\"方法找不到,请导入 pod \"SWExtension/Authorization/PhotoLibrary\"");
+        }
+        if(![[NSObject performSelector:sel withObject:self] boolValue])
             return nil;
     }
     SWImagePickerController *imagePickerController = [[SWImagePickerController alloc] init];

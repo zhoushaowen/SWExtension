@@ -21,7 +21,11 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     _dataSource = @[
                     @"ImagePickerController",
-                    @"ArrayAndDictionaryChineseOutputController"
+                    @"ArrayAndDictionaryChineseOutputController",
+                    @"PhotoLibraryAuthorizationViewController",
+                    @"SpeechRecognizerAuthorizationViewController",
+                    @"MicrophoneAuthorizationViewController",
+                    @"CameraAuthorizationViewController",
                     ];
 }
 

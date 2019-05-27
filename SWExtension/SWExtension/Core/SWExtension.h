@@ -35,10 +35,10 @@
 #import "UICollectionView+SWExtension.h"
 #import "UIButton+SWExtension.h"
 #import "UIViewController+SWImagePicker.h"
-#import "UIViewController+Authorization.h"
 #import "UIViewController+SWAlertController.h"
 #import "UIDevice+SWExtension.h"
 #import "UIApplication+SWExtension.h"
+#import "UIFont+SWExtension.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))
