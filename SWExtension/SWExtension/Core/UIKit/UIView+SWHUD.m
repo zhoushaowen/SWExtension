@@ -1,14 +1,14 @@
 //
-//  UIView+HUD.m
+//  UIView+SWHUD.m
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/10.
 //  Copyright © 2017年 yidu. All rights reserved.
 //
 
-#import "UIView+HUD.h"
+#import "UIView+SWHUD.h"
 
-@implementation UIView (HUD)
+@implementation UIView (SWHUD)
 
 - (MBProgressHUD *)createAndShowHUDWithAnimationType:(MBProgressHUDAnimation)animationType {
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];

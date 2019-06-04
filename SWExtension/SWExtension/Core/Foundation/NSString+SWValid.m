@@ -1,14 +1,14 @@
 //
-//  NSString+Valid.m
+//  NSString+SWValid.m
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/25.
 //  Copyright © 2017年 yidu. All rights reserved.
 //
 
-#import "NSString+Valid.h"
+#import "NSString+SWValid.h"
 
-@implementation NSString (Valid)
+@implementation NSString (SWValid)
 
 //判断手机号码格式是否正确
 //- (BOOL)isValidPhoneNumber

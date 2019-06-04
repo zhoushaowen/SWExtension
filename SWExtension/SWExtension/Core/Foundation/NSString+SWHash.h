@@ -1,5 +1,5 @@
 //
-//  NSString+Hash.h
+//  NSString+SWHash.h
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Hash)
+@interface NSString (SWHash)
 
 #pragma mark - 散列函数
 /**

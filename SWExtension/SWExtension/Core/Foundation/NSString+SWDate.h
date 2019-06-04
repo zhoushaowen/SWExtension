@@ -1,5 +1,5 @@
 //
-//  NSString+Date.h
+//  NSString+SWDate.h
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/10.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Date)
+@interface NSString (SWDate)
 
 /**
  通过NSDate创建一个带格式的时间字符串，默认转换之后的时间是北京时间

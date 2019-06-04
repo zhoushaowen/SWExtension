@@ -1,14 +1,14 @@
 //
-//  UIColor+Hex.m
+//  UIColor+SWHex.m
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/10.
 //  Copyright © 2017年 yidu. All rights reserved.
 //
 
-#import "UIColor+Hex.h"
+#import "UIColor+SWHex.h"
 
-@implementation UIColor (Hex)
+@implementation UIColor (SWHex)
 
 + (UIColor *)colorWithHexString:(NSString *)hex withAlpha:(CGFloat)alpha{
     unsigned rgbValue = 0;

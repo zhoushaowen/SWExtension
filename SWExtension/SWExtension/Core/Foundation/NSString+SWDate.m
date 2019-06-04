@@ -1,14 +1,14 @@
 //
-//  NSString+Date.m
+//  NSString+SWDate.m
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/10.
 //  Copyright © 2017年 yidu. All rights reserved.
 //
 
-#import "NSString+Date.h"
+#import "NSString+SWDate.h"
 
-@implementation NSString (Date)
+@implementation NSString (SWDate)
 
 + (instancetype)sw_createStringWithDate:(NSDate *)date dateFormat:(NSString *)format
 {

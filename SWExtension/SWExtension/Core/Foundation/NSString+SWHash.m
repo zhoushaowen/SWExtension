@@ -1,15 +1,15 @@
 //
-//  NSString+Hash.m
+//  NSString+SWHash.m
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/13.
 //  Copyright © 2017年 yidu. All rights reserved.
 //
 
-#import "NSString+Hash.h"
+#import "NSString+SWHash.h"
 #import <CommonCrypto/CommonCrypto.h>
 
-@implementation NSString (Hash)
+@implementation NSString (SWHash)
 
 #pragma mark - 散列函数
 - (NSString *)md5String {

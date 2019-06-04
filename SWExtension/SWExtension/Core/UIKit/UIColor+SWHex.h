@@ -1,5 +1,5 @@
 //
-//  UIColor+Hex.h
+//  UIColor+SWHex.h
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/10.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (Hex)
+@interface UIColor (SWHex)
 
 //默认alpha值为1
 + (UIColor *)colorWithHexString:(NSString *)hex;

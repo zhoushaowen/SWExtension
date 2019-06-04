@@ -227,8 +227,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SWExtension/Pods-SWExtension-resources.sh",
 				"${PODS_ROOT}/../SWExtension/SWExtension/Authorization/Camera/SWCameraAuthorization.bundle",
@@ -237,8 +235,6 @@
 				"${PODS_ROOT}/../SWExtension/SWExtension/Authorization/SpeechRecognizer/SWSpeechRecognizerAuthorization.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SWCameraAuthorization.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SWMicrophoneAuthorization.bundle",

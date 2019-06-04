@@ -1,5 +1,5 @@
 //
-//  NSString+Emoji.h
+//  NSString+SWEmoji.h
 //  Chat
 //
 //  Created by 周少文 on 2016/11/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Emoji)
+@interface NSString (SWEmoji)
 /**
  创建表情字符串
  */

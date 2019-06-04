@@ -1,5 +1,5 @@
 //
-//  UIView+HUD.h
+//  UIView+SWHUD.h
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/10.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MBProgressHUD.h>
 
-@interface UIView (HUD)
+@interface UIView (SWHUD)
 
 /**
  显示一个文字提示类型的MBProgressHUD,不会自动隐藏

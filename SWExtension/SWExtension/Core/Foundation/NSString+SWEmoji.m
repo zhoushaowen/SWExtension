@@ -1,14 +1,14 @@
 //
-//  NSString+Emoji.m
+//  NSString+SWEmoji.m
 //  Chat
 //
 //  Created by 周少文 on 2016/11/1.
 //  Copyright © 2016年 周少文. All rights reserved.
 //
 
-#import "NSString+Emoji.h"
+#import "NSString+SWEmoji.h"
 
-@implementation NSString (Emoji)
+@implementation NSString (SWEmoji)
 
 + (instancetype)emojiWithHexString:(NSString *)hexStr
 {

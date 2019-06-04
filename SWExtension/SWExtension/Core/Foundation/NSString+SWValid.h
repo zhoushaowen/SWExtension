@@ -1,5 +1,5 @@
 //
-//  NSString+Valid.h
+//  NSString+SWValid.h
 //  SWExtension
 //
 //  Created by zhoushaowen on 2017/4/25.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Valid)
+@interface NSString (SWValid)
 
 /**
  判断是否是手机号码
