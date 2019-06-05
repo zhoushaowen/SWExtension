@@ -25,6 +25,8 @@
 #import "UIView+ShakeAnimation.h"
 #import "UIView+SWHUD.h"
 #import "UIView+SWExtension.h"
+#import "UIView+SWBorderStyle.h"
+#import "UIView+SWCornerStyle.h"
 #import "UILabel+Animation.h"
 #import "UIView+ExpandResponse.h"
 #import "UIImageView+SWExtension.h"
