@@ -67,7 +67,7 @@
         if(self.sw_topBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_topBorderLine];
         }
-        self.sw_topBorderLine.frame = CGRectMake(0, self.bounds.size.height - self.sw_borderTopWidth, self.bounds.size.width, self.sw_borderTopWidth);
+        self.sw_topBorderLine.frame = CGRectMake(0, 0, self.bounds.size.width, self.sw_borderTopWidth);
     }else{
         [self.sw_topBorderLine removeFromSuperlayer];
     }
@@ -80,11 +80,11 @@
         if(self.sw_leftBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_leftBorderLine];
         }
-        self.sw_leftBorderLine.frame = CGRectMake(0, self.bounds.size.height - self.sw_borderLeftWidth, self.bounds.size.width, self.sw_borderLeftWidth);
+        self.sw_leftBorderLine.frame = CGRectMake(0, 0, self.sw_borderLeftWidth, self.bounds.size.height);
     }else{
         [self.sw_leftBorderLine removeFromSuperlayer];
     }
-
+    
     if(self.sw_borderBottomWidth > 0){
         if(self.sw_bottomBorderLine == nil){
             self.sw_bottomBorderLine = [CALayer layer];
@@ -97,7 +97,7 @@
     }else{
         [self.sw_bottomBorderLine removeFromSuperlayer];
     }
-
+    
     if(self.sw_borderRightWidth > 0){
         if(self.sw_rightBorderLine == nil){
             self.sw_rightBorderLine = [CALayer layer];
@@ -106,11 +106,11 @@
         if(self.sw_rightBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_rightBorderLine];
         }
-        self.sw_rightBorderLine.frame = CGRectMake(0, self.bounds.size.height - self.sw_borderRightWidth, self.bounds.size.width, self.sw_borderRightWidth);
+        self.sw_rightBorderLine.frame = CGRectMake(0, self.bounds.size.width - self.sw_borderRightWidth, self.sw_borderRightWidth, self.bounds.size.height);
     }else{
         [self.sw_rightBorderLine removeFromSuperlayer];
     }
-
+    
 }
 
 #pragma mark - width
@@ -186,6 +186,7 @@
 #pragma mark - color
 - (void)setSw_borderTopColor:(UIColor *)sw_borderTopColor {
     objc_setAssociatedObject(self, @selector(sw_borderTopColor), sw_borderTopColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.sw_topBorderLine.backgroundColor = sw_borderTopColor.CGColor;
 }
 
 - (UIColor *)sw_borderTopColor {
@@ -198,6 +199,7 @@
 
 - (void)setSw_borderLeftColor:(UIColor *)sw_borderLeftColor {
     objc_setAssociatedObject(self, @selector(sw_borderLeftColor), sw_borderLeftColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.sw_leftBorderLine.backgroundColor = sw_borderLeftColor.CGColor;
 }
 
 - (UIColor *)sw_borderLeftColor {
@@ -223,6 +225,7 @@
 
 - (void)setSw_borderRightColor:(UIColor *)sw_borderRightColor {
     objc_setAssociatedObject(self, @selector(sw_borderRightColor), sw_borderRightColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.sw_rightBorderLine.backgroundColor = sw_borderRightColor.CGColor;
 }
 
 - (UIColor *)sw_borderRightColor {
