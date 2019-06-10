@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (SWPhotoLibraryAuthorization)
 
 + (void)requestPhotoLibraryAuthorizationWithCompletion:(void(^_Nullable)(BOOL isAuthorized))completedBlock alertViewController:(UIViewController *_Nullable)alertViewController;
-+ (BOOL)sw_isHavePhotoLibarayAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController;
++ (NSNumber *)sw_isHavePhotoLibarayAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController;
 
 @end
 

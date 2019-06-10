@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (SWCameraAuthorization)
 
 + (void)requestCameraAuthorizationWithCompletion:(void(^ _Nullable)(BOOL isAuthorized))completedBlock alertViewController:(UIViewController *_Nullable)alertViewController;
-+ (BOOL)sw_isHaveCameraAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController;
++ (NSNumber *)sw_isHaveCameraAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController;
 
 @end
 

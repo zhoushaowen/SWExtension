@@ -51,16 +51,16 @@ static NSString *const LocalizedTableName = @"SWPhotoLibraryAuthorization";
     }
 }
 
-+ (BOOL)sw_isHavePhotoLibarayAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController
++ (NSNumber *)sw_isHavePhotoLibarayAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController
 {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     if(status == PHAuthorizationStatusRestricted ||status == PHAuthorizationStatusDenied)
     {
         [self showPhotoLibraryAuthorizationAlertWithTitle:NSLocalizedStringFromTableInBundle(@"AlertTitle", LocalizedTableName, [self getPhotoLibraryAuthorizationBundle], nil) alertViewController:alertViewController];
-        return NO;
+        return @NO;
     }
     
-    return YES;
+    return @YES;
 }
 
 + (void)showPhotoLibraryAuthorizationAlertWithTitle:(NSString *)title alertViewController:(UIViewController *)alertViewController {

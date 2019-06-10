@@ -52,16 +52,16 @@ static NSString *const LocalizedTableName = @"SWCameraAuthorization";
     }
 }
 
-+ (BOOL)sw_isHaveCameraAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController
++ (NSNumber *)sw_isHaveCameraAuthorizationWithAlertViewController:(UIViewController *_Nullable)alertViewController
 {
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if(status == AVAuthorizationStatusRestricted || status ==AVAuthorizationStatusDenied)
     {
         [self showCameraAuthorizationAlertWithTitle:NSLocalizedStringFromTableInBundle(@"AlertTitle", LocalizedTableName, [self getCameraAuthorizationBundle], nil) alertViewController:alertViewController];
-        return NO;
+        return @NO;
     }
     
-    return YES;
+    return @YES;
 }
 
 + (void)showCameraAuthorizationAlertWithTitle:(NSString *)title alertViewController:(UIViewController *)alertViewController {
