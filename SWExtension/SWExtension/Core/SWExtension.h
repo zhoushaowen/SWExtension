@@ -21,6 +21,7 @@
 
 //UIKit
 #import "UIImage+SWExtension.h"
+#import "UIImage+SWQRCode.h"
 #import "UIView+SWAutoLayout.h"
 #import "UIView+ShakeAnimation.h"
 #import "UIView+SWHUD.h"
