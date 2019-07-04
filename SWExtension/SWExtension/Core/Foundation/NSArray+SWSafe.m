@@ -52,7 +52,7 @@
     });
 }
 
-
+#pragma mark - 防止对服务器返回非数组类型的对象执行取值操作导致的crash
 - (id)sw_forwardingTargetForSelector:(SEL)aSelector {
     if(aSelector == @selector(objectForKey:) || aSelector == NSSelectorFromString(@"objectForKeyedSubscript:")){
         NSLog(@"%@没有实现%@方法",self,NSStringFromSelector(aSelector));
@@ -67,6 +67,14 @@
         return [NSMethodSignature signatureWithObjCTypes:"@@:@"];
     }
     return [self sw_methodSignatureForSelector:aSelector];
+}
+
+#pragma mark - 避免操作数组crash的方法
+- (id)sw_safe_objectAtIndex:(NSUInteger)index {
+    if(index > self.count - 1){
+        return nil;
+    }
+    return [self objectAtIndex:index];
 }
 
 @end

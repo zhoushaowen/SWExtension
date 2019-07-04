@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSArray (SWSafe)
 
+- (id)sw_safe_objectAtIndex:(NSUInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END
