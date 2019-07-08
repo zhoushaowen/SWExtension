@@ -18,6 +18,7 @@
 #import "NSString+SWExtension.h"
 #import "NSTimer+SWUnRetainTimer.h"
 #import "NSDate+SWExtension.h"
+#import "NSArray+SWSafe.h"
 
 //UIKit
 #import "UIImage+SWExtension.h"

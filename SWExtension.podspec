@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SWExtension"
 
-  s.version      = "1.7.3.4"
+  s.version      = "1.7.3.5"
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
