@@ -110,6 +110,10 @@
     return 20;
 }
 
++ (CGFloat)sw_safeTopInset {
+    return self.sw_statusBarHeight - 20;
+}
+
 + (CGFloat)sw_safeBottomInset {
     if([self sw_isIPhoneXSeries]) return 34.0f;
     return 0.0;

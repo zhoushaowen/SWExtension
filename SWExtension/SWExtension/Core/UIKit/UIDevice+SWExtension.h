@@ -63,7 +63,10 @@
  状态栏高度
  */
 + (CGFloat)sw_statusBarHeight;
-
+/**
+ 竖屏的情况下距离屏幕顶部的安全距离
+ */
++ (CGFloat)sw_safeTopInset;
 /**
  竖屏的情况下距离屏幕底部的安全距离
  */
