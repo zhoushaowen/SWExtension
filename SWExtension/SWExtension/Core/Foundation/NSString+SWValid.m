@@ -46,18 +46,91 @@
 //    }
 //}
 
-- (BOOL)isEmailString {
+- (BOOL)sw_isEmailString {
     if([self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length < 1) return NO;
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidateIdentityCard {
+- (BOOL)sw_isValidateIdentityCard {
     if([self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length < 1) return NO;
     NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
     NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
     return [identityCardPredicate evaluateWithObject:self];
+}
+
+- (NSString *)sw_parseBirthdayFromIdentityCard {
+    if([self sw_isValidateIdentityCard]) return nil;
+    //解析身份证中的生日
+    if(self.length == 18){
+        //18位身份证
+        return [[[[[self substringWithRange:NSMakeRange(6, 4)] stringByAppendingString:@"-"] stringByAppendingString:[self substringWithRange:NSMakeRange(10, 2)]] stringByAppendingString:@"-"] stringByAppendingString:[self substringWithRange:NSMakeRange(12, 2)]];
+    }else if (self.length == 15){
+        //15位身份证
+        return [[[[[NSString stringWithFormat:@"19%@",[self substringWithRange:NSMakeRange(6, 2)]] stringByAppendingString:@"-"] stringByAppendingString:[self substringWithRange:NSMakeRange(8, 2)]] stringByAppendingString:@"-"] stringByAppendingString:[self substringWithRange:NSMakeRange(10, 2)]];
+    }
+    return nil;
+}
+
+- (NSString *)sw_parseSexStringFromIdentityCard {
+    if([self sw_isValidateIdentityCard]) return nil;
+    if(self.length == 18){
+        //18位身份证
+        NSInteger sexNum = [[self substringWithRange:NSMakeRange(16, 1)] integerValue];
+        if(sexNum%2 == 0){
+            //女
+            return @"女";
+        }else{
+            //男
+            return @"男";
+        }
+    }else if (self.length == 15){
+        //15位身份证
+        NSInteger sexNum = [[self substringWithRange:NSMakeRange(14, 1)] integerValue];
+        if(sexNum%2 == 0){
+            //女
+            return @"女";
+        }else{
+            //男
+            return @"男";
+        }
+    }
+    return nil;
+}
+
+- (NSString *)sw_parseSexCodeFromIdentityCard {
+    if([self sw_isValidateIdentityCard]) return nil;
+    if(self.length == 18){
+        //18位身份证
+        NSInteger sexNum = [[self substringWithRange:NSMakeRange(16, 1)] integerValue];
+        if(sexNum%2 == 0){
+            //女
+            return @"2";
+        }else{
+            //男
+            return @"1";
+        }
+    }else if (self.length == 15){
+        //15位身份证
+        NSInteger sexNum = [[self substringWithRange:NSMakeRange(14, 1)] integerValue];
+        if(sexNum%2 == 0){
+            //女
+            return @"2";
+        }else{
+            //男
+            return @"1";
+        }
+    }
+    return nil;
+}
+
+- (BOOL)isEmailString __deprecated {
+    return [self sw_isEmailString];
+}
+
+- (BOOL)isValidateIdentityCard __deprecated {
+    return [self sw_isValidateIdentityCard];
 }
 
 
