@@ -57,11 +57,25 @@
     if([self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length < 1) return NO;
     NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
     NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
-    return [identityCardPredicate evaluateWithObject:self];
+    BOOL valid = [identityCardPredicate evaluateWithObject:self];
+    if(!valid) return valid;
+    //验证出身月份和生日日期是否合法
+    if(self.length == 18){
+        NSInteger month = [[self substringWithRange:NSMakeRange(10, 2)] integerValue];
+        NSInteger day = [[self substringWithRange:NSMakeRange(12, 2)] integerValue];
+        if(month < 13 && month > 0 && day < 32 && day > 0) return YES;
+        return NO;
+    }else if (self.length == 15){
+        NSInteger month = [[self substringWithRange:NSMakeRange(8, 2)] integerValue];
+        NSInteger day = [[self substringWithRange:NSMakeRange(10, 2)] integerValue];
+        if(month < 13 && month > 0 && day < 32 && day > 0) return YES;
+        return NO;
+    }
+    return NO;
 }
 
 - (NSString *)sw_parseBirthdayFromIdentityCard {
-    if([self sw_isValidateIdentityCard]) return nil;
+    if(![self sw_isValidateIdentityCard]) return nil;
     //解析身份证中的生日
     if(self.length == 18){
         //18位身份证
@@ -74,7 +88,7 @@
 }
 
 - (NSString *)sw_parseSexStringFromIdentityCard {
-    if([self sw_isValidateIdentityCard]) return nil;
+    if(![self sw_isValidateIdentityCard]) return nil;
     if(self.length == 18){
         //18位身份证
         NSInteger sexNum = [[self substringWithRange:NSMakeRange(16, 1)] integerValue];
@@ -100,7 +114,7 @@
 }
 
 - (NSString *)sw_parseSexCodeFromIdentityCard {
-    if([self sw_isValidateIdentityCard]) return nil;
+    if(![self sw_isValidateIdentityCard]) return nil;
     if(self.length == 18){
         //18位身份证
         NSInteger sexNum = [[self substringWithRange:NSMakeRange(16, 1)] integerValue];
