@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *_Nullable)sw_parseSexStringFromIdentityCard;
 ///从身份证号码中解析出性别码,e.g. 1男 2女 支持18位和15位身份证
 - (NSString *_Nullable)sw_parseSexCodeFromIdentityCard;
+///从身份证号码中解析出年龄,e.g. 18 支持18位和15位身份证
+- (NSString *_Nullable)sw_parseAgeFromIdentityCard;
 
 /**
  判断是否是邮箱账号

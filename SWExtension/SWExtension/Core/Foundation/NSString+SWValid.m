@@ -7,6 +7,8 @@
 //
 
 #import "NSString+SWValid.h"
+#import "NSString+SWDate.h"
+#import "NSDate+SWExtension.h"
 
 @implementation NSString (SWValid)
 
@@ -111,6 +113,15 @@
         }
     }
     return nil;
+}
+
+- (NSString *)sw_parseAgeFromIdentityCard {
+    NSString *birthdayStr = [self sw_parseBirthdayFromIdentityCard];
+    if(birthdayStr == nil) return nil;
+    NSDate *birthday = [NSDate sw_createDateWithDateString:birthdayStr dateFormat:@"yyyy-MM-dd"];
+    NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear fromDate:birthday toDate:[NSDate date] options:0];
+    return @(components.year).stringValue;
 }
 
 - (NSString *)sw_parseSexCodeFromIdentityCard {
