@@ -43,6 +43,7 @@
 }
 
 - (MBProgressHUD *)showHUDWithMessage:(NSString *)message hideWithDelay:(NSTimeInterval)delay {
+    if(message.length < 1) return nil;
     MBProgressHUD *hud = [self showHUDAndHideWithDelay:delay];
     hud.mode = MBProgressHUDModeText;
     hud.label.text = message;
@@ -55,6 +56,7 @@
 }
 
 - (MBProgressHUD *)showHUDWithDetailMessage:(NSString *)message hideWithDelay:(NSTimeInterval)delay {
+    if(message.length < 1) return nil;
     MBProgressHUD *hud = [self showHUDAndHideWithDelay:delay];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text = message;
