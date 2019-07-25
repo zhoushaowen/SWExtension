@@ -74,6 +74,7 @@
     if(index > self.count - 1){
         return nil;
     }
+    if(self.count == 0) return nil;
     return [self objectAtIndex:index];
 }
 
