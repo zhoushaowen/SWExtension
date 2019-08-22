@@ -71,11 +71,16 @@
  竖屏的情况下距离屏幕底部的安全距离
  */
 + (CGFloat)sw_safeBottomInset;
+///获取udid,注意:每次获取到的值都不一样,需要开发者主动去存储起来
++ (NSString *)sw_getUUID;
+/// 获取当前设备名称（e.g. iPhone 4s）
++ (NSString *)sw_deviceString;
+
 
 /**
  获取当前设备名称（e.g. iPhone 4s）
  */
-@property (nonatomic,readonly,copy) NSString *sw_deviceString;
+@property (nonatomic,readonly,copy) NSString *sw_deviceString __deprecated;
 
 
 @end

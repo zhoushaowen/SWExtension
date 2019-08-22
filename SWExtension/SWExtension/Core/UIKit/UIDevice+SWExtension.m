@@ -77,13 +77,13 @@
     static BOOL flag;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-//        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//        CGFloat height = [UIScreen mainScreen].bounds.size.height;
-//        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
-//            flag = YES;
-//        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
-//            flag = YES;
-//        }
+        //        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        //        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+        //        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
+        //            flag = YES;
+        //        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
+        //            flag = YES;
+        //        }
         CGSize size = [UIScreen mainScreen].currentMode.size;
         if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size) ||//iPhone X
            CGSizeEqualToSize(CGSizeMake(828, 1792), size) ||//iPhone XR
@@ -119,7 +119,27 @@
     return 0.0;
 }
 
-- (NSString *)sw_deviceString {
+/*
+ 一.UDID(Unique Device Identifier)
+ UDID的全称是Unique Device Identifier，它就是苹果iOS设备的唯一识别码，它由40位16进制数的字母和数字组成（越狱的设备通过某些工具可以改变设备的UDID）。移动网络可利用UDID来识别移动设备，但是，从IOS5.0（2011年8月份）开始，苹果宣布将不再支持用uniqueIdentifier方法获取设备的UDID，iOS5以下是可以用的。苹果从iOS5开始就移除了通过代码访问UDID的权限。从2013年5月1日起，试图访问UIDIDs的程序将不再被审核通过，替代的方案是开发者应该使用“在iOS 6中介绍的Vendor或Advertising标示符”。所以UDID是绝对是不能再使用了.
+ //UUID , 已废除
+ NSString *udid = [[UIDevice currentDevice] uniqueIdentifier];
+ 为什么苹果反对开发人员使用UDID？
+ iOS 2.0版本以后UIDevice提供一个获取设备唯一标识符的方法uniqueIdentifier，通过该方法我们可以获取设备的序列号，这个也是目前为止唯一可以确认唯一的标示符。 许多开发者把UDID跟用户的真实姓名、密码、住址、其它数据关联起来；网络窥探者会从多个应用收集这些数据，然后顺藤摸瓜得到这个人的许多隐私数据。同时大部分应用确实在频繁传输UDID和私人信息。 为了避免集体诉讼，苹果最终决定在iOS 5 的时候，将这一惯例废除，开发者被引导生成一个唯一的标识符，只能检测应用程序，其他的信息不提供。现在应用试图获取UDID已被禁止且不允许上架。
+ 
+ 二.UUID(Universally Unique Identifier)
+ UUID是Universally Unique Identifier的缩写，中文意思是通用唯一识别码。它是让分布式系统中的所有元素，都能有唯一的辨识资讯，而不需要透过中央控制端来做辨识资讯的指定。这样，每个人都可以建立不与其它人冲突的 UUID。在此情况下，就不需考虑数据库建立时的名称重复问题。苹果公司建议使用UUID为应用生成唯一标识字符串。
+ 获得的UUID值系统没有存储, 而且每次调用得到UUID，系统都会返回一个新的唯一标示符。如果你希望存储这个标示符，那么需要自己将其存储到NSUserDefaults, Keychain, Pasteboard或其它地方。
+ */
+// 获取UUID的方法
++ (NSString *)sw_getUUID {
+    CFUUIDRef puuid = CFUUIDCreate(NULL);
+    CFStringRef uuidString = CFUUIDCreateString(NULL, puuid);
+    NSString *result = (NSString *)CFBridgingRelease(CFStringCreateCopy(NULL, uuidString));
+    return result;
+}
+
+- (NSString *)sw_deviceString __deprecated {
     static NSString *name;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -127,6 +147,16 @@
     });
     return name;
 }
+
++ (NSString *)sw_deviceString {
+    static NSString *name;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        name = [[[UIDevice currentDevice] sw_getDeviceName] copy];
+    });
+    return name;
+}
+
 
 #pragma mark - Private
 - (NSString *)sw_getDeviceName {
@@ -165,7 +195,7 @@
     if ([platform isEqualToString:@"iPhone10,4"]) return @"iPhone 8";
     if ([platform isEqualToString:@"iPhone10,5"]) return @"iPhone 8 Plus";
     if ([platform isEqualToString:@"iPhone10,6"]) return @"iPhone X";
-
+    
     
     //iPod
     if ([platform isEqualToString:@"iPod1,1"])   return @"iPod Touch 1";
