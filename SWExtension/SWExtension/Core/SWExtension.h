@@ -33,6 +33,7 @@
 #import "UIView+ExpandResponse.h"
 #import "UIImageView+SWExtension.h"
 #import "UIColor+SWHex.h"
+#import "UIColor+SWExtension.h"
 #import "UIScrollView+FitIOS11.h"
 #import "UITableView+FitIOS11.h"
 #import "UITableView+SWExtension.h"
