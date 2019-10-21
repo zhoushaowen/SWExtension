@@ -111,7 +111,8 @@
 }
 
 + (CGFloat)sw_safeTopInset {
-    return self.sw_statusBarHeight - 20;
+//    return self.sw_statusBarHeight - 20;
+    return self.sw_safeBottomInset;
 }
 
 + (CGFloat)sw_safeBottomInset {

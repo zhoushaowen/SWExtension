@@ -1,27 +1,27 @@
 PODS:
   - MBProgressHUD (1.0.0)
   - ReactiveObjC (3.1.1)
-  - SWExtension/Authorization/Camera (1.7.3.2):
+  - SWExtension/Authorization/Camera (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/Microphone (1.7.3.2):
+  - SWExtension/Authorization/Microphone (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/PhotoLibrary (1.7.3.2):
+  - SWExtension/Authorization/PhotoLibrary (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/SpeechRecognizer (1.7.3.2):
+  - SWExtension/Authorization/SpeechRecognizer (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Core (1.7.3.2):
+  - SWExtension/Core (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
-    - SWExtension/Core/Foundation (= 1.7.3.2)
-    - SWExtension/Core/UIKit (= 1.7.3.2)
-  - SWExtension/Core/Foundation (1.7.3.2):
+    - SWExtension/Core/Foundation (= 1.7.3.15)
+    - SWExtension/Core/UIKit (= 1.7.3.15)
+  - SWExtension/Core/Foundation (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Core/UIKit (1.7.3.2):
+  - SWExtension/Core/UIKit (1.7.3.15):
     - MBProgressHUD
     - ReactiveObjC
 
@@ -34,7 +34,7 @@ DEPENDENCIES:
   - SWExtension/Core (from `./`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - MBProgressHUD
     - ReactiveObjC
 
@@ -45,8 +45,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SWExtension: ddce6a3fea099d2832d52aa0c488592e143f6f6c
+  SWExtension: ec9aa2e7b6131789a89e6f480c6263f77a74389f
 
 PODFILE CHECKSUM: 7ea270dc71ad25db5fcfb3c721f7a098d629cda2
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.8.0
