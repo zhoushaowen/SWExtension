@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24077A7031FD7AD0902F6478 /* libPods-SWExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */; };
+		36071C3E239662C700E46076 /* SingletonTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36071C3D239662C700E46076 /* SingletonTestViewController.m */; };
+		36071C42239662EC00E46076 /* MyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 36071C41239662EC00E46076 /* MyUtil.m */; };
 		364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */; };
 		3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1BD20C521A2006492FD /* MainTableViewController.m */; };
 		3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1C520C52C8F006492FD /* ImagePickerController.m */; };
@@ -24,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36071C3C239662C700E46076 /* SingletonTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingletonTestViewController.h; sourceTree = "<group>"; };
+		36071C3D239662C700E46076 /* SingletonTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingletonTestViewController.m; sourceTree = "<group>"; };
+		36071C40239662EC00E46076 /* MyUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUtil.h; sourceTree = "<group>"; };
+		36071C41239662EC00E46076 /* MyUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUtil.m; sourceTree = "<group>"; };
 		364FF88C20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayAndDictionaryChineseOutputController.h; sourceTree = "<group>"; };
 		364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayAndDictionaryChineseOutputController.m; sourceTree = "<group>"; };
 		3657F1BC20C521A2006492FD /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
@@ -68,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36071C3F239662DE00E46076 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36071C40239662EC00E46076 /* MyUtil.h */,
+				36071C41239662EC00E46076 /* MyUtil.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		3657F1CE20C52F3C006492FD /* ViewContollers */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +99,8 @@
 				36F143722297CDA100408E60 /* MicrophoneAuthorizationViewController.m */,
 				36F143772297D10D00408E60 /* CameraAuthorizationViewController.h */,
 				36F143782297D10D00408E60 /* CameraAuthorizationViewController.m */,
+				36071C3C239662C700E46076 /* SingletonTestViewController.h */,
+				36071C3D239662C700E46076 /* SingletonTestViewController.m */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -113,6 +130,7 @@
 				369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */,
 				3657F1BC20C521A2006492FD /* MainTableViewController.h */,
 				3657F1BD20C521A2006492FD /* MainTableViewController.m */,
+				36071C3F239662DE00E46076 /* Model */,
 				3657F1CE20C52F3C006492FD /* ViewContollers */,
 				369B7AAC1E9B7A6C00F99CB3 /* Main.storyboard */,
 				369B7AAF1E9B7A6C00F99CB3 /* Assets.xcassets */,
@@ -273,8 +291,10 @@
 			files = (
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,
+				36071C42239662EC00E46076 /* MyUtil.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
 				36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */,
+				36071C3E239662C700E46076 /* SingletonTestViewController.m in Sources */,
 				3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */,
 				36F143792297D10D00408E60 /* CameraAuthorizationViewController.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,

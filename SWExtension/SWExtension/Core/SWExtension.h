@@ -6,10 +6,14 @@
 //  Copyright © 2017年 yidu. All rights reserved.
 //
 
+#ifndef _SWEXTENSION_
+#define _SWEXTENSION_
+
 #import <Foundation/Foundation.h>
 
-#ifndef _SWEXTENSION_
-    #define _SWEXTENSION_
+//const
+#import "SWExtensionConst.h"
+
 //Foundation
 #import "NSString+SWDate.h"
 #import "NSString+SWHash.h"

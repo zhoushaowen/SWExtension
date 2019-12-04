@@ -26,6 +26,7 @@
                     @"SpeechRecognizerAuthorizationViewController",
                     @"MicrophoneAuthorizationViewController",
                     @"CameraAuthorizationViewController",
+                    @"SingletonTestViewController",
                     ];
 }
 
