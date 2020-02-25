@@ -42,7 +42,7 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
 @implementation UIViewController (SWImagePicker)
 
 #pragma mark - Public
-- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType isAllowsEditing:(BOOL)allowsEditing delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType isAllowsEditing:(BOOL)allowsEditing delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo __deprecated {
     self.swImagePickerDelegate = delegate;
     if(![UIImagePickerController isSourceTypeAvailable:sourceType])
     {
@@ -76,17 +76,68 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     [self presentViewController:imagePickerController animated:YES completion:nil];
     return imagePickerController;
 }
-- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+
+- (void)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType config:(void(^)(UIImagePickerController *picker))config delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+    self.swImagePickerDelegate = delegate;
+    if(![UIImagePickerController isSourceTypeAvailable:sourceType])
+    {
+        [self showAlertWithSourceType:sourceType];
+        return;
+    }
+    if(sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        SEL sel = NSSelectorFromString(@"sw_isHaveCameraAuthorizationWithAlertViewController:");
+        if(![NSObject respondsToSelector:sel]){
+            NSAssert(NO, @"\"sw_isHaveCameraAuthorizationWithAlertViewController:\"方法找不到,请导入 pod \"SWExtension/Authorization/Camera\"");
+        }
+        if(![[NSObject performSelector:sel withObject:self] boolValue])
+            return;
+    }else if (sourceType == UIImagePickerControllerSourceTypePhotoLibrary || sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum)
+    {
+        SEL sel = NSSelectorFromString(@"sw_isHavePhotoLibarayAuthorizationWithAlertViewController:");
+        if(![NSObject respondsToSelector:sel]){
+            NSAssert(NO, @"\"sw_isHavePhotoLibarayAuthorizationWithAlertViewController:\"方法找不到,请导入 pod \"SWExtension/Authorization/PhotoLibrary\"");
+        }
+        if(![[NSObject performSelector:sel withObject:self] boolValue])
+            return;
+    }
+    SWImagePickerController *imagePickerController = [[SWImagePickerController alloc] init];
+    imagePickerController.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeImage;
+    imagePickerController.sourceType = sourceType;
+    if(config){
+        config(imagePickerController);
+    }
+    imagePickerController.delegate = self;
+    imagePickerController.sw_imagePickerUserInfo = userInfo;
+    imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo __deprecated {
     return [self sw_presentImagePickerControllerWithSourceType:sourceType isAllowsEditing:NO delegate:delegate userInfo:userInfo];
 }
 
-- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo __deprecated {
     SWImagePickerController *picker = (SWImagePickerController *)[self sw_presentImagePickerControllerWithSourceType:sourceType delegate:delegate userInfo:userInfo];
     picker.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeMovie;
     NSString *type = (__bridge_transfer NSString *)kUTTypeMovie;
     picker.mediaTypes = @[type];
     return picker;
 }
+
+- (void)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType config:(void(^)(UIImagePickerController *picker))config delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo {
+    [self sw_presentImagePickerControllerWithSourceType:sourceType config:^(UIImagePickerController *picker) {
+        SWImagePickerController *swPicker = (SWImagePickerController *)picker;
+        swPicker.sw_PickerControllerMediaType = SWImagePickerControllerMediaTypeMovie;
+        NSString *type = (__bridge_transfer NSString *)kUTTypeMovie;
+        swPicker.mediaTypes = @[type];
+        if(config){
+            config(picker);
+        }
+    } delegate:delegate userInfo:userInfo];
+}
+
 
 - (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate __deprecated_msg("Use 'sw_presentImagePickerControllerWithSourceType:delegate:userInfo:'") {
     return [self sw_presentImagePickerControllerWithSourceType:sourceType delegate:delegate userInfo:nil];

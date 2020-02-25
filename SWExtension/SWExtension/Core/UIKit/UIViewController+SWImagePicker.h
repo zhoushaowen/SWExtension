@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @protocol SWImagePickerControllerDelegate <NSObject>
 
 @optional
@@ -23,6 +24,18 @@
 
 @interface UIViewController (SWImagePicker)
 
+- (void)sw_presentImagePickerControllerWithSourceType:
+(UIImagePickerControllerSourceType)sourceType config:
+(void(^)(UIImagePickerController *picker))config delegate:
+(id<SWImagePickerControllerDelegate>)delegate userInfo:
+(id)userInfo;
+
+- (void)sw_presentVideoPickerControllerWithSourceType:
+(UIImagePickerControllerSourceType)sourceType config:
+(void(^)(UIImagePickerController *picker))config delegate:
+(id<SWImagePickerControllerDelegate>)delegate userInfo:
+(id)userInfo;
+
 /**
  弹出照片选择器 allowsEditing NO
  
@@ -30,9 +43,9 @@
  @param delegate 代理
  @return 照片选择器
  */
-- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo;
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo __deprecated;
 
-- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType isAllowsEditing:(BOOL)allowsEditing delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo;
+- (UIImagePickerController *)sw_presentImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType isAllowsEditing:(BOOL)allowsEditing delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo __deprecated;
 
 /**
  弹出视频选择
@@ -41,7 +54,7 @@
  @param delegate 代理
  @return 选择器
  */
-- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo;
+- (UIImagePickerController *)sw_presentVideoPickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType delegate:(id<SWImagePickerControllerDelegate>)delegate userInfo:(id)userInfo __deprecated;
 
 /**
  弹出照片选择器
