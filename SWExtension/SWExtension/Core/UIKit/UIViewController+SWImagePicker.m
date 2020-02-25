@@ -72,6 +72,7 @@ static void *SWImagePickerDelegate_Key = &SWImagePickerDelegate_Key;
     imagePickerController.delegate = self;
     imagePickerController.allowsEditing = allowsEditing;
     imagePickerController.sw_imagePickerUserInfo = userInfo;
+    imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:imagePickerController animated:YES completion:nil];
     return imagePickerController;
 }
