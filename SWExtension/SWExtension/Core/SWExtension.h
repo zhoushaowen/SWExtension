@@ -20,6 +20,7 @@
 #import "NSString+SWEmoji.h"
 #import "NSString+SWValid.h"
 #import "NSString+SWExtension.h"
+#import "NSString+MaLing.h"
 #import "NSTimer+SWUnRetainTimer.h"
 #import "NSDate+SWExtension.h"
 #import "NSArray+SWSafe.h"
