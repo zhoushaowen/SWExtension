@@ -14,4 +14,6 @@
  */
 + (instancetype)emojiWithHexString:(NSString *)hexStr;
 
+- (BOOL)sw_isContainEmojiString;
+
 @end
