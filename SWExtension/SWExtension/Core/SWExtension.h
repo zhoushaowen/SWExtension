@@ -24,6 +24,7 @@
 #import "NSTimer+SWUnRetainTimer.h"
 #import "NSDate+SWExtension.h"
 #import "NSArray+SWSafe.h"
+#import "NSMutableAttributedString+SWExtension.h"
 
 //UIKit
 #import "UIImage+SWExtension.h"
