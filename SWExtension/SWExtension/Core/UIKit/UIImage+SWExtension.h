@@ -45,6 +45,11 @@
 ///拉伸图片
 - (UIImage *)sw_stretchableImage;
 - (UIImage *)sw_resizableImageWithCapInsets:(UIEdgeInsets)insets;
+
+/// 截图功能
+/// @param view 要截取哪个view
+- (UIImage *)sw_captureImageFromView:(UIView *)view;
+
 #pragma mark - deprecated
 /**拉伸图片 已废弃*/
 + (UIImage *)sw_stretchableImageWithOriginalImage:(UIImage *)image __deprecated_msg("Use 'sw_stretchableImage'");

@@ -149,5 +149,16 @@
     return [[UIImage alloc] initWithData:data];
 }
 
+#pragma mark - 截图
+- (UIImage *)sw_captureImageFromView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, [UIScreen mainScreen].scale);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [view.layer renderInContext:ctx];
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 
 @end
