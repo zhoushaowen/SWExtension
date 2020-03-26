@@ -48,7 +48,7 @@
 
 /// 截图功能
 /// @param view 要截取哪个view
-- (UIImage *)sw_captureImageFromView:(UIView *)view;
++ (UIImage *)sw_captureImageFromView:(UIView *)view;
 
 #pragma mark - deprecated
 /**拉伸图片 已废弃*/
