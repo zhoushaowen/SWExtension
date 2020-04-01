@@ -21,6 +21,8 @@
 		369B7AB31E9B7A6C00F99CB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AB11E9B7A6C00F99CB3 /* LaunchScreen.storyboard */; };
 		36C67B61241A67F8009FADCC /* EmojiTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C67B5F241A67F8009FADCC /* EmojiTestViewController.m */; };
 		36C67B62241A67F8009FADCC /* EmojiTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C67B60241A67F8009FADCC /* EmojiTestViewController.xib */; };
+		36E4874E24342B1E0051A659 /* BorderStyleTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */; };
+		36E4874F24342B1E0051A659 /* BorderStyleTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */; };
 		36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436C2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m */; };
 		36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436F2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m */; };
 		36F143732297CDA100408E60 /* MicrophoneAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F143722297CDA100408E60 /* MicrophoneAuthorizationViewController.m */; };
@@ -52,6 +54,9 @@
 		36C67B5E241A67F8009FADCC /* EmojiTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiTestViewController.h; sourceTree = "<group>"; };
 		36C67B5F241A67F8009FADCC /* EmojiTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiTestViewController.m; sourceTree = "<group>"; };
 		36C67B60241A67F8009FADCC /* EmojiTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiTestViewController.xib; sourceTree = "<group>"; };
+		36E4874B24342B1E0051A659 /* BorderStyleTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorderStyleTestViewController.h; sourceTree = "<group>"; };
+		36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorderStyleTestViewController.m; sourceTree = "<group>"; };
+		36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorderStyleTestViewController.xib; sourceTree = "<group>"; };
 		36F1436B2297C41B00408E60 /* PhotoLibraryAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoLibraryAuthorizationViewController.h; sourceTree = "<group>"; };
 		36F1436C2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoLibraryAuthorizationViewController.m; sourceTree = "<group>"; };
 		36F1436E2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechRecognizerAuthorizationViewController.h; sourceTree = "<group>"; };
@@ -109,6 +114,9 @@
 				36C67B5E241A67F8009FADCC /* EmojiTestViewController.h */,
 				36C67B5F241A67F8009FADCC /* EmojiTestViewController.m */,
 				36C67B60241A67F8009FADCC /* EmojiTestViewController.xib */,
+				36E4874B24342B1E0051A659 /* BorderStyleTestViewController.h */,
+				36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */,
+				36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E4874F24342B1E0051A659 /* BorderStyleTestViewController.xib in Resources */,
 				3657F1C820C52D00006492FD /* ImagePickerController.xib in Resources */,
 				369B7AB31E9B7A6C00F99CB3 /* LaunchScreen.storyboard in Resources */,
 				36C67B62241A67F8009FADCC /* EmojiTestViewController.xib in Resources */,
@@ -309,6 +318,7 @@
 				36F143792297D10D00408E60 /* CameraAuthorizationViewController.m in Sources */,
 				369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */,
 				36F143732297CDA100408E60 /* MicrophoneAuthorizationViewController.m in Sources */,
+				36E4874E24342B1E0051A659 /* BorderStyleTestViewController.m in Sources */,
 				36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

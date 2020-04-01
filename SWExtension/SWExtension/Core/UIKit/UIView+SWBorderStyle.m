@@ -67,7 +67,8 @@
         if(self.sw_topBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_topBorderLine];
         }
-        self.sw_topBorderLine.frame = CGRectMake(0, 0, self.bounds.size.width, self.sw_borderTopWidth);
+        UIEdgeInsets insets = self.sw_insetsForBorderTop;
+        self.sw_topBorderLine.frame = CGRectMake(insets.top, insets.left, self.bounds.size.width - insets.left - insets.right, self.sw_borderTopWidth);
     }else{
         [self.sw_topBorderLine removeFromSuperlayer];
     }
@@ -80,7 +81,8 @@
         if(self.sw_leftBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_leftBorderLine];
         }
-        self.sw_leftBorderLine.frame = CGRectMake(0, 0, self.sw_borderLeftWidth, self.bounds.size.height);
+        UIEdgeInsets insets = self.sw_insetsForBorderLeft;
+        self.sw_leftBorderLine.frame = CGRectMake(insets.left, insets.top, self.sw_borderLeftWidth, self.bounds.size.height - insets.top - insets.bottom);
     }else{
         [self.sw_leftBorderLine removeFromSuperlayer];
     }
@@ -93,7 +95,8 @@
         if(self.sw_bottomBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_bottomBorderLine];
         }
-        self.sw_bottomBorderLine.frame = CGRectMake(0, self.bounds.size.height - self.sw_borderBottomWidth, self.bounds.size.width, self.sw_borderBottomWidth);
+        UIEdgeInsets insets = self.sw_insetsForBorderBottom;
+        self.sw_bottomBorderLine.frame = CGRectMake(insets.left, self.bounds.size.height - self.sw_borderBottomWidth - insets.bottom, self.bounds.size.width - insets.left - insets.right, self.sw_borderBottomWidth);
     }else{
         [self.sw_bottomBorderLine removeFromSuperlayer];
     }
@@ -106,7 +109,8 @@
         if(self.sw_rightBorderLine.superlayer != self.layer){
             [self.layer addSublayer:self.sw_rightBorderLine];
         }
-        self.sw_rightBorderLine.frame = CGRectMake(0, self.bounds.size.width - self.sw_borderRightWidth, self.sw_borderRightWidth, self.bounds.size.height);
+        UIEdgeInsets insets = self.sw_insetsForBorderRight;
+        self.sw_rightBorderLine.frame = CGRectMake(self.bounds.size.width - self.sw_borderRightWidth - insets.right, insets.top, self.sw_borderRightWidth, self.bounds.size.height - insets.top - insets.bottom);
     }else{
         [self.sw_rightBorderLine removeFromSuperlayer];
     }
@@ -234,6 +238,43 @@
         color = [UIColor blackColor];
     }
     return color;
+}
+
+#pragma mark - insets
+- (void)setSw_insetsForBorderTop:(UIEdgeInsets)sw_insetsForBorderTop {
+    objc_setAssociatedObject(self, @selector(sw_insetsForBorderTop), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderTop], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self sw_updateBorderStyle];
+}
+
+- (UIEdgeInsets)sw_insetsForBorderTop {
+    return [objc_getAssociatedObject(self, @selector(sw_insetsForBorderTop)) UIEdgeInsetsValue];
+}
+
+- (void)setSw_insetsForBorderLeft:(UIEdgeInsets)sw_insetsForBorderLeft {
+    objc_setAssociatedObject(self, @selector(sw_insetsForBorderLeft), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderLeft], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self sw_updateBorderStyle];
+}
+
+- (UIEdgeInsets)sw_insetsForBorderLeft {
+    return [objc_getAssociatedObject(self, @selector(sw_insetsForBorderLeft)) UIEdgeInsetsValue];
+}
+
+- (void)setSw_insetsForBorderBottom:(UIEdgeInsets)sw_insetsForBorderBottom {
+    objc_setAssociatedObject(self, @selector(sw_insetsForBorderBottom), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderBottom], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self sw_updateBorderStyle];
+}
+
+- (UIEdgeInsets)sw_insetsForBorderBottom {
+    return [objc_getAssociatedObject(self, @selector(sw_insetsForBorderBottom)) UIEdgeInsetsValue];
+}
+
+- (void)setSw_insetsForBorderRight:(UIEdgeInsets)sw_insetsForBorderRight {
+    objc_setAssociatedObject(self, @selector(sw_insetsForBorderRight), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderRight], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self sw_updateBorderStyle];
+}
+
+- (UIEdgeInsets)sw_insetsForBorderRight {
+    return [objc_getAssociatedObject(self, @selector(sw_insetsForBorderRight)) UIEdgeInsetsValue];
 }
 
 

@@ -27,7 +27,8 @@
                     @"MicrophoneAuthorizationViewController",
                     @"CameraAuthorizationViewController",
                     @"SingletonTestViewController",
-                    @"EmojiTestViewController"
+                    @"EmojiTestViewController",
+                    @"BorderStyleTestViewController"
                     ];
 }
 
