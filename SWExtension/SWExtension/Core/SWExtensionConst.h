@@ -44,7 +44,6 @@ static dispatch_once_t onceToken2;\
     NSLog(@"----%@---%s",self,__func__);\
 }
 
-#endif
 
 
 #define SWCreateColorWithHex(hex) [UIColor colorWithHexString:@#hex]
@@ -67,3 +66,5 @@ static dispatch_once_t onceToken2;\
 #define SWIsIPhoneXSeries UIDevice.sw_isIPhoneXSeries
 #define SWImageWithName(name) [UIImage imageNamed:@#name]
 
+
+#endif
