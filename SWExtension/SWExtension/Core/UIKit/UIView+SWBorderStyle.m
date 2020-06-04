@@ -8,119 +8,150 @@
 
 #import "UIView+SWBorderStyle.h"
 #import <objc/runtime.h>
-#import <NSObject+RACKVOWrapper.h>
-#import <RACEXTScope.h>
+
+typedef NS_ENUM(NSUInteger, SWExtensionBorderStyleViewType) {
+    SWExtensionBorderStyleViewTypeTop,
+    SWExtensionBorderStyleViewTypeLeft,
+    SWExtensionBorderStyleViewTypeBottom,
+    SWExtensionBorderStyleViewTypeRight,
+};
+
+@interface SWExtensionBorderStyleView : UIView
+
+@property (nonatomic) SWExtensionBorderStyleViewType borderType;
+@property (nonatomic) UIEdgeInsets insets;
+@property (nonatomic) CGFloat borderWidth;
+
+@end
+
+@implementation SWExtensionBorderStyleView
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    UIEdgeInsets insets = self.insets;
+    switch (self.borderType) {
+        case SWExtensionBorderStyleViewTypeTop:
+            {
+                self.frame = CGRectMake(insets.top, insets.left, self.superview.bounds.size.width - insets.left - insets.right, self.borderWidth);
+            }
+            break;
+        case SWExtensionBorderStyleViewTypeLeft:
+            {
+                self.frame = CGRectMake(insets.left, insets.top, self.borderWidth, self.superview.bounds.size.height - insets.top - insets.bottom);
+            }
+            break;
+        case SWExtensionBorderStyleViewTypeBottom:
+            {
+                self.frame = CGRectMake(insets.left, self.superview.bounds.size.height - self.borderWidth - insets.bottom, self.superview.bounds.size.width - insets.left - insets.right, self.borderWidth);
+            }
+            break;
+        case SWExtensionBorderStyleViewTypeRight:
+            {
+                self.frame = CGRectMake(self.superview.bounds.size.width - self.borderWidth - insets.right, insets.top, self.borderWidth, self.superview.bounds.size.height - insets.top - insets.bottom);
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+@end
 
 @interface UIView ()
 
-@property (nonatomic,strong) CALayer *sw_topBorderLine;
-@property (nonatomic,strong) CALayer *sw_leftBorderLine;
-@property (nonatomic,strong) CALayer *sw_bottomBorderLine;
-@property (nonatomic,strong) CALayer *sw_rightBorderLine;
+@property (nonatomic,strong) SWExtensionBorderStyleView *sw_topBorderLine;
+@property (nonatomic,strong) SWExtensionBorderStyleView *sw_leftBorderLine;
+@property (nonatomic,strong) SWExtensionBorderStyleView *sw_bottomBorderLine;
+@property (nonatomic,strong) SWExtensionBorderStyleView *sw_rightBorderLine;
 
 @end
 
 @implementation UIView (SWBorderStyle)
 
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self exchangeSystemSel:@selector(initWithFrame:) withCustomSel:@selector(swBorderStyle_initWithFrame:)];
-        [self exchangeSystemSel:@selector(initWithCoder:) withCustomSel:@selector(swBorderStyle_initWithCoder:)];
-    });
-}
-
-+ (void)exchangeSystemSel:(SEL)sysSel withCustomSel:(SEL)cusSel {
-    Method sysM = class_getInstanceMethod([self class], sysSel);
-    Method cusM = class_getInstanceMethod([self class], cusSel);
-    if(class_addMethod([self class], sysSel, method_getImplementation(cusM), method_getTypeEncoding(cusM))){
-        class_replaceMethod([self class], cusSel, method_getImplementation(sysM), method_getTypeEncoding(sysM));
-    }else{
-        method_exchangeImplementations(sysM, cusM);
-    }
-}
-
-- (instancetype)swBorderStyle_initWithFrame:(CGRect)frame {
-    @weakify(self)
-    [self rac_observeKeyPath:@"frame" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:self block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
-        @strongify(self)
-        [self sw_updateBorderStyle];
-    }];
-    return [self swBorderStyle_initWithFrame:frame];
-}
-
-- (instancetype)swBorderStyle_initWithCoder:(NSCoder *)aDecoder {
-    @weakify(self)
-    [self rac_observeKeyPath:@"frame" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:self block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
-        @strongify(self)
-        [self sw_updateBorderStyle];
-    }];
-    return [self swBorderStyle_initWithCoder:aDecoder];
-}
-
-- (void)sw_updateBorderStyle {
+- (void)sw_updateBorderStyle:(BOOL)isNeedsLayout {
     if(self.sw_borderTopWidth > 0){
         if(self.sw_topBorderLine == nil){
-            self.sw_topBorderLine = [CALayer layer];
-            self.sw_topBorderLine.backgroundColor = self.sw_borderTopColor.CGColor;
+            self.sw_topBorderLine = [[SWExtensionBorderStyleView alloc] init];
+            self.sw_topBorderLine.backgroundColor = self.sw_borderTopColor;
+            self.sw_topBorderLine.borderType = SWExtensionBorderStyleViewTypeTop;
         }
-        if(self.sw_topBorderLine.superlayer != self.layer){
-            [self.layer addSublayer:self.sw_topBorderLine];
+        self.sw_topBorderLine.insets = self.sw_insetsForBorderTop;
+        self.sw_topBorderLine.borderWidth = self.sw_borderTopWidth;
+        if(self.sw_topBorderLine.superview != self){
+            [self addSubview:self.sw_topBorderLine];
+            [self.sw_topBorderLine setNeedsLayout];
         }
-        UIEdgeInsets insets = self.sw_insetsForBorderTop;
-        self.sw_topBorderLine.frame = CGRectMake(insets.top, insets.left, self.bounds.size.width - insets.left - insets.right, self.sw_borderTopWidth);
+        if(isNeedsLayout){
+            [self.sw_topBorderLine setNeedsLayout];
+        }
     }else{
-        [self.sw_topBorderLine removeFromSuperlayer];
+        [self.sw_topBorderLine removeFromSuperview];
     }
     
     if(self.sw_borderLeftWidth > 0){
         if(self.sw_leftBorderLine == nil){
-            self.sw_leftBorderLine = [CALayer layer];
-            self.sw_leftBorderLine.backgroundColor = self.sw_borderLeftColor.CGColor;
+            self.sw_leftBorderLine = [[SWExtensionBorderStyleView alloc] init];
+            self.sw_leftBorderLine.backgroundColor = self.sw_borderLeftColor;
+            self.sw_leftBorderLine.borderType = SWExtensionBorderStyleViewTypeLeft;
         }
-        if(self.sw_leftBorderLine.superlayer != self.layer){
-            [self.layer addSublayer:self.sw_leftBorderLine];
+        self.sw_leftBorderLine.insets = self.sw_insetsForBorderLeft;
+        self.sw_leftBorderLine.borderWidth = self.sw_borderLeftWidth;
+        if(self.sw_leftBorderLine.superview != self){
+            [self addSubview:self.sw_leftBorderLine];
+            [self.sw_leftBorderLine setNeedsLayout];
         }
-        UIEdgeInsets insets = self.sw_insetsForBorderLeft;
-        self.sw_leftBorderLine.frame = CGRectMake(insets.left, insets.top, self.sw_borderLeftWidth, self.bounds.size.height - insets.top - insets.bottom);
+        if(isNeedsLayout){
+            [self.sw_leftBorderLine setNeedsLayout];
+        }
     }else{
-        [self.sw_leftBorderLine removeFromSuperlayer];
+        [self.sw_leftBorderLine removeFromSuperview];
     }
     
     if(self.sw_borderBottomWidth > 0){
         if(self.sw_bottomBorderLine == nil){
-            self.sw_bottomBorderLine = [CALayer layer];
-            self.sw_bottomBorderLine.backgroundColor = self.sw_borderBottomColor.CGColor;
+            self.sw_bottomBorderLine = [[SWExtensionBorderStyleView alloc] init];
+            self.sw_bottomBorderLine.backgroundColor = self.sw_borderBottomColor;
+            self.sw_bottomBorderLine.borderType = SWExtensionBorderStyleViewTypeBottom;
         }
-        if(self.sw_bottomBorderLine.superlayer != self.layer){
-            [self.layer addSublayer:self.sw_bottomBorderLine];
+        self.sw_bottomBorderLine.insets = self.sw_insetsForBorderBottom;
+        self.sw_bottomBorderLine.borderWidth = self.sw_borderBottomWidth;
+        if(self.sw_bottomBorderLine.superview != self){
+            [self addSubview:self.sw_bottomBorderLine];
+            [self.sw_bottomBorderLine setNeedsLayout];
         }
-        UIEdgeInsets insets = self.sw_insetsForBorderBottom;
-        self.sw_bottomBorderLine.frame = CGRectMake(insets.left, self.bounds.size.height - self.sw_borderBottomWidth - insets.bottom, self.bounds.size.width - insets.left - insets.right, self.sw_borderBottomWidth);
+        if(isNeedsLayout){
+            [self.sw_bottomBorderLine setNeedsLayout];
+        }
     }else{
-        [self.sw_bottomBorderLine removeFromSuperlayer];
+        [self.sw_bottomBorderLine removeFromSuperview];
     }
     
     if(self.sw_borderRightWidth > 0){
         if(self.sw_rightBorderLine == nil){
-            self.sw_rightBorderLine = [CALayer layer];
-            self.sw_rightBorderLine.backgroundColor = self.sw_borderRightColor.CGColor;
+            self.sw_rightBorderLine = [[SWExtensionBorderStyleView alloc] init];
+            self.sw_rightBorderLine.backgroundColor = self.sw_borderRightColor;
+            self.sw_rightBorderLine.borderType = SWExtensionBorderStyleViewTypeRight;
         }
-        if(self.sw_rightBorderLine.superlayer != self.layer){
-            [self.layer addSublayer:self.sw_rightBorderLine];
+        self.sw_bottomBorderLine.insets = self.sw_insetsForBorderRight;
+        self.sw_bottomBorderLine.borderWidth = self.sw_borderBottomWidth;
+        if(self.sw_rightBorderLine.superview != self){
+            [self addSubview:self.sw_rightBorderLine];
+            [self.sw_rightBorderLine setNeedsLayout];
         }
-        UIEdgeInsets insets = self.sw_insetsForBorderRight;
-        self.sw_rightBorderLine.frame = CGRectMake(self.bounds.size.width - self.sw_borderRightWidth - insets.right, insets.top, self.sw_borderRightWidth, self.bounds.size.height - insets.top - insets.bottom);
+        if(isNeedsLayout){
+            [self.sw_rightBorderLine setNeedsLayout];
+        }
     }else{
-        [self.sw_rightBorderLine removeFromSuperlayer];
+        [self.sw_rightBorderLine removeFromSuperview];
     }
-    
 }
 
 #pragma mark - width
 - (void)setSw_borderTopWidth:(CGFloat)sw_borderTopWidth {
+    BOOL isNeedsLayout = sw_borderTopWidth != self.sw_borderTopWidth;
     objc_setAssociatedObject(self, @selector(sw_borderTopWidth), @(sw_borderTopWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (CGFloat)sw_borderTopWidth {
@@ -128,8 +159,9 @@
 }
 
 - (void)setSw_borderLeftWidth:(CGFloat)sw_borderLeftWidth {
+    BOOL isNeedsLayout = sw_borderLeftWidth != self.sw_borderLeftWidth;
     objc_setAssociatedObject(self, @selector(sw_borderLeftWidth), @(sw_borderLeftWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (CGFloat)sw_borderLeftWidth {
@@ -137,8 +169,9 @@
 }
 
 - (void)setSw_borderBottomWidth:(CGFloat)sw_borderBottomWidth {
+    BOOL isNeedsLayout = sw_borderBottomWidth != self.sw_borderBottomWidth;
     objc_setAssociatedObject(self, @selector(sw_borderBottomWidth), @(sw_borderBottomWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (CGFloat)sw_borderBottomWidth {
@@ -146,8 +179,9 @@
 }
 
 - (void)setSw_borderRightWidth:(CGFloat)sw_borderRightWidth {
+    BOOL isNeedsLayout = sw_borderRightWidth != self.sw_borderRightWidth;
     objc_setAssociatedObject(self, @selector(sw_borderRightWidth), @(sw_borderRightWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (CGFloat)sw_borderRightWidth {
@@ -190,7 +224,7 @@
 #pragma mark - color
 - (void)setSw_borderTopColor:(UIColor *)sw_borderTopColor {
     objc_setAssociatedObject(self, @selector(sw_borderTopColor), sw_borderTopColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.sw_topBorderLine.backgroundColor = sw_borderTopColor.CGColor;
+    self.sw_topBorderLine.backgroundColor = sw_borderTopColor;
 }
 
 - (UIColor *)sw_borderTopColor {
@@ -203,7 +237,7 @@
 
 - (void)setSw_borderLeftColor:(UIColor *)sw_borderLeftColor {
     objc_setAssociatedObject(self, @selector(sw_borderLeftColor), sw_borderLeftColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.sw_leftBorderLine.backgroundColor = sw_borderLeftColor.CGColor;
+    self.sw_leftBorderLine.backgroundColor = sw_borderLeftColor;
 }
 
 - (UIColor *)sw_borderLeftColor {
@@ -216,7 +250,7 @@
 
 - (void)setSw_borderBottomColor:(UIColor *)sw_borderBottomColor {
     objc_setAssociatedObject(self, @selector(sw_borderBottomColor), sw_borderBottomColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.sw_bottomBorderLine.backgroundColor = sw_borderBottomColor.CGColor;
+    self.sw_bottomBorderLine.backgroundColor = sw_borderBottomColor;
 }
 
 - (UIColor *)sw_borderBottomColor {
@@ -229,7 +263,7 @@
 
 - (void)setSw_borderRightColor:(UIColor *)sw_borderRightColor {
     objc_setAssociatedObject(self, @selector(sw_borderRightColor), sw_borderRightColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.sw_rightBorderLine.backgroundColor = sw_borderRightColor.CGColor;
+    self.sw_rightBorderLine.backgroundColor = sw_borderRightColor;
 }
 
 - (UIColor *)sw_borderRightColor {
@@ -242,8 +276,9 @@
 
 #pragma mark - insets
 - (void)setSw_insetsForBorderTop:(UIEdgeInsets)sw_insetsForBorderTop {
+    BOOL isNeedsLayout = !UIEdgeInsetsEqualToEdgeInsets(sw_insetsForBorderTop, self.sw_insetsForBorderTop);
     objc_setAssociatedObject(self, @selector(sw_insetsForBorderTop), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderTop], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (UIEdgeInsets)sw_insetsForBorderTop {
@@ -251,8 +286,9 @@
 }
 
 - (void)setSw_insetsForBorderLeft:(UIEdgeInsets)sw_insetsForBorderLeft {
+    BOOL isNeedsLayout = !UIEdgeInsetsEqualToEdgeInsets(sw_insetsForBorderLeft, self.sw_insetsForBorderLeft);
     objc_setAssociatedObject(self, @selector(sw_insetsForBorderLeft), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderLeft], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (UIEdgeInsets)sw_insetsForBorderLeft {
@@ -260,8 +296,9 @@
 }
 
 - (void)setSw_insetsForBorderBottom:(UIEdgeInsets)sw_insetsForBorderBottom {
+    BOOL isNeedsLayout = !UIEdgeInsetsEqualToEdgeInsets(sw_insetsForBorderBottom, self.sw_insetsForBorderBottom);
     objc_setAssociatedObject(self, @selector(sw_insetsForBorderBottom), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderBottom], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (UIEdgeInsets)sw_insetsForBorderBottom {
@@ -269,8 +306,9 @@
 }
 
 - (void)setSw_insetsForBorderRight:(UIEdgeInsets)sw_insetsForBorderRight {
+    BOOL isNeedsLayout = !UIEdgeInsetsEqualToEdgeInsets(sw_insetsForBorderRight, self.sw_insetsForBorderRight);
     objc_setAssociatedObject(self, @selector(sw_insetsForBorderRight), [NSValue valueWithUIEdgeInsets:sw_insetsForBorderRight], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sw_updateBorderStyle];
+    [self sw_updateBorderStyle:isNeedsLayout];
 }
 
 - (UIEdgeInsets)sw_insetsForBorderRight {
