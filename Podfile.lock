@@ -1,27 +1,27 @@
 PODS:
   - MBProgressHUD (1.0.0)
   - ReactiveObjC (3.1.1)
-  - SWExtension/Authorization/Camera (1.7.6.1):
+  - SWExtension/Authorization/Camera (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/Microphone (1.7.6.1):
+  - SWExtension/Authorization/Microphone (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/PhotoLibrary (1.7.6.1):
+  - SWExtension/Authorization/PhotoLibrary (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/SpeechRecognizer (1.7.6.1):
+  - SWExtension/Authorization/SpeechRecognizer (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Core (1.7.6.1):
+  - SWExtension/Core (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
-    - SWExtension/Core/Foundation (= 1.7.6.1)
-    - SWExtension/Core/UIKit (= 1.7.6.1)
-  - SWExtension/Core/Foundation (1.7.6.1):
+    - SWExtension/Core/Foundation (= 1.7.6.7)
+    - SWExtension/Core/UIKit (= 1.7.6.7)
+  - SWExtension/Core/Foundation (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Core/UIKit (1.7.6.1):
+  - SWExtension/Core/UIKit (1.7.6.7):
     - MBProgressHUD
     - ReactiveObjC
 
@@ -45,8 +45,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SWExtension: 94eabc6205753ccc90870908c70356d1288fab0d
+  SWExtension: 85d74e32fffe2fa1800558a31249d6ef71d3eca4
 
 PODFILE CHECKSUM: 7ea270dc71ad25db5fcfb3c721f7a098d629cda2
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

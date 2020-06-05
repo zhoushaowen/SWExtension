@@ -47,6 +47,7 @@
 #import "UIButton+SWExtension.h"
 #import "UIViewController+SWImagePicker.h"
 #import "UIViewController+SWAlertController.h"
+#import "UIViewController+SWExtension.h"
 #import "UIDevice+SWExtension.h"
 #import "UIApplication+SWExtension.h"
 #import "UIFont+SWExtension.h"
