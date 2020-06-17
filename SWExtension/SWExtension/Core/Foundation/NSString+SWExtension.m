@@ -38,4 +38,8 @@
     return str;
 }
 
+- (NSString *_Nullable)sw_trimming {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 @end
