@@ -42,4 +42,15 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
++ (NSString *)sw_fixAccuracyWithString:(NSString *)incorrectString {
+    double doubleValue = [incorrectString doubleValue];
+    NSDecimalNumber *number  = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lf",doubleValue]];
+    return [number stringValue];
+}
+
++ (NSString *)sw_fixAccuracyWithDouble:(double)incorrectDouble {
+    NSDecimalNumber *number  = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lf",incorrectDouble]];
+    return [number stringValue];
+}
+
 @end
