@@ -49,6 +49,8 @@
 /// 截图功能
 /// @param view 要截取哪个view
 + (UIImage *)sw_captureImageFromView:(UIView *)view;
+/// 截长图
++ (UIImage *)sw_screenshotLongImageFromScrollView:(UIScrollView *)scrollView;
 
 #pragma mark - deprecated
 /**拉伸图片 已废弃*/

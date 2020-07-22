@@ -160,5 +160,30 @@
     return image;
 }
 
++ (UIImage *)sw_screenshotLongImageFromScrollView:(UIScrollView *)scrollView
+{
+    // remove first
+    UIView *superView = scrollView.superview;
+    [scrollView removeFromSuperview];
+    UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, false, [UIScreen mainScreen].scale);
+    
+    CGPoint  savedContentOffset = scrollView.contentOffset;
+    CGRect savedFrame = scrollView.frame;
+    scrollView.contentOffset = CGPointZero;
+    scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+    
+    [scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    scrollView.contentOffset = savedContentOffset;
+    scrollView.frame = savedFrame;
+    
+    UIGraphicsEndImageContext();
+    
+    // add again
+    [superView addSubview:scrollView];
+        
+    return image;
+}
 
 @end
