@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, SWExtensionBorderStyleViewType) {
     switch (self.borderType) {
         case SWExtensionBorderStyleViewTypeTop:
             {
-                self.frame = CGRectMake(insets.top, insets.left, self.superview.bounds.size.width - insets.left - insets.right, self.borderWidth);
+                self.frame = CGRectMake(insets.left, insets.top, self.superview.bounds.size.width - insets.left - insets.right, self.borderWidth);
             }
             break;
         case SWExtensionBorderStyleViewTypeLeft:
