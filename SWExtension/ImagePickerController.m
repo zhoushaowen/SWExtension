@@ -9,6 +9,7 @@
 #import "ImagePickerController.h"
 #import <UIViewController+SWImagePicker.h>
 #import <UIView+SWExtension.h>
+#import <SWExtension.h>
 
 @interface ImagePickerController ()<SWImagePickerControllerDelegate>
 
@@ -23,6 +24,7 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf sw_presentImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary delegate:strongSelf userInfo:@123];
     }];
+
 }
 
 - (void)sw_imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image userInfo:(id)userInfo {
@@ -34,7 +36,7 @@
 }
 
 - (void)dealloc {
-    
+    NSLog(@"%s",__func__);
 }
 
 

@@ -7,49 +7,30 @@
 //
 
 #import "UIView+SWCornerStyle.h"
-#import <RACEXTScope.h>
-#import <NSObject+RACKVOWrapper.h>
-#import <RACDisposable.h>
+#import <ReactiveObjC.h>
 #import <objc/runtime.h>
 
 @interface UIView ()
 
-@property (nonatomic,strong) RACDisposable *swCornerStyleFrameDisposable;
-@property (nonatomic,strong) RACDisposable *swCornerStyleBoundsDisposable;
+@property (nonatomic,weak) RACDisposable *swCornerStyleDisposable;
 
 @end
 
 @implementation UIView (SWCornerStyle)
 
 - (void)sw_setRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii isHalfTheHeight:(BOOL)isHalfTheHeight {
-    if(self.swCornerStyleFrameDisposable){
-        [self.swCornerStyleFrameDisposable dispose];
+    if(self.swCornerStyleDisposable){
+        [self.swCornerStyleDisposable dispose];
     }
     @weakify(self)
-    self.swCornerStyleFrameDisposable = [self rac_observeKeyPath:@"frame" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:self block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+    self.swCornerStyleDisposable = [[RACSignal merge:@[RACObserve(self, frame),RACObserve(self, bounds)]] subscribeNext:^(RACTuple * _Nullable x) {
         @strongify(self)
         CGSize size = cornerRadii;
         if(isHalfTheHeight){
-            CGFloat value = self.bounds.size.height/2.0;
+            CGFloat value = self.frame.size.height/2.0;
             size = CGSizeMake(value, value);
         }
-        UIBezierPath *bezizerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:size];
-        CAShapeLayer *layer = [CAShapeLayer layer];
-        layer.path = bezizerPath.CGPath;
-        self.layer.mask = layer;
-    }];
-    if(self.swCornerStyleBoundsDisposable){
-        [self.swCornerStyleBoundsDisposable dispose];
-    }
-    //某些情况下基于autolayout布局的控件大小发生变化的时候不会触发frame的kvo,但是却会触发bounds的kvo
-    self.swCornerStyleBoundsDisposable = [self rac_observeKeyPath:@"bounds" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:self block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
-        @strongify(self)
-        CGSize size = cornerRadii;
-        if(isHalfTheHeight){
-            CGFloat value = self.bounds.size.height/2.0;
-            size = CGSizeMake(value, value);
-        }
-        UIBezierPath *bezizerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:size];
+        UIBezierPath *bezizerPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) byRoundingCorners:corners cornerRadii:size];
         CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = bezizerPath.CGPath;
         self.layer.mask = layer;
@@ -64,20 +45,13 @@
     [self sw_setRoundingCorners:corners cornerRadii:cornerRadii isHalfTheHeight:NO];
 }
 
-- (void)setSwCornerStyleFrameDisposable:(RACDisposable *)swCornerStyleFrameDisposable {
-    objc_setAssociatedObject(self, @selector(swCornerStyleFrameDisposable), swCornerStyleFrameDisposable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setSwCornerStyleDisposable:(RACDisposable *)swCornerStyleDisposable {
+    objc_setAssociatedObject(self, @selector(swCornerStyleDisposable), swCornerStyleDisposable, OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (RACDisposable *)swCornerStyleFrameDisposable {
-    return objc_getAssociatedObject(self, @selector(swCornerStyleFrameDisposable));
+- (RACDisposable *)swCornerStyleDisposable {
+    return objc_getAssociatedObject(self, @selector(swCornerStyleDisposable));
 }
 
-- (void)setSwCornerStyleBoundsDisposable:(RACDisposable *)swCornerStyleBoundsDisposable {
-    objc_setAssociatedObject(self, @selector(swCornerStyleBoundsDisposable), swCornerStyleBoundsDisposable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (RACDisposable *)swCornerStyleBoundsDisposable {
-    return objc_getAssociatedObject(self, @selector(swCornerStyleBoundsDisposable));
-}
 
 @end
