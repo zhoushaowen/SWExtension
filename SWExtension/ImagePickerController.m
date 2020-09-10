@@ -10,8 +10,10 @@
 #import <UIViewController+SWImagePicker.h>
 #import <UIView+SWExtension.h>
 #import <SWExtension.h>
+#import <ReactiveObjC.h>
 
 @interface ImagePickerController ()<SWImagePickerControllerDelegate>
+
 
 @end
 
@@ -23,6 +25,11 @@
     [self.view sw_addGestureRecognizerWithClass:[UITapGestureRecognizer class] delegate:nil actionBlock:^(UIGestureRecognizer *gestureRecognizer) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf sw_presentImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary delegate:strongSelf userInfo:@123];
+    }];
+    @weakify(self)
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationDidReceiveMemoryWarningNotification object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+        NSLog(@"UIApplicationDidReceiveMemoryWarningNotification:%@",self);
     }];
 
 }

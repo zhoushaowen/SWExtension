@@ -51,6 +51,7 @@
 #import "UIDevice+SWExtension.h"
 #import "UIApplication+SWExtension.h"
 #import "UIFont+SWExtension.h"
+#import "CALayer+SWExtension.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))

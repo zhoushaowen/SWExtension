@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIColor *)sw_colorWithDynamicProvider:(UIColor *_Nullable(^)(BOOL isDarkAppearance))dynamicProvider;
 
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END
