@@ -40,6 +40,7 @@
     SWScreenHeight;
     [self.window sw_setRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
 
+
     return YES;
 }
 

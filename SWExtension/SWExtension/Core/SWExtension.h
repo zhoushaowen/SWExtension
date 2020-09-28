@@ -23,7 +23,7 @@
 #import "NSString+MaLing.h"
 #import "NSTimer+SWUnRetainTimer.h"
 #import "NSDate+SWExtension.h"
-#import "NSArray+SWSafe.h"
+#import "NSObject+SWSafeServerResponse.h"
 #import "NSMutableAttributedString+SWExtension.h"
 
 //UIKit

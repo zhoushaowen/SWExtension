@@ -38,6 +38,7 @@
     if(delay > 0){
         [hud hideAnimated:YES afterDelay:delay];
     }
+    hud.userInteractionEnabled = NO;
     return hud;
 }
 

@@ -29,7 +29,8 @@
                     @"CameraAuthorizationViewController",
                     @"SingletonTestViewController",
                     @"EmojiTestViewController",
-                    @"BorderStyleTestViewController"
+                    @"BorderStyleTestViewController",
+                    @"SWSafeServerResponseTestVC"
                     ];
 }
 

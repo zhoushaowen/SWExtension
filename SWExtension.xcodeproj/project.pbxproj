@@ -27,6 +27,7 @@
 		36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436F2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m */; };
 		36F143732297CDA100408E60 /* MicrophoneAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F143722297CDA100408E60 /* MicrophoneAuthorizationViewController.m */; };
 		36F143792297D10D00408E60 /* CameraAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F143782297D10D00408E60 /* CameraAuthorizationViewController.m */; };
+		36F7A72B2521807400DF14D4 /* SWSafeServerResponseTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F7A72A2521807400DF14D4 /* SWSafeServerResponseTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		36F143782297D10D00408E60 /* CameraAuthorizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraAuthorizationViewController.m; sourceTree = "<group>"; };
 		36F143812297F3FD00408E60 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		36F143822297F3FD00408E60 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		36F7A7292521807400DF14D4 /* SWSafeServerResponseTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWSafeServerResponseTestVC.h; sourceTree = "<group>"; };
+		36F7A72A2521807400DF14D4 /* SWSafeServerResponseTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWSafeServerResponseTestVC.m; sourceTree = "<group>"; };
 		5EE19804DAD5498F292A0FA0 /* libPods-SWExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D1440579FE0C70CD38447 /* Pods-SWExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C896F51E9648F40135965C46 /* Pods-SWExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWExtension/Pods-SWExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				36E4874B24342B1E0051A659 /* BorderStyleTestViewController.h */,
 				36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */,
 				36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */,
+				36F7A7292521807400DF14D4 /* SWSafeServerResponseTestVC.h */,
+				36F7A72A2521807400DF14D4 /* SWSafeServerResponseTestVC.m */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -211,12 +216,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SW;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = yidu;
 				TargetAttributes = {
 					369B7A9F1E9B7A6C00F99CB3 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = J4CUZ29K74;
+						DevelopmentTeam = XGFBK8EPZK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -309,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
+				36F7A72B2521807400DF14D4 /* SWSafeServerResponseTestVC.m in Sources */,
 				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,
 				36071C42239662EC00E46076 /* MyUtil.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
@@ -361,15 +367,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -392,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -410,15 +425,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -435,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -447,9 +471,10 @@
 			baseConfigurationReference = B07D1440579FE0C70CD38447 /* Pods-SWExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J4CUZ29K74;
+				DEVELOPMENT_TEAM = XGFBK8EPZK;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = SWExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SWExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,9 +486,10 @@
 			baseConfigurationReference = C896F51E9648F40135965C46 /* Pods-SWExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J4CUZ29K74;
+				DEVELOPMENT_TEAM = XGFBK8EPZK;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = SWExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SWExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
