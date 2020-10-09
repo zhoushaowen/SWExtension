@@ -40,7 +40,7 @@
         else if (presentedViewController == self.tabBarController){
             UITabBarController *tabbar = (UITabBarController *)presentedViewController;
             UINavigationController *nav = (UINavigationController *)tabbar.selectedViewController;
-            if(nav.viewControllers.count > 1){
+            if([nav isKindOfClass:[UINavigationController class]] && nav.viewControllers.count > 1){
                 return SWExtensionControllerShouldBackTypePop;
             }
             return SWExtensionControllerShouldBackTypeDismiss;
