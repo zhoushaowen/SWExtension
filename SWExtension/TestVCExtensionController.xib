@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestVCExtensionController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-X8-Gbz">
+                    <rect key="frame" x="32" y="116" width="53" height="30"/>
+                    <state key="normal" title="present"/>
+                    <connections>
+                        <action selector="presentAction:" destination="-1" eventType="touchUpInside" id="SNd-qv-bxv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-Yo-gTf">
+                    <rect key="frame" x="32" y="162" width="62" height="30"/>
+                    <state key="normal" title="present2"/>
+                    <connections>
+                        <action selector="present2Action:" destination="-1" eventType="touchUpInside" id="24h-PM-X2U"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNN-Dc-IBL">
+                    <rect key="frame" x="32" y="211" width="62" height="30"/>
+                    <state key="normal" title="present3"/>
+                    <connections>
+                        <action selector="present3Action:" destination="-1" eventType="touchUpInside" id="Kce-ki-6Gw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ilf-Yo-gTf" firstAttribute="top" secondItem="fTh-X8-Gbz" secondAttribute="bottom" constant="16" id="2ZY-rj-B23"/>
+                <constraint firstItem="PNN-Dc-IBL" firstAttribute="leading" secondItem="ilf-Yo-gTf" secondAttribute="leading" id="7ut-2O-tKL"/>
+                <constraint firstItem="fTh-X8-Gbz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="32" id="W1K-Za-10M"/>
+                <constraint firstItem="ilf-Yo-gTf" firstAttribute="leading" secondItem="fTh-X8-Gbz" secondAttribute="leading" id="Yk5-mW-CMf"/>
+                <constraint firstItem="PNN-Dc-IBL" firstAttribute="top" secondItem="ilf-Yo-gTf" secondAttribute="bottom" constant="19" id="pYA-Wx-vQ1"/>
+                <constraint firstItem="fTh-X8-Gbz" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="72" id="taN-sr-qv4"/>
+            </constraints>
+            <point key="canvasLocation" x="43" y="55"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

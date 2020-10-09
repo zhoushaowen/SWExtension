@@ -10,9 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, SWExtensionControllerShouldBackType) {
+    SWExtensionControllerShouldBackTypeUnknown,
+    SWExtensionControllerShouldBackTypeDismiss,
+    SWExtensionControllerShouldBackTypePop,
+};
+
 @interface UIViewController (SWExtension)
 
 - (UINavigationController *_Nullable)sw_presentingNavigationController;
+
+- (SWExtensionControllerShouldBackType)sw_viewControllerShouldBackType;
+
++ (instancetype)sw_topViewController;
 
 @end
 

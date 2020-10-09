@@ -24,4 +24,57 @@
     return nav;
 }
 
+- (SWExtensionControllerShouldBackType)sw_viewControllerShouldBackType {
+    UIViewController *presentedViewController = self.presentingViewController.presentedViewController;
+    if(self.presentingViewController && presentedViewController){
+        if(presentedViewController == self){
+            return SWExtensionControllerShouldBackTypeDismiss;
+        }
+        else if (presentedViewController == self.navigationController){
+            UINavigationController *nav = (UINavigationController *)presentedViewController;
+            if(nav.viewControllers.count > 1){
+                return SWExtensionControllerShouldBackTypePop;
+            }
+            return SWExtensionControllerShouldBackTypeDismiss;
+        }
+        else if (presentedViewController == self.tabBarController){
+            UITabBarController *tabbar = (UITabBarController *)presentedViewController;
+            UINavigationController *nav = (UINavigationController *)tabbar.selectedViewController;
+            if(nav.viewControllers.count > 1){
+                return SWExtensionControllerShouldBackTypePop;
+            }
+            return SWExtensionControllerShouldBackTypeDismiss;
+        }
+    }
+    if(self.navigationController && self.navigationController.viewControllers.count > 1){
+        return SWExtensionControllerShouldBackTypePop;
+    }
+    return SWExtensionControllerShouldBackTypeUnknown;
+}
+
++ (instancetype)sw_topViewController {
+    UIViewController *rootVc = [UIApplication sharedApplication].delegate.window.rootViewController;
+    if([rootVc isKindOfClass:[UITabBarController class]]){
+        UITabBarController *tabbar = (UITabBarController *)rootVc;
+        UIViewController *selectedVc = tabbar.selectedViewController;
+        return [selectedVc __sw_topViewController];
+    }
+    else if ([rootVc isKindOfClass:[UINavigationController class]]){
+        UINavigationController *nav = (UINavigationController *)rootVc;
+        UIViewController *visbleVc = nav.visibleViewController;
+        return [visbleVc __sw_topViewController];
+    }
+    else{
+        return [rootVc __sw_topViewController];
+    }
+}
+
+- (instancetype)__sw_topViewController {
+    if(self.presentedViewController){
+        return [self.presentedViewController __sw_topViewController];
+    }else{
+        return self;
+    }
+}
+
 @end

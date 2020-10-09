@@ -30,7 +30,8 @@
                     @"SingletonTestViewController",
                     @"EmojiTestViewController",
                     @"BorderStyleTestViewController",
-                    @"SWSafeServerResponseTestVC"
+                    @"SWSafeServerResponseTestVC",
+                    @"TestVCExtensionController"
                     ];
 }
 

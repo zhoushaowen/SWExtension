@@ -19,7 +19,6 @@ typedef void(^SWGestureActionBlock)(UIGestureRecognizer *gestureRecognizer);
  */
 - (__kindof UIViewController *_Nullable)sw_viewController;
 
-
 /**
  给UIView添加手势
  */
