@@ -25,6 +25,7 @@
 #import "NSDate+SWExtension.h"
 #import "NSObject+SWSafeServerResponse.h"
 #import "NSMutableAttributedString+SWExtension.h"
+#import "NSArray+SWExtension.h"
 
 //UIKit
 #import "UIImage+SWExtension.h"

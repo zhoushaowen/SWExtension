@@ -23,6 +23,8 @@
 		36A8269A25231472001F2E00 /* TestVCExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A8269825231472001F2E00 /* TestVCExtensionController.xib */; };
 		36A8269F252314F1001F2E00 /* TestVCExtensionController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8269D252314F1001F2E00 /* TestVCExtensionController2.m */; };
 		36A826A0252314F1001F2E00 /* TestVCExtensionController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A8269E252314F1001F2E00 /* TestVCExtensionController2.xib */; };
+		36C2F09C25393F0B00FA4A06 /* TestNSArrayExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2F09A25393F0B00FA4A06 /* TestNSArrayExtensionController.m */; };
+		36C2F09D25393F0B00FA4A06 /* TestNSArrayExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C2F09B25393F0B00FA4A06 /* TestNSArrayExtensionController.xib */; };
 		36C67B61241A67F8009FADCC /* EmojiTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C67B5F241A67F8009FADCC /* EmojiTestViewController.m */; };
 		36C67B62241A67F8009FADCC /* EmojiTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C67B60241A67F8009FADCC /* EmojiTestViewController.xib */; };
 		36E4874E24342B1E0051A659 /* BorderStyleTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */; };
@@ -62,6 +64,9 @@
 		36A8269E252314F1001F2E00 /* TestVCExtensionController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestVCExtensionController2.xib; sourceTree = "<group>"; };
 		36AB4536229BB20A007CA644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		36AB4537229BB20A007CA644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		36C2F09925393F0B00FA4A06 /* TestNSArrayExtensionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestNSArrayExtensionController.h; sourceTree = "<group>"; };
+		36C2F09A25393F0B00FA4A06 /* TestNSArrayExtensionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestNSArrayExtensionController.m; sourceTree = "<group>"; };
+		36C2F09B25393F0B00FA4A06 /* TestNSArrayExtensionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestNSArrayExtensionController.xib; sourceTree = "<group>"; };
 		36C67B5E241A67F8009FADCC /* EmojiTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiTestViewController.h; sourceTree = "<group>"; };
 		36C67B5F241A67F8009FADCC /* EmojiTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiTestViewController.m; sourceTree = "<group>"; };
 		36C67B60241A67F8009FADCC /* EmojiTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiTestViewController.xib; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 				36A8269C252314F1001F2E00 /* TestVCExtensionController2.h */,
 				36A8269D252314F1001F2E00 /* TestVCExtensionController2.m */,
 				36A8269E252314F1001F2E00 /* TestVCExtensionController2.xib */,
+				36C2F09925393F0B00FA4A06 /* TestNSArrayExtensionController.h */,
+				36C2F09A25393F0B00FA4A06 /* TestNSArrayExtensionController.m */,
+				36C2F09B25393F0B00FA4A06 /* TestNSArrayExtensionController.xib */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 				36C67B62241A67F8009FADCC /* EmojiTestViewController.xib in Resources */,
 				369B7AB01E9B7A6C00F99CB3 /* Assets.xcassets in Resources */,
 				369B7AAE1E9B7A6C00F99CB3 /* Main.storyboard in Resources */,
+				36C2F09D25393F0B00FA4A06 /* TestNSArrayExtensionController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +348,7 @@
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
 				36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */,
 				36071C3E239662C700E46076 /* SingletonTestViewController.m in Sources */,
+				36C2F09C25393F0B00FA4A06 /* TestNSArrayExtensionController.m in Sources */,
 				3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */,
 				36C67B61241A67F8009FADCC /* EmojiTestViewController.m in Sources */,
 				36F143792297D10D00408E60 /* CameraAuthorizationViewController.m in Sources */,

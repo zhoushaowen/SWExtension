@@ -31,7 +31,8 @@
                     @"EmojiTestViewController",
                     @"BorderStyleTestViewController",
                     @"SWSafeServerResponseTestVC",
-                    @"TestVCExtensionController"
+                    @"TestVCExtensionController",
+                    @"TestNSArrayExtensionController"
                     ];
 }
 
