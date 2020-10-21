@@ -24,7 +24,7 @@
             }
         }];
     }];
-    return uniqueObjs;
+    return [uniqueObjs copy];
 }
 
 @end

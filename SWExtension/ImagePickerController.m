@@ -24,6 +24,7 @@
     __weak typeof(self) weakSelf = self;
     [self.view sw_addGestureRecognizerWithClass:[UITapGestureRecognizer class] delegate:nil actionBlock:^(UIGestureRecognizer *gestureRecognizer) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
+        NSLog(@"%@",strongSelf.tabBarController.tabBar);
         [strongSelf sw_presentImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary delegate:strongSelf userInfo:@123];
     }];
     @weakify(self)
@@ -32,6 +33,11 @@
         NSLog(@"UIApplicationDidReceiveMemoryWarningNotification:%@",self);
     }];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"%@",NSStringFromUIEdgeInsets(self.view.safeAreaInsets));
 }
 
 - (void)sw_imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image userInfo:(id)userInfo {

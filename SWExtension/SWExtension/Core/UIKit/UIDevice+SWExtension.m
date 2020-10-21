@@ -63,61 +63,118 @@
 }
 
 + (BOOL)sw_isIPhoneX __deprecated_msg("Use 'sw_isIPhoneXSeries'"){
-    static BOOL flag;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if([UIScreen mainScreen].bounds.size.width == 375 && [UIScreen mainScreen].bounds.size.height == 812) {
-            flag = YES;
-        }
-    });
-    return flag;
+    return [self sw_isIPhoneXSeries];
 }
 
 + (BOOL)sw_isIPhoneXSeries {
-    static BOOL flag;
+//    static BOOL flag;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        //        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//        //        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+//        //        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
+//        //            flag = YES;
+//        //        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
+//        //            flag = YES;
+//        //        }
+//        CGSize size = [UIScreen mainScreen].currentMode.size;
+//        if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size) ||//iPhone X
+//           CGSizeEqualToSize(CGSizeMake(828, 1792), size) ||//iPhone XR
+//           CGSizeEqualToSize(CGSizeMake(1242, 2688), size) //iPhone XS Max
+//           ){
+//            flag = YES;
+//        }
+//    });
+//    return flag;
+    return ![self sw_isNormalScreen];
+}
+
++ (BOOL)sw_isNormalScreen {
+    return [self sw_deviceModelType] == SWDeviceModelTypeNormal;
+}
+
++ (SWDeviceModelType)sw_deviceModelType {
+    static SWDeviceModelType deviceType = SWDeviceModelTypeNormal;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        //        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        //        CGFloat height = [UIScreen mainScreen].bounds.size.height;
-        //        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
-        //            flag = YES;
-        //        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
-        //            flag = YES;
-        //        }
         CGSize size = [UIScreen mainScreen].currentMode.size;
-        if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size) ||//iPhone X
-           CGSizeEqualToSize(CGSizeMake(828, 1792), size) ||//iPhone XR
-           CGSizeEqualToSize(CGSizeMake(1242, 2688), size)//iPhone XS Max
-           ){
-            flag = YES;
+        if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size)){
+            //iPhoneX,XS,11Pro
+            deviceType = SWDeviceModelTypeIPhoneX;
+        }
+        else if (CGSizeEqualToSize(CGSizeMake(828, 1792), size)) {
+            //XR,11
+            deviceType = SWDeviceModelTypeIPhoneXR;
+        }
+        else if (CGSizeEqualToSize(CGSizeMake(1242, 2688), size)){
+            //XSMax,11Pro Max
+            deviceType = SWDeviceModelTypeIPhoneXSMax;
+        }
+        else if (CGSizeEqualToSize(CGSizeMake(1125, 2436), size)){
+            deviceType = SWDeviceModelTypeIPhone12Mini;
+        }
+        else if (CGSizeEqualToSize(CGSizeMake(1170, 2532), size)){
+            //iPhone12 iPhone12Pro
+            deviceType = SWDeviceModelTypeIPhone12Pro;
+        }
+        else if (CGSizeEqualToSize(CGSizeMake(1284, 2778), size)){
+            deviceType = SWDeviceModelTypeIPhone12ProMax;
         }
     });
-    return flag;
+    return deviceType;
 }
 
 + (CGFloat)sw_navigationBarHeight {
-    if([self sw_isIPhoneXSeries]) return 88;//44 + 44
-    return 64;
+//    if([self sw_isIPhoneXSeries]) return 88;//44 + 44
+    SWDeviceModelType modelType = [self sw_deviceModelType];
+    if(modelType == SWDeviceModelTypeNormal) return 64;
+    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 88;
+    if(modelType == SWDeviceModelTypeIPhone12Mini) return 94;
+    if(modelType == SWDeviceModelTypeIPhone12) return 91;
+    if(modelType == SWDeviceModelTypeIPhone12Pro) return 91;
+    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 91;
+    return 88;
 }
 
 + (CGFloat)sw_tabBarHeight {
-    if([self sw_isIPhoneXSeries]) return 83;
-    return 49;
+//    if([self sw_isIPhoneXSeries]) return 83;
+    SWDeviceModelType modelType = [self sw_deviceModelType];
+    if(modelType == SWDeviceModelTypeNormal) return 49;
+    return 83;
 }
 
 + (CGFloat)sw_statusBarHeight {
-    if([self sw_isIPhoneXSeries]) return 44;
-    return 20;
+//    if([self sw_isIPhoneXSeries]) return 44;
+    SWDeviceModelType modelType = [self sw_deviceModelType];
+    if(modelType == SWDeviceModelTypeNormal) return 20;
+    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 44;
+    if(modelType == SWDeviceModelTypeIPhone12Mini) return 44;
+    if(modelType == SWDeviceModelTypeIPhone12) return 47;
+    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
+    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
+
+    return 44;
 }
 
 + (CGFloat)sw_safeTopInset {
 //    return self.sw_statusBarHeight - 20;
-    return self.sw_safeBottomInset;
+//    return self.sw_safeBottomInset;
+    SWDeviceModelType modelType = [self sw_deviceModelType];
+    if(modelType == SWDeviceModelTypeNormal) return 0.0;
+    if(modelType == SWDeviceModelTypeIPhoneXR) return 48.0;
+    if(modelType == SWDeviceModelTypeIPhone11) return 48.0;
+    if(modelType == SWDeviceModelTypeIPhone12Mini) return 50;
+    if(modelType == SWDeviceModelTypeIPhone12) return 47;
+    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
+    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
+    return 44;
 }
 
 + (CGFloat)sw_safeBottomInset {
-    if([self sw_isIPhoneXSeries]) return 34.0f;
-    return 0.0;
+//    if([self sw_isIPhoneXSeries]) return 34.0f;
+    SWDeviceModelType modelType = [self sw_deviceModelType];
+    if(modelType == SWDeviceModelTypeNormal) return 0.0;
+    return 34.0;
 }
 
 /*

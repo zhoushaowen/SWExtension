@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-//typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
-//    SWDeviceModelTypeNormal,//普通屏幕手机
-//    SWDeviceModelTypeIPhoneX,//iPhone X
-//    SWDeviceModelTypeIPhoneXR,//iPhone XR
-//    SWDeviceModelTypeIPhoneXS,//iPhone XS
-//    SWDeviceModelTypeIPhoneXSMax,//iPhone XS Max
-//};
+typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
+    SWDeviceModelTypeNormal,//普通屏幕手机
+    SWDeviceModelTypeIPhoneX,//iPhone X
+    SWDeviceModelTypeIPhoneXR,//iPhone XR
+    SWDeviceModelTypeIPhoneXS = SWDeviceModelTypeIPhoneX,////分辨率一样
+    SWDeviceModelTypeIPhoneXSMax,//iPhone XS Max
+    SWDeviceModelTypeIPhone11 = SWDeviceModelTypeIPhoneXR,//分辨率一样
+    SWDeviceModelTypeIPhone11Pro = SWDeviceModelTypeIPhoneX,//分辨率一样
+    SWDeviceModelTypeIPhone11ProMax = SWDeviceModelTypeIPhoneXSMax,//分辨率一样
+    SWDeviceModelTypeIPhone12Mini,
+    SWDeviceModelTypeIPhone12,
+    SWDeviceModelTypeIPhone12Pro = SWDeviceModelTypeIPhone12,
+    SWDeviceModelTypeIPhone12ProMax,
+};
 
 @interface UIDevice (SWExtension)
 
@@ -50,13 +57,19 @@
 /**
  是否是iPhone X系列(包含X、XR、XS、XS Max等刘海屏机型)
  */
-+ (BOOL)sw_isIPhoneXSeries;
++ (BOOL)sw_isIPhoneXSeries __deprecated_msg("Use 'sw_isNormalScreen'");
+
+//是否是普通屏幕手机 否则是刘海屏
++ (BOOL)sw_isNormalScreen;
+
++ (SWDeviceModelType)sw_deviceModelType;
+
 /**
  导航高度(包含状态栏的高度)
  */
 + (CGFloat)sw_navigationBarHeight;
 /**
- tabbar高度
+ tabbar高度(包括距离底部的安全距离)
  */
 + (CGFloat)sw_tabBarHeight;
 /**

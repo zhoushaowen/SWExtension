@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <SWExtension.h>
+#import "ImagePickerController.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +39,10 @@
     SWNavigationBarHeight;
     SWScreenWidth;
     SWScreenHeight;
+    NSLog(@"%d",[UIDevice sw_deviceModelType]);
     [self.window sw_setRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
+    
+    self.window.rootViewController = [ImagePickerController new];
 
     return YES;
 }
