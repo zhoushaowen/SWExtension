@@ -14,6 +14,7 @@
 		3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1BD20C521A2006492FD /* MainTableViewController.m */; };
 		3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1C520C52C8F006492FD /* ImagePickerController.m */; };
 		3657F1C820C52D00006492FD /* ImagePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3657F1C720C52D00006492FD /* ImagePickerController.xib */; };
+		3680463E2570F36E007881BA /* NSObject+SWExtensionMJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3680463D2570F36E007881BA /* NSObject+SWExtensionMJ.m */; };
 		369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA41E9B7A6C00F99CB3 /* main.m */; };
 		369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */; };
 		369B7AAE1E9B7A6C00F99CB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AAC1E9B7A6C00F99CB3 /* Main.storyboard */; };
@@ -48,6 +49,8 @@
 		3657F1C420C52C8F006492FD /* ImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		3657F1C520C52C8F006492FD /* ImagePickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerController.m; sourceTree = "<group>"; };
 		3657F1C720C52D00006492FD /* ImagePickerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerController.xib; sourceTree = "<group>"; };
+		3680463C2570F36E007881BA /* NSObject+SWExtensionMJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SWExtensionMJ.h"; sourceTree = "<group>"; };
+		3680463D2570F36E007881BA /* NSObject+SWExtensionMJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SWExtensionMJ.m"; sourceTree = "<group>"; };
 		369B7AA01E9B7A6C00F99CB3 /* SWExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369B7AA41E9B7A6C00F99CB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		369B7AA61E9B7A6C00F99CB3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 			children = (
 				369B7AA61E9B7A6C00F99CB3 /* AppDelegate.h */,
 				369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */,
+				3680463C2570F36E007881BA /* NSObject+SWExtensionMJ.h */,
+				3680463D2570F36E007881BA /* NSObject+SWExtensionMJ.m */,
 				3657F1BC20C521A2006492FD /* MainTableViewController.h */,
 				3657F1BD20C521A2006492FD /* MainTableViewController.m */,
 				36071C3F239662DE00E46076 /* Model */,
@@ -344,6 +349,7 @@
 				36F7A72B2521807400DF14D4 /* SWSafeServerResponseTestVC.m in Sources */,
 				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,
 				36A8269F252314F1001F2E00 /* TestVCExtensionController2.m in Sources */,
+				3680463E2570F36E007881BA /* NSObject+SWExtensionMJ.m in Sources */,
 				36071C42239662EC00E46076 /* MyUtil.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
 				36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */,

@@ -27,4 +27,14 @@
     return [uniqueObjs copy];
 }
 
+#pragma mark - 避免操作数组crash的方法
+- (id)sw_safe_objectAtIndex:(NSUInteger)index {
+    if(![self isKindOfClass:[NSArray class]]) return nil;
+    if(index > self.count - 1){
+        return nil;
+    }
+    if(self.count == 0) return nil;
+    return [self objectAtIndex:index];
+}
+
 @end

@@ -166,23 +166,40 @@
     UIView *superView = scrollView.superview;
     [scrollView removeFromSuperview];
     UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, false, [UIScreen mainScreen].scale);
-    
     CGPoint  savedContentOffset = scrollView.contentOffset;
     CGRect savedFrame = scrollView.frame;
+    CGRect savedBounds = scrollView.layer.bounds;
+    CGSize contentSize = scrollView.contentSize;
+    if(@available(iOS 13, *)){
+        //iOS 13 系统截屏需要改变tableview 的bounds
+         [scrollView.layer setBounds:CGRectMake(savedBounds.origin.x, savedBounds.origin.y, contentSize.width, contentSize.height)];
+    }
     scrollView.contentOffset = CGPointZero;
     scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
-    
+
+    if([scrollView isKindOfClass:[UITableView class]]){
+        UITableView *tableView = (UITableView *)scrollView;
+        //解决iOS14上无法超出屏幕部分无法截图的bug
+        [tableView beginUpdates];
+        [tableView endUpdates];
+    }
     [scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
+
     scrollView.contentOffset = savedContentOffset;
     scrollView.frame = savedFrame;
-    
+    if(@available(iOS 13,*)){
+        [scrollView.layer setBounds:savedBounds];
+    }
+    if([scrollView isKindOfClass:[UITableView class]]){
+        UITableView *tableView = (UITableView *)scrollView;
+        [tableView beginUpdates];
+        [tableView endUpdates];
+    }
     UIGraphicsEndImageContext();
-    
+
     // add again
     [superView addSubview:scrollView];
-        
     return image;
 }
 

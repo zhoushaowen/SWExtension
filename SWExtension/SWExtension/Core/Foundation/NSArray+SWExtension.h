@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param key 根据数组中对象的那个key来去重 如果数组中存的是NSNumber或者NSString类型传nil即可
 - (NSArray *)sw_removeDuplicatesByKey:(NSString *_Nullable)key;
 
+- (id)sw_safe_objectAtIndex:(NSUInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END

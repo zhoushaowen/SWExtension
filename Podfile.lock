@@ -1,42 +1,49 @@
 PODS:
   - MBProgressHUD (1.0.0)
+  - MJExtension (3.2.2)
   - ReactiveObjC (3.1.1)
-  - SWExtension/Authorization/Camera (1.14.1):
+  - SWExtension/Authorization/Camera (1.16):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/Microphone (1.14.1):
+  - SWExtension/Authorization/Microphone (1.16):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/PhotoLibrary (1.14.1):
+  - SWExtension/Authorization/PhotoLibrary (1.16):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Authorization/SpeechRecognizer (1.14.1):
+  - SWExtension/Authorization/SpeechRecognizer (1.16):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Core (1.14.1):
+  - SWExtension/Core (1.16):
     - MBProgressHUD
     - ReactiveObjC
-    - SWExtension/Core/Foundation (= 1.14.1)
-    - SWExtension/Core/UIKit (= 1.14.1)
-  - SWExtension/Core/Foundation (1.14.1):
+    - SWExtension/Core/Foundation (= 1.16)
+    - SWExtension/Core/UIKit (= 1.16)
+  - SWExtension/Core/Foundation (1.16):
     - MBProgressHUD
     - ReactiveObjC
-  - SWExtension/Core/UIKit (1.14.1):
+  - SWExtension/Core/UIKit (1.16):
     - MBProgressHUD
     - ReactiveObjC
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - MBProgressHUD
+  - MJExtension
   - SWExtension/Authorization/Camera (from `./`)
   - SWExtension/Authorization/Microphone (from `./`)
   - SWExtension/Authorization/PhotoLibrary (from `./`)
   - SWExtension/Authorization/SpeechRecognizer (from `./`)
   - SWExtension/Core (from `./`)
+  - YYModel
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - MBProgressHUD
     - ReactiveObjC
+    - YYModel
+  trunk:
+    - MJExtension
 
 EXTERNAL SOURCES:
   SWExtension:
@@ -44,9 +51,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SWExtension: 8dadcea6762c61e6ee6ba3f21391adc82885da64
+  SWExtension: 352491533ba210c92304bd256565c20541f485c8
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 7ea270dc71ad25db5fcfb3c721f7a098d629cda2
+PODFILE CHECKSUM: 8b924e4f4d7e9bfb8ce36b0de5ad9883d5f117f4
 
-COCOAPODS: 1.10.0.rc.1
+COCOAPODS: 1.10.0
