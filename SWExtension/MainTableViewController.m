@@ -32,7 +32,9 @@
                     @"BorderStyleTestViewController",
                     @"SWSafeServerResponseTestVC",
                     @"TestVCExtensionController",
-                    @"TestNSArrayExtensionController"
+                    @"TestNSArrayExtensionController",
+                    @"TestSWGestureAddController",
+                    @"TestTextFieldTextViewController",
                     ];
 }
 

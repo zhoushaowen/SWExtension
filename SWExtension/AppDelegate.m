@@ -61,7 +61,7 @@
     NSLog(@"%d",[UIDevice sw_deviceModelType]);
     [self.window sw_setRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
     
-    self.window.rootViewController = [ImagePickerController new];
+//    self.window.rootViewController = [ImagePickerController new];
     
     NSString *jsonStr = @"{\"a\":\"71.40\", \"b\":8.37, \"c\":80.40, \"d\":188.40}";
     NSLog(@"json:%@", jsonStr);
@@ -73,6 +73,8 @@
     
     TestObj *obj2 = [TestObj sw_modelWithKeyValues:jsonStr];
 
+    UITextField *t = [UITextField new];
+    UITextView *t2 = [UITextView new];
     return YES;
 }
 

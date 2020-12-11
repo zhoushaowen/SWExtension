@@ -12,14 +12,14 @@
 @implementation NSObject (SWExtensionMJ)
 
 + (instancetype)sw_modelWithKeyValues:(id)keyValues {
-//    if(keyValues == nil) return nil;
+    if(keyValues == nil) return nil;
     id model = [self mj_objectWithKeyValues:keyValues];
     NSMutableDictionary *dic = [keyValues mj_JSONObject];
     //下面的做法是为了解决json序列化导致服务端返回的浮点数精度丢失的问题
     [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         if([obj isKindOfClass:[NSNumber class]]){
             [self mj_enumerateProperties:^(MJProperty *property, BOOL *stop2) {
-                if([property.name isEqualToString:[NSString stringWithFormat:@"%@",key]]){
+                if([property.name isEqualToString:[NSString stringWithFormat:@"%@",key]] && [obj isKindOfClass:[NSNumber class]]){
                     if(property.type.typeClass == [NSNumber class]){
                         NSString *str = [NSString sw_fixAccuracyWithString:[obj stringValue]];
                         [model setValue:[NSDecimalNumber decimalNumberWithString:str] forKey:key];

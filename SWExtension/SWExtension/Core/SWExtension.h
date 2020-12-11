@@ -26,6 +26,8 @@
 #import "NSObject+SWSafeServerResponse.h"
 #import "NSMutableAttributedString+SWExtension.h"
 #import "NSArray+SWExtension.h"
+#import "NSObject+SWExtensionMJ.h"
+#import "NSObject+SWMethodChange.h"
 
 //UIKit
 #import "UIImage+SWExtension.h"
@@ -53,6 +55,8 @@
 #import "UIApplication+SWExtension.h"
 #import "UIFont+SWExtension.h"
 #import "CALayer+SWExtension.h"
+#import "UITextField+SWExtension.h"
+#import "UITextView+SWExtension.h"
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))

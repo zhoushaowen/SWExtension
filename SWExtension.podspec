@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SWExtension"
 
-  s.version      = "1.16"
+  s.version      = "1.17"
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
@@ -25,6 +25,8 @@ Pod::Spec.new do |s|
   s.dependency 'MBProgressHUD'
 
   s.dependency 'ReactiveObjC'
+
+  s.dependency 'MJExtension'
 
 
   s.subspec 'Core' do |ss|

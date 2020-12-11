@@ -47,7 +47,6 @@
     return nil;
 }
 
-
 @end
 
 @implementation NSObject (SWSafeServerResponse)

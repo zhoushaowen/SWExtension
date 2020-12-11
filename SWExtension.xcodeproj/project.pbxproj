@@ -14,7 +14,10 @@
 		3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1BD20C521A2006492FD /* MainTableViewController.m */; };
 		3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1C520C52C8F006492FD /* ImagePickerController.m */; };
 		3657F1C820C52D00006492FD /* ImagePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3657F1C720C52D00006492FD /* ImagePickerController.xib */; };
-		3680463E2570F36E007881BA /* NSObject+SWExtensionMJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3680463D2570F36E007881BA /* NSObject+SWExtensionMJ.m */; };
+		36913F9A258301E400B64CCF /* TestSWGestureAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36913F98258301E400B64CCF /* TestSWGestureAddController.m */; };
+		36913F9B258301E400B64CCF /* TestSWGestureAddController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36913F99258301E400B64CCF /* TestSWGestureAddController.xib */; };
+		36913FB1258346DA00B64CCF /* TestTextFieldTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36913FAF258346DA00B64CCF /* TestTextFieldTextViewController.m */; };
+		36913FB2258346DA00B64CCF /* TestTextFieldTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36913FB0258346DA00B64CCF /* TestTextFieldTextViewController.xib */; };
 		369B7AA51E9B7A6C00F99CB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA41E9B7A6C00F99CB3 /* main.m */; };
 		369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */; };
 		369B7AAE1E9B7A6C00F99CB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369B7AAC1E9B7A6C00F99CB3 /* Main.storyboard */; };
@@ -49,8 +52,12 @@
 		3657F1C420C52C8F006492FD /* ImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		3657F1C520C52C8F006492FD /* ImagePickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerController.m; sourceTree = "<group>"; };
 		3657F1C720C52D00006492FD /* ImagePickerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerController.xib; sourceTree = "<group>"; };
-		3680463C2570F36E007881BA /* NSObject+SWExtensionMJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SWExtensionMJ.h"; sourceTree = "<group>"; };
-		3680463D2570F36E007881BA /* NSObject+SWExtensionMJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SWExtensionMJ.m"; sourceTree = "<group>"; };
+		36913F97258301E400B64CCF /* TestSWGestureAddController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSWGestureAddController.h; sourceTree = "<group>"; };
+		36913F98258301E400B64CCF /* TestSWGestureAddController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSWGestureAddController.m; sourceTree = "<group>"; };
+		36913F99258301E400B64CCF /* TestSWGestureAddController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestSWGestureAddController.xib; sourceTree = "<group>"; };
+		36913FAE258346DA00B64CCF /* TestTextFieldTextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTextFieldTextViewController.h; sourceTree = "<group>"; };
+		36913FAF258346DA00B64CCF /* TestTextFieldTextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTextFieldTextViewController.m; sourceTree = "<group>"; };
+		36913FB0258346DA00B64CCF /* TestTextFieldTextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTextFieldTextViewController.xib; sourceTree = "<group>"; };
 		369B7AA01E9B7A6C00F99CB3 /* SWExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369B7AA41E9B7A6C00F99CB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		369B7AA61E9B7A6C00F99CB3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -149,6 +156,12 @@
 				36C2F09925393F0B00FA4A06 /* TestNSArrayExtensionController.h */,
 				36C2F09A25393F0B00FA4A06 /* TestNSArrayExtensionController.m */,
 				36C2F09B25393F0B00FA4A06 /* TestNSArrayExtensionController.xib */,
+				36913F97258301E400B64CCF /* TestSWGestureAddController.h */,
+				36913F98258301E400B64CCF /* TestSWGestureAddController.m */,
+				36913F99258301E400B64CCF /* TestSWGestureAddController.xib */,
+				36913FAE258346DA00B64CCF /* TestTextFieldTextViewController.h */,
+				36913FAF258346DA00B64CCF /* TestTextFieldTextViewController.m */,
+				36913FB0258346DA00B64CCF /* TestTextFieldTextViewController.xib */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -176,8 +189,6 @@
 			children = (
 				369B7AA61E9B7A6C00F99CB3 /* AppDelegate.h */,
 				369B7AA71E9B7A6C00F99CB3 /* AppDelegate.m */,
-				3680463C2570F36E007881BA /* NSObject+SWExtensionMJ.h */,
-				3680463D2570F36E007881BA /* NSObject+SWExtensionMJ.m */,
 				3657F1BC20C521A2006492FD /* MainTableViewController.h */,
 				3657F1BD20C521A2006492FD /* MainTableViewController.m */,
 				36071C3F239662DE00E46076 /* Model */,
@@ -286,10 +297,12 @@
 				36A8269A25231472001F2E00 /* TestVCExtensionController.xib in Resources */,
 				36A826A0252314F1001F2E00 /* TestVCExtensionController2.xib in Resources */,
 				369B7AB31E9B7A6C00F99CB3 /* LaunchScreen.storyboard in Resources */,
+				36913FB2258346DA00B64CCF /* TestTextFieldTextViewController.xib in Resources */,
 				36C67B62241A67F8009FADCC /* EmojiTestViewController.xib in Resources */,
 				369B7AB01E9B7A6C00F99CB3 /* Assets.xcassets in Resources */,
 				369B7AAE1E9B7A6C00F99CB3 /* Main.storyboard in Resources */,
 				36C2F09D25393F0B00FA4A06 /* TestNSArrayExtensionController.xib in Resources */,
+				36913F9B258301E400B64CCF /* TestSWGestureAddController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,9 +360,10 @@
 			files = (
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				36F7A72B2521807400DF14D4 /* SWSafeServerResponseTestVC.m in Sources */,
+				36913F9A258301E400B64CCF /* TestSWGestureAddController.m in Sources */,
 				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,
+				36913FB1258346DA00B64CCF /* TestTextFieldTextViewController.m in Sources */,
 				36A8269F252314F1001F2E00 /* TestVCExtensionController2.m in Sources */,
-				3680463E2570F36E007881BA /* NSObject+SWExtensionMJ.m in Sources */,
 				36071C42239662EC00E46076 /* MyUtil.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
 				36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */,
