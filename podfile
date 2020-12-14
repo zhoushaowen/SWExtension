@@ -13,7 +13,6 @@ pod 'SWExtension/Authorization/PhotoLibrary' , :path => './'
 pod 'SWExtension/Authorization/Camera' , :path => './'
 pod 'SWExtension/Authorization/SpeechRecognizer' , :path => './'
 pod 'SWExtension/Authorization/Microphone' , :path => './'
-pod 'MJExtension'
 
 pod 'YYModel'
 

@@ -2,33 +2,33 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJExtension (3.2.2)
   - ReactiveObjC (3.1.1)
-  - SWExtension/Authorization/Camera (1.16):
+  - SWExtension/Authorization/Camera (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Authorization/Microphone (1.16):
+  - SWExtension/Authorization/Microphone (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Authorization/PhotoLibrary (1.16):
+  - SWExtension/Authorization/PhotoLibrary (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Authorization/SpeechRecognizer (1.16):
+  - SWExtension/Authorization/SpeechRecognizer (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Core (1.16):
+  - SWExtension/Core (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-    - SWExtension/Core/Foundation (= 1.16)
-    - SWExtension/Core/UIKit (= 1.16)
-  - SWExtension/Core/Foundation (1.16):
+    - SWExtension/Core/Foundation (= 1.17)
+    - SWExtension/Core/UIKit (= 1.17)
+  - SWExtension/Core/Foundation (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Core/UIKit (1.16):
+  - SWExtension/Core/UIKit (1.17):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
@@ -36,7 +36,6 @@ PODS:
 
 DEPENDENCIES:
   - MBProgressHUD
-  - MJExtension
   - SWExtension/Authorization/Camera (from `./`)
   - SWExtension/Authorization/Microphone (from `./`)
   - SWExtension/Authorization/PhotoLibrary (from `./`)
@@ -59,9 +58,9 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SWExtension: 21fbca89151a11bfef5d20f036c5b34fd5048592
+  SWExtension: 807ed195907bb05d8c9b539eee9a7a8fb170f5ba
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 8b924e4f4d7e9bfb8ce36b0de5ad9883d5f117f4
+PODFILE CHECKSUM: 3d6d55e90ba67d6af310e5215d7cdf29d6ee6a12
 
 COCOAPODS: 1.10.0
