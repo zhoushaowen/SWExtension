@@ -7,7 +7,7 @@
 //
 
 #import "UIView+SWCornerStyle.h"
-#import <ReactiveObjC.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <objc/runtime.h>
 
 @interface UIView ()
