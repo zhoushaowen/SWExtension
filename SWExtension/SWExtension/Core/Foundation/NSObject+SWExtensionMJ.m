@@ -8,6 +8,7 @@
 
 #import "NSObject+SWExtensionMJ.h"
 #import "NSString+SWExtension.h"
+#import <MJExtension.h>
 
 @implementation NSObject (SWExtensionMJ)
 
