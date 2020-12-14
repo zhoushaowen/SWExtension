@@ -26,7 +26,7 @@
 #import "NSObject+SWSafeServerResponse.h"
 #import "NSMutableAttributedString+SWExtension.h"
 #import "NSArray+SWExtension.h"
-//#import "NSObject+SWExtensionMJ.h"
+#import "NSObject+SWExtensionMJ.h"
 #import "NSObject+SWMethodChange.h"
 
 //UIKit

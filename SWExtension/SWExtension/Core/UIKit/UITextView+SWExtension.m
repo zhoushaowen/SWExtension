@@ -9,17 +9,27 @@
 #import "UITextView+SWExtension.h"
 #import <objc/runtime.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-#import <SWExtension/NSObject+SWMethodChange.h>
 
 @implementation UITextView (SWExtension)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self sw_exchangeMethodWithSystemSelector:@selector(initWithFrame:textContainer:) customSelector:@selector(swExtension_initWithFrame:textContainer:)];
-        [self sw_exchangeMethodWithSystemSelector:@selector(initWithCoder:) customSelector:@selector(swExtension_initWithCoder:)];
+        [self swTextViewExtension_exchangeMethodWithSystemSelector:@selector(initWithFrame:textContainer:) customSelector:@selector(swExtension_initWithFrame:textContainer:)];
+        [self swTextViewExtension_exchangeMethodWithSystemSelector:@selector(initWithCoder:) customSelector:@selector(swExtension_initWithCoder:)];
     });
 }
+
++ (void)swTextViewExtension_exchangeMethodWithSystemSelector:(SEL)systemSel customSelector:(SEL)customSel {
+    Method systemMethod = class_getInstanceMethod([self class], systemSel);
+    Method customMethod = class_getInstanceMethod([self class], customSel);
+    if(class_addMethod([self class], systemSel, method_getImplementation(customMethod), method_getTypeEncoding(customMethod))){
+        class_replaceMethod([self class], customSel, method_getImplementation(systemMethod), method_getTypeEncoding(systemMethod));
+    }else{
+        method_exchangeImplementations(systemMethod, customMethod);
+    }
+}
+
 
 - (instancetype)swExtension_initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
 {

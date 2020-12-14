@@ -9,16 +9,25 @@
 #import "UITextField+SWExtension.h"
 #import <objc/runtime.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-#import <SWExtension/NSObject+SWMethodChange.h>
 
 @implementation UITextField (SWExtension)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self sw_exchangeMethodWithSystemSelector:@selector(initWithFrame:) customSelector:@selector(swExtension_initWithFrame:)];
-        [self sw_exchangeMethodWithSystemSelector:@selector(initWithCoder:) customSelector:@selector(swExtension_initWithCoder:)];
+        [self swTextFieldExtension_exchangeMethodWithSystemSelector:@selector(initWithFrame:) customSelector:@selector(swExtension_initWithFrame:)];
+        [self swTextFieldExtension_exchangeMethodWithSystemSelector:@selector(initWithCoder:) customSelector:@selector(swExtension_initWithCoder:)];
     });
+}
+
++ (void)swTextFieldExtension_exchangeMethodWithSystemSelector:(SEL)systemSel customSelector:(SEL)customSel {
+    Method systemMethod = class_getInstanceMethod([self class], systemSel);
+    Method customMethod = class_getInstanceMethod([self class], customSel);
+    if(class_addMethod([self class], systemSel, method_getImplementation(customMethod), method_getTypeEncoding(customMethod))){
+        class_replaceMethod([self class], customSel, method_getImplementation(systemMethod), method_getTypeEncoding(systemMethod));
+    }else{
+        method_exchangeImplementations(systemMethod, customMethod);
+    }
 }
 
 - (instancetype)swExtension_initWithFrame:(CGRect)frame
