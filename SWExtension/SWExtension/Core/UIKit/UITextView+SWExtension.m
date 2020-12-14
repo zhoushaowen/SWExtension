@@ -8,8 +8,8 @@
 
 #import "UITextView+SWExtension.h"
 #import <objc/runtime.h>
-#import <ReactiveObjC.h>
-#import <NSObject+SWMethodChange.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+#import "NSObject+SWMethodChange.h"
 
 @implementation UITextView (SWExtension)
 
