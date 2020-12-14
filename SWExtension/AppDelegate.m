@@ -11,7 +11,6 @@
 #import "ImagePickerController.h"
 #import <MJExtension.h>
 #import <YYModel.h>
-#import "NSObject+SWExtensionMJ.h"
 
 @interface TestObj : NSObject
 
@@ -69,12 +68,10 @@
     NSError *jsonParsingError_ = nil;
     NSDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:jsonData_ options:0 error:&jsonParsingError_]];
     NSLog(@"dic:%@", dic);
-    TestObj *obj = [TestObj mj_objectWithKeyValues:jsonStr];
-    
-    TestObj *obj2 = [TestObj sw_modelWithKeyValues:jsonStr];
+//    TestObj *obj = [TestObj mj_objectWithKeyValues:jsonStr];
+//    
+//    TestObj *obj2 = [TestObj sw_modelWithKeyValues:jsonStr];
 
-    UITextField *t = [UITextField new];
-    UITextView *t2 = [UITextView new];
     return YES;
 }
 
