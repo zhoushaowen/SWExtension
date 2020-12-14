@@ -7,8 +7,7 @@
 //
 
 #import "TestTextFieldTextViewController.h"
-#import "UITextField+SWExtension.h"
-#import "UITextView+SWExtension.h"
+#import <SWExtension.h>
 
 @interface TestTextFieldTextViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tf;
