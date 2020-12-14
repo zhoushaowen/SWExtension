@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.summary      = "常用扩展"
 
