@@ -53,4 +53,10 @@
     return [number stringValue];
 }
 
+- (BOOL)sw_isPhoneNumber {
+    NSString *regex = @"^1\\d{10}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    return [predicate evaluateWithObject:self];
+}
+
 @end

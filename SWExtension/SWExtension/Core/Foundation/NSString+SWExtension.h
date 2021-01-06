@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)sw_fixAccuracyWithString:(NSString *)incorrectString;
 + (NSString *)sw_fixAccuracyWithDouble:(double)incorrectDouble;
 
+/// 判断字符串是否是1开头的 11位数字手机号码
+- (BOOL)sw_isPhoneNumber;
+
 
 NS_ASSUME_NONNULL_END
 

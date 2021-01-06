@@ -21,11 +21,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.tf.sw_textDidChangeBlock = ^(UITextField * _Nonnull tf) {
-        NSLog(@"1---%@",tf.text);
+//        NSLog(@"1---%@",tf.text);
     };
+    
+    self.tf.sw_textDidEndEditingBlock = ^(UITextField * _Nonnull tf) {
+        NSLog(@"%d",[tf.text sw_isPhoneNumber]);
+    };
+    
     self.textView.sw_textDidChangeBlock = ^(UITextView * _Nonnull tv) {
         NSLog(@"2---%@",tv.text);
     };
+    
     
     UITextView *tv2 = [[UITextView alloc] initWithFrame:CGRectMake(20, 400, 100, 80)];
     tv2.backgroundColor = [UIColor redColor];
@@ -33,6 +39,11 @@
     tv2.sw_textDidChangeBlock = ^(UITextView * _Nonnull tv) {
         NSLog(@"3---%@",tv.text);
     };
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 /*
