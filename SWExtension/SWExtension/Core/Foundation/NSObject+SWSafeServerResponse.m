@@ -8,6 +8,7 @@
 
 #import "NSObject+SWSafeServerResponse.h"
 #import <objc/runtime.h>
+#import "NSObject+SWMethodChange.h"
 
 @interface SWSafeServerResponseReceiver : NSObject
 
@@ -54,20 +55,7 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Method sysMethod1 = class_getInstanceMethod([self class], @selector(forwardingTargetForSelector:));
-        Method myMethod1 = class_getInstanceMethod([self class], @selector(sw_forwardingTargetForSelector:));
-        if(class_addMethod([self class], @selector(forwardingTargetForSelector:), method_getImplementation(myMethod1), method_getTypeEncoding(myMethod1))){
-            class_replaceMethod([self class], @selector(sw_forwardingTargetForSelector:), method_getImplementation(sysMethod1), method_getTypeEncoding(sysMethod1));
-        }else{
-            method_exchangeImplementations(sysMethod1, myMethod1);
-        }
-//        Method sysMethod2 = class_getInstanceMethod([self class], @selector(methodSignatureForSelector:));
-//        Method myMethod2 = class_getInstanceMethod([self class], @selector(sw_methodSignatureForSelector:));
-//        if(class_addMethod([self class], @selector(methodSignatureForSelector:), method_getImplementation(myMethod2), method_getTypeEncoding(myMethod2))){
-//            class_replaceMethod([self class], @selector(sw_methodSignatureForSelector:), method_getImplementation(sysMethod2), method_getTypeEncoding(sysMethod2));
-//        }else{
-//            method_exchangeImplementations(sysMethod2, myMethod2);
-//        }
+        [self sw_exchangeMethodWithSystemSelector:@selector(forwardingTargetForSelector:) customSelector:@selector(sw_forwardingTargetForSelector:)];
     });
 }
 

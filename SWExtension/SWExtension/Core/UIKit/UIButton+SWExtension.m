@@ -7,6 +7,7 @@
 //
 
 #import "UIButton+SWExtension.h"
+#import "NSObject+SWMethodChange.h"
 #import <objc/runtime.h>
 
 static void* DisableAdjustImageWhenTouchDown_key = &DisableAdjustImageWhenTouchDown_key;
@@ -20,13 +21,7 @@ static void* DisableAdjustImageWhenTouchDown_key = &DisableAdjustImageWhenTouchD
     dispatch_once(&onceToken, ^{
         SEL sysSel = @selector(setHighlighted:);
         SEL cusSel = @selector(sw_setHighlighted:);
-        Method systemMethod = class_getInstanceMethod([self class], sysSel);
-        Method customMethod = class_getInstanceMethod([self class], cusSel);
-        if(class_addMethod([self class], sysSel, method_getImplementation(customMethod), method_getTypeEncoding(customMethod))){
-            class_replaceMethod([self class], cusSel, method_getImplementation(systemMethod), method_getTypeEncoding(systemMethod));
-        }else{
-            method_exchangeImplementations(systemMethod, customMethod);
-        }
+        [self sw_exchangeMethodWithSystemSelector:sysSel customSelector:cusSel];
     });
 }
 

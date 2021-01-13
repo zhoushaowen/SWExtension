@@ -18,18 +18,11 @@
 
 @implementation UITableView (SWCacheExtension)
 
-//+ (void)sw_exchangeMethodWithSystemSelector:(SEL)systemSel customSelector:(SEL)customSel {
-//    Method systemMethod = class_getInstanceMethod([self class], systemSel);
-//    Method customMethod = class_getInstanceMethod([self class], customSel);
-//    if(class_addMethod([self class], systemSel, method_getImplementation(customMethod), method_getTypeEncoding(customMethod))){
-//        class_replaceMethod([self class], customSel, method_getImplementation(systemMethod), method_getTypeEncoding(systemMethod));
-//    }else{
-//        method_exchangeImplementations(systemMethod, customMethod);
-//    }
-//}
-
 + (void)load {
-    [self sw_exchangeMethodWithSystemSelector:@selector(reloadData) customSelector:@selector(sw_reloadData)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self sw_exchangeMethodWithSystemSelector:@selector(reloadData) customSelector:@selector(sw_reloadData)];
+    });
 }
 
 - (void)setSw_rowHeightCache:(NSCache *)sw_rowHeightCache {
