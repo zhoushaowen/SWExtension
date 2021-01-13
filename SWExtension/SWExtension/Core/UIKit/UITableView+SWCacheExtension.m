@@ -8,7 +8,6 @@
 
 #import "UITableView+SWCacheExtension.h"
 #import <objc/runtime.h>
-#import "NSObject+SWMethodChange.h"
 
 @interface UITableView ()
 
