@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SWExtension"
 
-  s.version      = "1.18.1"
+  s.version      = "1.18.2"
 
   s.homepage      = 'https://github.com/zhoushaowen/SWExtension'
 
@@ -36,12 +36,16 @@ Pod::Spec.new do |s|
     ss.subspec 'UIKit' do |sss|
 
       sss.source_files = "SWExtension/SWExtension/Core/UIKit/*.{h,m}"
+      # 子组件间相互依赖
+      sss.dependency 'SWExtension/Core/Foundation'
 
     end
 
     ss.subspec 'Foundation' do |sss|
 
       sss.source_files = "SWExtension/SWExtension/Core/Foundation/*.{h,m}"
+            # 子组件间相互依赖
+      sss.dependency 'SWExtension/Core/UIKit'
 
     end
 
