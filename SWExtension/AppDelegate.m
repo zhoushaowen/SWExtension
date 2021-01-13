@@ -71,7 +71,7 @@
 //    TestObj *obj = [TestObj mj_objectWithKeyValues:jsonStr];
 //    
 //    TestObj *obj2 = [TestObj sw_modelWithKeyValues:jsonStr];
-
+    
     return YES;
 }
 

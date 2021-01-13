@@ -57,6 +57,8 @@
 #import "CALayer+SWExtension.h"
 #import "UITextField+SWExtension.h"
 #import "UITextView+SWExtension.h"
+#import "UITableView+SWCacheExtension.h"
+
 
 #ifdef __cplusplus
 #define SWKIT_EXTERN		extern "C" __attribute__((visibility ("default")))

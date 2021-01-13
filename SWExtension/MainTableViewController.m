@@ -35,6 +35,7 @@
                     @"TestNSArrayExtensionController",
                     @"TestSWGestureAddController",
                     @"TestTextFieldTextViewController",
+                    @"TestSWCacheExtensionController",
                     ];
 }
 
