@@ -44,9 +44,7 @@ Pod::Spec.new do |s|
     ss.subspec 'Foundation' do |sss|
 
       sss.source_files = "SWExtension/SWExtension/Core/Foundation/*.{h,m}"
-            # 子组件间相互依赖
-      sss.dependency 'SWExtension/Core/UIKit'
-
+  
     end
 
   end
