@@ -30,7 +30,7 @@
             CGFloat value = self.frame.size.height/2.0;
             size = CGSizeMake(value, value);
         }
-        UIBezierPath *bezizerPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) byRoundingCorners:corners cornerRadii:size];
+        UIBezierPath *bezizerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:size];
         CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = bezizerPath.CGPath;
         self.layer.mask = layer;

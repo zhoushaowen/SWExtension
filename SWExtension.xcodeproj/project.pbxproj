@@ -35,6 +35,7 @@
 		36E4874F24342B1E0051A659 /* BorderStyleTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */; };
 		36E87DB725AEF3B4007A330B /* TestAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E87DB525AEF3B4007A330B /* TestAlertController.m */; };
 		36E87DB825AEF3B4007A330B /* TestAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E87DB625AEF3B4007A330B /* TestAlertController.xib */; };
+		36E87DBC25B01E29007A330B /* TestRoundCornerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E87DBB25B01E29007A330B /* TestRoundCornerController.m */; };
 		36E92A6A25ADA432006387EA /* TestSWCacheExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E92A6925ADA432006387EA /* TestSWCacheExtensionController.m */; };
 		36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436C2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m */; };
 		36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F1436F2297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m */; };
@@ -89,6 +90,8 @@
 		36E87DB425AEF3B4007A330B /* TestAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAlertController.h; sourceTree = "<group>"; };
 		36E87DB525AEF3B4007A330B /* TestAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAlertController.m; sourceTree = "<group>"; };
 		36E87DB625AEF3B4007A330B /* TestAlertController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAlertController.xib; sourceTree = "<group>"; };
+		36E87DBA25B01E29007A330B /* TestRoundCornerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRoundCornerController.h; sourceTree = "<group>"; };
+		36E87DBB25B01E29007A330B /* TestRoundCornerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRoundCornerController.m; sourceTree = "<group>"; };
 		36E92A6825ADA432006387EA /* TestSWCacheExtensionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSWCacheExtensionController.h; sourceTree = "<group>"; };
 		36E92A6925ADA432006387EA /* TestSWCacheExtensionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSWCacheExtensionController.m; sourceTree = "<group>"; };
 		36F1436B2297C41B00408E60 /* PhotoLibraryAuthorizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoLibraryAuthorizationViewController.h; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				36E87DB425AEF3B4007A330B /* TestAlertController.h */,
 				36E87DB525AEF3B4007A330B /* TestAlertController.m */,
 				36E87DB625AEF3B4007A330B /* TestAlertController.xib */,
+				36E87DBA25B01E29007A330B /* TestRoundCornerController.h */,
+				36E87DBB25B01E29007A330B /* TestRoundCornerController.m */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
+				36E87DBC25B01E29007A330B /* TestRoundCornerController.m in Sources */,
 				36F7A72B2521807400DF14D4 /* SWSafeServerResponseTestVC.m in Sources */,
 				36913F9A258301E400B64CCF /* TestSWGestureAddController.m in Sources */,
 				364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */,

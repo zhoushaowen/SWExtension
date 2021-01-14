@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (SWCornerStyle)
 
-/// 已知问题:不要将该属性直接作用于UITableView上,否则会导致UITableView的高度出现问题
 - (void)sw_setRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
 /**
  the defalue cornerRadis is half the height

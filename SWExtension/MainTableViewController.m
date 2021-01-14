@@ -37,7 +37,9 @@
                     @"TestTextFieldTextViewController",
                     @"TestSWCacheExtensionController",
                     @"TestAlertController",
+                    @"TestRoundCornerController",
                     ];
+
 }
 
 #pragma mark - Table view data source
