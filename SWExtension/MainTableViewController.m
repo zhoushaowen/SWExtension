@@ -36,6 +36,7 @@
                     @"TestSWGestureAddController",
                     @"TestTextFieldTextViewController",
                     @"TestSWCacheExtensionController",
+                    @"TestAlertController",
                     ];
 }
 

@@ -23,6 +23,81 @@ NSString *const kSWAlertActionTitle = @"kSWAlertActionTitle";
 
 @implementation UIViewController (SWAlertController)
 
+- (UIAlertController *)sw_presentAlertControllerWithStyle:(UIAlertControllerStyle)controllerStyle
+                                                    attributedTitle:(NSAttributedString *)attributedTitle
+                                                  attributedMessage:(NSAttributedString *)attributedMessage actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                                            handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:controllerStyle];
+    [alert setValue:attributedTitle forKey:@"attributedTitle"];
+    [alert setValue:attributedMessage forKey:@"attributedMessage"];
+    [actionTitles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        SWAlertAction *action = [SWAlertAction actionWithTitle:obj style:actionStyles.count > idx? [actionStyles[idx] integerValue]:UIAlertActionStyleDefault handler:(void(^)(UIAlertAction *action))handler];
+        if(actionTitleColors.count > idx){
+            UIColor *actionTitleColor = actionTitleColors[idx];
+            if([actionTitleColor isKindOfClass:[UIColor class]]){
+                [action setValue:actionTitleColor forKey:@"titleTextColor"];                
+            }
+        }
+        action.index = idx;
+        [alert addAction:action];
+    }];
+    [self presentViewController:alert animated:YES completion:completedBlock];
+    return alert;
+}
+
+- (UIAlertController *)sw_presentAlertWithAttributedTitle:(NSAttributedString *)attributedTitle
+                                                  attributedMessage:(NSAttributedString *)attributedMessage actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                                            handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock {
+    return [self sw_presentAlertControllerWithStyle:UIAlertControllerStyleAlert attributedTitle:attributedTitle attributedMessage:attributedMessage actionTitles:actionTitles actionStyles:actionStyles actionTitleColors:actionTitleColors handler:handler completion:completedBlock];
+}
+
+- (UIAlertController *)sw_presentAlertWithTitle:(NSString *)title
+                                                  message:(NSString *)message
+                                     titleColor:(UIColor *)titleColor
+                                     messageColor:(UIColor *)messageColor
+                                   actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                                            handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock {
+    return [self sw_presentAlertControllerWithStyle:UIAlertControllerStyleAlert attributedTitle:[[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:17],NSForegroundColorAttributeName:titleColor?:[UIColor blackColor]}]
+                                  attributedMessage:[[NSAttributedString alloc] initWithString:message attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:messageColor?:[UIColor blackColor]}]
+                                       actionTitles:actionTitles
+                                       actionStyles:actionStyles actionTitleColors:actionTitleColors
+                                            handler:handler
+                                         completion:completedBlock];
+}
+
+- (UIAlertController *)sw_presentActionSheetWithAttributedTitle:(NSAttributedString *)attributedTitle
+                                                  attributedMessage:(NSAttributedString *)attributedMessage actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                                            handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock {
+    return [self sw_presentAlertControllerWithStyle:UIAlertControllerStyleActionSheet attributedTitle:attributedTitle attributedMessage:attributedMessage actionTitles:actionTitles actionStyles:actionStyles actionTitleColors:actionTitleColors handler:handler completion:completedBlock];
+}
+
+- (UIAlertController *)sw_presentActionSheetWithTitle:(NSString *)title
+                                                  message:(NSString *)message defaultActionTitles:(NSArray<NSString *> *)defaultActionTitles
+                                                        cancelActionTitle:(NSString *)cancelActionTitle
+                                                   defaultActionTitleColor:(UIColor *)defaultActionTitleColor
+                                                   cancelActionTitleColor:(UIColor *)cancelActionTitleColor
+                                                            handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock {
+    NSMutableArray *actionTitles = [NSMutableArray arrayWithArray:defaultActionTitles?:@[]];
+    [actionTitles addObject:cancelActionTitle];
+    NSMutableArray *actionStyles = [NSMutableArray arrayWithCapacity:defaultActionTitles.count + 1];
+    NSMutableArray *actionTitleColors = [NSMutableArray arrayWithCapacity:defaultActionTitles.count + 1];
+    [defaultActionTitles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [actionStyles addObject:@(UIAlertActionStyleDefault)];
+        [actionTitleColors addObject:defaultActionTitleColor?:[NSObject new]];
+    }];
+    [actionTitleColors addObject:cancelActionTitleColor?:[NSObject new]];
+    [actionStyles addObject:@(UIAlertActionStyleCancel)];
+    return [self sw_presentAlertControllerWithStyle:UIAlertControllerStyleActionSheet attributedTitle:[[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:13],NSForegroundColorAttributeName:[UIColor grayColor]}] attributedMessage:[[NSAttributedString alloc] initWithString:message attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor grayColor]}] actionTitles:[actionTitles copy] actionStyles:[actionStyles copy] actionTitleColors:[actionTitleColors copy] handler:handler completion:completedBlock];
+}
+
 - (UIAlertController *)sw_presentAlertWithDestructiveActionTitle:(NSString *)destructiveTitle cancelActionTitle:(NSString *)cancelTitle alertTitle:(NSString *)alertTitle alertMessage:(NSString *)alertMessage handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
     SWAlertAction *action0 = [SWAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:nil];

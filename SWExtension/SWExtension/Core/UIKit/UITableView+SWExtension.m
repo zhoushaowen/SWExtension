@@ -7,6 +7,8 @@
 
 #import "UITableView+SWExtension.h"
 
+static NSString *const SWReuseIdentifier = @"SWReuseIdentifier";
+
 @implementation UITableView (SWExtension)
 
 - (void)sw_registerCellWithClass:(Class _Nonnull)cellClass {
@@ -18,7 +20,7 @@
 }
 
 - (void)sw_registerCellWithNibName:(NSString *_Nonnull)nibName bundle:(NSBundle *_Nullable)bundle {
-    [self registerNib:[UINib nibWithNibName:nibName bundle:bundle] forCellReuseIdentifier:[nibName stringByAppendingString:@"SWReuseIdentifier"]];
+    [self registerNib:[UINib nibWithNibName:nibName bundle:bundle] forCellReuseIdentifier:[nibName stringByAppendingString:SWReuseIdentifier]];
 }
 
 - (void)sw_registerCellWithNibName:(NSString *_Nonnull)nibName {
@@ -26,7 +28,7 @@
 }
 
 - (void)sw_registerHeaderFooterViewWithNibName:(NSString *_Nonnull)nibName bundle:(NSBundle *_Nullable)bundle  {
-    [self registerNib:[UINib nibWithNibName:nibName bundle:bundle] forHeaderFooterViewReuseIdentifier:[nibName stringByAppendingString:@"SWReuseIdentifier"]];
+    [self registerNib:[UINib nibWithNibName:nibName bundle:bundle] forHeaderFooterViewReuseIdentifier:[nibName stringByAppendingString:SWReuseIdentifier]];
 }
 
 - (void)sw_registerHeaderFooterViewWithNibName:(NSString *_Nonnull)nibName {
@@ -46,7 +48,7 @@
 }
 
 - (NSString *)sw_getIdentifierWithClass:(Class _Nonnull)class {
-    return [NSStringFromClass(class) stringByAppendingString:@"SWReuseIdentifier"];
+    return [NSStringFromClass(class) stringByAppendingString:SWReuseIdentifier];
 }
 
 @end

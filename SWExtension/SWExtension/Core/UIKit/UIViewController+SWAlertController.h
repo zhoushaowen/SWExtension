@@ -19,6 +19,53 @@ extern NSString *const kSWAlertActionTitle;
 
 @interface UIViewController (SWAlertController)
 
+/// 模态一个可自定义文字大小和颜色的UIAlertController
+/// @param controllerStyle UIAlertController的风格
+/// @param attributedTitle 标题
+/// @param attributedMessage 内容
+/// @param actionTitles 按钮标题
+/// @param actionStyles 按钮风格
+/// @param actionTitleColors 按钮颜色
+/// @param handler 按钮点击回调
+/// @param completedBlock 模态完成的回调
+- (UIAlertController *)sw_presentAlertControllerWithStyle:(UIAlertControllerStyle)controllerStyle
+                                                    attributedTitle:(NSAttributedString *)attributedTitle
+                                                  attributedMessage:(NSAttributedString *)attributedMessage actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                                  handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
+
+/// 模态一个可自定义文字大小和颜色的UIAlertControllerStyleAlert风格的UIAlertController
+- (UIAlertController *)sw_presentAlertWithAttributedTitle:(NSAttributedString *)attributedTitle
+                                                  attributedMessage:(NSAttributedString *)attributedMessage actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColor
+                                                            handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
+
+/// 模态一个可自定义文字颜色的UIAlertControllerStyleAlert风格的UIAlertController
+- (UIAlertController *)sw_presentAlertWithTitle:(NSString *)title
+                                                  message:(NSString *)message
+                                     titleColor:(UIColor *)titleColor
+                                     messageColor:(UIColor *)messageColor
+                                   actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                        handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
+
+/// 模态一个可自定义文字大小和颜色的UIAlertControllerStyleActionSheet风格的UIAlertController
+- (UIAlertController *)sw_presentActionSheetWithAttributedTitle:(NSAttributedString *)attributedTitle
+                                                  attributedMessage:(NSAttributedString *)attributedMessage actionTitles:(NSArray<NSString *> *)actionTitles
+                                                        actionStyles:(NSArray<NSNumber *> *)actionStyles
+                                                   actionTitleColors:(NSArray<UIColor *> *)actionTitleColors
+                                                        handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
+/// 模态一个可自定义文字颜色的UIAlertControllerStyleActionSheet风格的UIAlertController
+- (UIAlertController *)sw_presentActionSheetWithTitle:(NSString *)title
+                                                  message:(NSString *)message defaultActionTitles:(NSArray<NSString *> *)defaultActionTitles
+                                                        cancelActionTitle:(NSString *)cancelActionTitle
+                                                   defaultActionTitleColor:(UIColor *)defaultActionTitleColor
+                                                   cancelActionTitleColor:(UIColor *)cancelActionTitleColor
+                                              handler:(void(^)(SWAlertAction *action))handler completion:(void(^)(void))completedBlock;
+
 /**
  弹出一个红色按钮和一个取消按钮的alert
  
