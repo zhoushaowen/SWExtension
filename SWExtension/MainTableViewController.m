@@ -38,6 +38,7 @@
                     @"TestSWCacheExtensionController",
                     @"TestAlertController",
                     @"TestRoundCornerController",
+                    @"TestHitTestExtensionController",
                     ];
 
 }

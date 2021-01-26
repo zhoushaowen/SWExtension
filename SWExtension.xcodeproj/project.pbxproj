@@ -33,6 +33,8 @@
 		36C67B62241A67F8009FADCC /* EmojiTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C67B60241A67F8009FADCC /* EmojiTestViewController.xib */; };
 		36E4874E24342B1E0051A659 /* BorderStyleTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */; };
 		36E4874F24342B1E0051A659 /* BorderStyleTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */; };
+		36E72E1625BEBA2B009AEA34 /* TestHitTestExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E72E1425BEBA2B009AEA34 /* TestHitTestExtensionController.m */; };
+		36E72E1725BEBA2B009AEA34 /* TestHitTestExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E72E1525BEBA2B009AEA34 /* TestHitTestExtensionController.xib */; };
 		36E87DB725AEF3B4007A330B /* TestAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E87DB525AEF3B4007A330B /* TestAlertController.m */; };
 		36E87DB825AEF3B4007A330B /* TestAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E87DB625AEF3B4007A330B /* TestAlertController.xib */; };
 		36E87DBC25B01E29007A330B /* TestRoundCornerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E87DBB25B01E29007A330B /* TestRoundCornerController.m */; };
@@ -87,6 +89,9 @@
 		36E4874B24342B1E0051A659 /* BorderStyleTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorderStyleTestViewController.h; sourceTree = "<group>"; };
 		36E4874C24342B1E0051A659 /* BorderStyleTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorderStyleTestViewController.m; sourceTree = "<group>"; };
 		36E4874D24342B1E0051A659 /* BorderStyleTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorderStyleTestViewController.xib; sourceTree = "<group>"; };
+		36E72E1325BEBA2B009AEA34 /* TestHitTestExtensionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHitTestExtensionController.h; sourceTree = "<group>"; };
+		36E72E1425BEBA2B009AEA34 /* TestHitTestExtensionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestHitTestExtensionController.m; sourceTree = "<group>"; };
+		36E72E1525BEBA2B009AEA34 /* TestHitTestExtensionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestHitTestExtensionController.xib; sourceTree = "<group>"; };
 		36E87DB425AEF3B4007A330B /* TestAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAlertController.h; sourceTree = "<group>"; };
 		36E87DB525AEF3B4007A330B /* TestAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAlertController.m; sourceTree = "<group>"; };
 		36E87DB625AEF3B4007A330B /* TestAlertController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAlertController.xib; sourceTree = "<group>"; };
@@ -180,6 +185,9 @@
 				36E87DB625AEF3B4007A330B /* TestAlertController.xib */,
 				36E87DBA25B01E29007A330B /* TestRoundCornerController.h */,
 				36E87DBB25B01E29007A330B /* TestRoundCornerController.m */,
+				36E72E1325BEBA2B009AEA34 /* TestHitTestExtensionController.h */,
+				36E72E1425BEBA2B009AEA34 /* TestHitTestExtensionController.m */,
+				36E72E1525BEBA2B009AEA34 /* TestHitTestExtensionController.xib */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 				369B7AB01E9B7A6C00F99CB3 /* Assets.xcassets in Resources */,
 				369B7AAE1E9B7A6C00F99CB3 /* Main.storyboard in Resources */,
 				36C2F09D25393F0B00FA4A06 /* TestNSArrayExtensionController.xib in Resources */,
+				36E72E1725BEBA2B009AEA34 /* TestHitTestExtensionController.xib in Resources */,
 				36913F9B258301E400B64CCF /* TestSWGestureAddController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +408,7 @@
 				36E4874E24342B1E0051A659 /* BorderStyleTestViewController.m in Sources */,
 				36E87DB725AEF3B4007A330B /* TestAlertController.m in Sources */,
 				36F143702297C8C800408E60 /* SpeechRecognizerAuthorizationViewController.m in Sources */,
+				36E72E1625BEBA2B009AEA34 /* TestHitTestExtensionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

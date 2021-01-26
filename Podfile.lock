@@ -1,40 +1,43 @@
 PODS:
+  - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.2.2)
   - ReactiveObjC (3.1.1)
-  - SWExtension/Authorization/Camera (1.18.1):
+  - SWExtension/Authorization/Camera (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Authorization/Microphone (1.18.1):
+  - SWExtension/Authorization/Microphone (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Authorization/PhotoLibrary (1.18.1):
+  - SWExtension/Authorization/PhotoLibrary (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Authorization/SpeechRecognizer (1.18.1):
+  - SWExtension/Authorization/SpeechRecognizer (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Core (1.18.1):
+  - SWExtension/Core (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-    - SWExtension/Core/Foundation (= 1.18.1)
-    - SWExtension/Core/UIKit (= 1.18.1)
-  - SWExtension/Core/Foundation (1.18.1):
+    - SWExtension/Core/Foundation (= 1.18.4)
+    - SWExtension/Core/UIKit (= 1.18.4)
+  - SWExtension/Core/Foundation (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
-  - SWExtension/Core/UIKit (1.18.1):
+  - SWExtension/Core/UIKit (1.18.4):
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
+    - SWExtension/Core/Foundation
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - Masonry
   - MBProgressHUD
   - SWExtension/Authorization/Camera (from `./`)
   - SWExtension/Authorization/Microphone (from `./`)
@@ -45,6 +48,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Masonry
     - MBProgressHUD
     - MJExtension
     - ReactiveObjC
@@ -55,12 +59,13 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SWExtension: a7ddd32196f419c645331ea967bc32288fb23a99
+  SWExtension: 2fafd972e7b39929969669d5e300e816332c2dee
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: efd2d1db6b83001363252c611e9e646521e4de38
+PODFILE CHECKSUM: 5a20ad0e494858df38e7b8469fbe4d9686fecabf
 
 COCOAPODS: 1.10.1
