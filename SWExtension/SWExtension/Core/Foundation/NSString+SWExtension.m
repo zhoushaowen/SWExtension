@@ -59,7 +59,7 @@
     return [predicate evaluateWithObject:self];
 }
 
-- (NSString *)sw_parseDeviceToken:(NSData *)deviceToken {
++ (NSString *)sw_parseFromDeviceToken:(NSData *)deviceToken {
     if (![deviceToken isKindOfClass:[NSData class]]) return nil;
     if([[UIDevice currentDevice].systemVersion floatValue] >= 13.0){
         const unsigned *tokenBytes = [deviceToken bytes];

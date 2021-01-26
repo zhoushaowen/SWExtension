@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)sw_isPhoneNumber;
 
 /// 解析deviceToken
-- (NSString *)sw_parseDeviceToken:(NSData *)deviceToken;
++ (NSString *)sw_parseFromDeviceToken:(NSData *)deviceToken;
 
 
 NS_ASSUME_NONNULL_END
