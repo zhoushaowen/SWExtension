@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 判断字符串是否是1开头的 11位数字手机号码
 - (BOOL)sw_isPhoneNumber;
 
+/// 解析deviceToken
+- (NSString *)sw_parseDeviceToken:(NSData *)deviceToken;
+
 
 NS_ASSUME_NONNULL_END
 

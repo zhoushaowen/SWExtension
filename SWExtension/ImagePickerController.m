@@ -32,7 +32,6 @@
         @strongify(self)
         NSLog(@"UIApplicationDidReceiveMemoryWarningNotification:%@",self);
     }];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
