@@ -39,6 +39,7 @@
                     @"TestAlertController",
                     @"TestRoundCornerController",
                     @"TestHitTestExtensionController",
+                    @"TestEmojiInputController",
                     ];
 
 }
