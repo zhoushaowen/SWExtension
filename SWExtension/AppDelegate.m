@@ -12,22 +12,6 @@
 #import <MJExtension.h>
 #import <YYModel.h>
 
-@interface TestObj : NSObject
-
-@property (nonatomic,copy) NSString *a;
-@property (nonatomic,strong) NSNumber *b;
-@property (nonatomic,strong) NSNumber *c;
-@property (nonatomic,strong) NSNumber *d;
-//@property (nonatomic) float b;
-//@property (nonatomic) float c;
-//@property (nonatomic) float d;
-
-@end
-
-@implementation TestObj
-
-@end
-
 @interface AppDelegate ()
 
 @end
@@ -61,17 +45,7 @@
     [self.window sw_setRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
     
 //    self.window.rootViewController = [ImagePickerController new];
-    
-    NSString *jsonStr = @"{\"a\":\"71.40\", \"b\":8.37, \"c\":80.40, \"d\":188.40}";
-    NSLog(@"json:%@", jsonStr);
-    NSData *jsonData_ = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *jsonParsingError_ = nil;
-    NSDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:jsonData_ options:0 error:&jsonParsingError_]];
-    NSLog(@"dic:%@", dic);
-//    TestObj *obj = [TestObj mj_objectWithKeyValues:jsonStr];
-//    
-//    TestObj *obj2 = [TestObj sw_modelWithKeyValues:jsonStr];
-    
+        
     return YES;
 }
 

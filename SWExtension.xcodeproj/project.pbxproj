@@ -12,6 +12,8 @@
 		36071C42239662EC00E46076 /* MyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 36071C41239662EC00E46076 /* MyUtil.m */; };
 		364D1EC325C1699F009261EA /* TestEmojiInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D1EC125C1699F009261EA /* TestEmojiInputController.m */; };
 		364D1EC425C1699F009261EA /* TestEmojiInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364D1EC225C1699F009261EA /* TestEmojiInputController.xib */; };
+		364D1EED25C293F1009261EA /* TestMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D1EEC25C293F1009261EA /* TestMainWindowController.m */; };
+		364D1F1725C2AE21009261EA /* FixNSJSONSerializationBugController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D1F1625C2AE21009261EA /* FixNSJSONSerializationBugController.m */; };
 		364FF88E20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */; };
 		3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1BD20C521A2006492FD /* MainTableViewController.m */; };
 		3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F1C520C52C8F006492FD /* ImagePickerController.m */; };
@@ -56,6 +58,10 @@
 		364D1EC025C1699F009261EA /* TestEmojiInputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEmojiInputController.h; sourceTree = "<group>"; };
 		364D1EC125C1699F009261EA /* TestEmojiInputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestEmojiInputController.m; sourceTree = "<group>"; };
 		364D1EC225C1699F009261EA /* TestEmojiInputController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestEmojiInputController.xib; sourceTree = "<group>"; };
+		364D1EEB25C293F1009261EA /* TestMainWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMainWindowController.h; sourceTree = "<group>"; };
+		364D1EEC25C293F1009261EA /* TestMainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMainWindowController.m; sourceTree = "<group>"; };
+		364D1F1525C2AE21009261EA /* FixNSJSONSerializationBugController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FixNSJSONSerializationBugController.h; sourceTree = "<group>"; };
+		364D1F1625C2AE21009261EA /* FixNSJSONSerializationBugController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FixNSJSONSerializationBugController.m; sourceTree = "<group>"; };
 		364FF88C20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayAndDictionaryChineseOutputController.h; sourceTree = "<group>"; };
 		364FF88D20C6782600677C0A /* ArrayAndDictionaryChineseOutputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayAndDictionaryChineseOutputController.m; sourceTree = "<group>"; };
 		3657F1BC20C521A2006492FD /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
@@ -196,6 +202,10 @@
 				364D1EC025C1699F009261EA /* TestEmojiInputController.h */,
 				364D1EC125C1699F009261EA /* TestEmojiInputController.m */,
 				364D1EC225C1699F009261EA /* TestEmojiInputController.xib */,
+				364D1EEB25C293F1009261EA /* TestMainWindowController.h */,
+				364D1EEC25C293F1009261EA /* TestMainWindowController.m */,
+				364D1F1525C2AE21009261EA /* FixNSJSONSerializationBugController.h */,
+				364D1F1625C2AE21009261EA /* FixNSJSONSerializationBugController.m */,
 			);
 			name = ViewContollers;
 			sourceTree = "<group>";
@@ -395,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364D1F1725C2AE21009261EA /* FixNSJSONSerializationBugController.m in Sources */,
 				369B7AA81E9B7A6C00F99CB3 /* AppDelegate.m in Sources */,
 				36E87DBC25B01E29007A330B /* TestRoundCornerController.m in Sources */,
 				36F7A72B2521807400DF14D4 /* SWSafeServerResponseTestVC.m in Sources */,
@@ -406,6 +417,7 @@
 				36071C42239662EC00E46076 /* MyUtil.m in Sources */,
 				3657F1C620C52C8F006492FD /* ImagePickerController.m in Sources */,
 				36F1436D2297C41C00408E60 /* PhotoLibraryAuthorizationViewController.m in Sources */,
+				364D1EED25C293F1009261EA /* TestMainWindowController.m in Sources */,
 				36071C3E239662C700E46076 /* SingletonTestViewController.m in Sources */,
 				36C2F09C25393F0B00FA4A06 /* TestNSArrayExtensionController.m in Sources */,
 				3657F1BE20C521A2006492FD /* MainTableViewController.m in Sources */,

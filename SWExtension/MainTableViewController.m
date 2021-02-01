@@ -18,6 +18,7 @@
 @implementation MainTableViewController
 
 - (void)viewDidLoad {
+    [UIApplication sharedApplication].keyWindow;
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     _dataSource = @[
@@ -40,6 +41,8 @@
                     @"TestRoundCornerController",
                     @"TestHitTestExtensionController",
                     @"TestEmojiInputController",
+                    @"TestMainWindowController",
+                    @"FixNSJSONSerializationBugController",
                     ];
 
 }

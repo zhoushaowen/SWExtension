@@ -44,4 +44,10 @@
 /// 获取当前显示在app最前面的viewController
 + (UIViewController *)sw_frontVC;
 
+/// app的主window
++ (UIWindow *)sw_mainWindow;
+
+/// 拨打电话
++ (BOOL)sw_callPhoneNumber:(NSString *)phoneNumber;
+
 @end

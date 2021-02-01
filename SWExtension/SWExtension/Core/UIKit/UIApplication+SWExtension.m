@@ -96,5 +96,23 @@
     }
 }
 
++ (UIWindow *)sw_mainWindow {
+    return [UIApplication sharedApplication].delegate.window;
+}
+
++ (BOOL)sw_callPhoneNumber:(NSString *)phoneNumber {
+    if(phoneNumber.length < 1) return NO;
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
+    if(![[UIApplication sharedApplication] canOpenURL:url]) return NO;
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    } else {
+        // Fallback on earlier versions
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    return YES;
+}
+
+
 
 @end
