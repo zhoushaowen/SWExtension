@@ -13,7 +13,7 @@
 @interface TestObj : NSObject
 
 @property (nonatomic,copy) NSString *a;
-@property (nonatomic,strong) NSDecimalNumber *bb;
+@property (nonatomic,strong) NSNumber *bb;
 @property (nonatomic,copy) NSString *c;
 @property (nonatomic,strong) NSNumber *d;
 @property (nonatomic,strong) TestObj *obj;

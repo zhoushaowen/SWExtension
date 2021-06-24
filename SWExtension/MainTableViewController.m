@@ -18,7 +18,6 @@
 @implementation MainTableViewController
 
 - (void)viewDidLoad {
-    [UIApplication sharedApplication].keyWindow;
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     _dataSource = @[
@@ -44,7 +43,6 @@
                     @"TestMainWindowController",
                     @"FixNSJSONSerializationBugController",
                     ];
-
 }
 
 #pragma mark - Table view data source
