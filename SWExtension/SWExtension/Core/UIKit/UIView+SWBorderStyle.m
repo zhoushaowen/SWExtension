@@ -73,9 +73,9 @@ typedef NS_ENUM(NSUInteger, SWExtensionBorderStyleViewType) {
     if(self.sw_borderTopWidth > 0){
         if(self.sw_topBorderLine == nil){
             self.sw_topBorderLine = [[SWExtensionBorderStyleView alloc] init];
-            self.sw_topBorderLine.backgroundColor = self.sw_borderTopColor;
             self.sw_topBorderLine.borderType = SWExtensionBorderStyleViewTypeTop;
         }
+        self.sw_topBorderLine.backgroundColor = self.sw_borderTopColor;
         self.sw_topBorderLine.insets = self.sw_insetsForBorderTop;
         self.sw_topBorderLine.borderWidth = self.sw_borderTopWidth;
         if(self.sw_topBorderLine.superview != self){
@@ -92,9 +92,9 @@ typedef NS_ENUM(NSUInteger, SWExtensionBorderStyleViewType) {
     if(self.sw_borderLeftWidth > 0){
         if(self.sw_leftBorderLine == nil){
             self.sw_leftBorderLine = [[SWExtensionBorderStyleView alloc] init];
-            self.sw_leftBorderLine.backgroundColor = self.sw_borderLeftColor;
             self.sw_leftBorderLine.borderType = SWExtensionBorderStyleViewTypeLeft;
         }
+        self.sw_leftBorderLine.backgroundColor = self.sw_borderLeftColor;
         self.sw_leftBorderLine.insets = self.sw_insetsForBorderLeft;
         self.sw_leftBorderLine.borderWidth = self.sw_borderLeftWidth;
         if(self.sw_leftBorderLine.superview != self){
@@ -111,9 +111,9 @@ typedef NS_ENUM(NSUInteger, SWExtensionBorderStyleViewType) {
     if(self.sw_borderBottomWidth > 0){
         if(self.sw_bottomBorderLine == nil){
             self.sw_bottomBorderLine = [[SWExtensionBorderStyleView alloc] init];
-            self.sw_bottomBorderLine.backgroundColor = self.sw_borderBottomColor;
             self.sw_bottomBorderLine.borderType = SWExtensionBorderStyleViewTypeBottom;
         }
+        self.sw_bottomBorderLine.backgroundColor = self.sw_borderBottomColor;
         self.sw_bottomBorderLine.insets = self.sw_insetsForBorderBottom;
         self.sw_bottomBorderLine.borderWidth = self.sw_borderBottomWidth;
         if(self.sw_bottomBorderLine.superview != self){
@@ -130,9 +130,9 @@ typedef NS_ENUM(NSUInteger, SWExtensionBorderStyleViewType) {
     if(self.sw_borderRightWidth > 0){
         if(self.sw_rightBorderLine == nil){
             self.sw_rightBorderLine = [[SWExtensionBorderStyleView alloc] init];
-            self.sw_rightBorderLine.backgroundColor = self.sw_borderRightColor;
             self.sw_rightBorderLine.borderType = SWExtensionBorderStyleViewTypeRight;
         }
+        self.sw_rightBorderLine.backgroundColor = self.sw_borderRightColor;
         self.sw_bottomBorderLine.insets = self.sw_insetsForBorderRight;
         self.sw_bottomBorderLine.borderWidth = self.sw_borderBottomWidth;
         if(self.sw_rightBorderLine.superview != self){
