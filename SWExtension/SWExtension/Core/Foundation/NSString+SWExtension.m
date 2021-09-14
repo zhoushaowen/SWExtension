@@ -11,18 +11,18 @@
 @implementation NSString (SWExtension)
 
 - (NSString * _Nonnull)sw_safeSubstringFromIndex:(NSUInteger)from {
-    if(from - 1 >= self.length) return @"";
+    if((NSInteger)from - 1 >= (NSInteger)self.length) return @"";
     return [self substringFromIndex:from];
 }
 
 - (NSString *_Nonnull)sw_safeSubstringToIndex:(NSUInteger)to {
-    if(to - 1 >= self.length) return @"";
+    if((NSInteger)to - 1 >= (NSInteger)self.length) return @"";
     return [self substringToIndex:to];
 }
 
 - (NSString *_Nonnull)sw_safeSubstringWithRange:(NSRange)range {
-    if(range.location - 1 >= self.length) return @"";
-    if(range.location + range.length - 1 >= self.length) return @"";
+    if((NSInteger)range.location - 1 >= (NSInteger)self.length) return @"";
+    if((NSInteger)range.location + (NSInteger)range.length - 1 > (NSInteger)self.length) return @"";
     return [self substringWithRange:range];
 }
 

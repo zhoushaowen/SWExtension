@@ -23,6 +23,10 @@
     NSLog(@"%@",results);
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%@---------%@",NSStringFromUIEdgeInsets([UIDevice sw_safeAreaInsets]),NSStringFromUIEdgeInsets([[[UIApplication sharedApplication] delegate].window safeAreaInsets]));
+}
+
 /*
 #pragma mark - Navigation
 

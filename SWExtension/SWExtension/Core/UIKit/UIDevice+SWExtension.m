@@ -8,6 +8,7 @@
 
 #import "UIDevice+SWExtension.h"
 #import "sys/sysctl.h"
+#import <objc/runtime.h>
 
 @implementation UIDevice (SWExtension)
 
@@ -89,35 +90,54 @@
     return ![self sw_isNormalScreen];
 }
 
-+ (BOOL)sw_isNormalScreen {
-    return [self sw_deviceModelType] == SWDeviceModelTypeNormal;
++ (UIEdgeInsets)sw_safeAreaInsets {
+    if (@available(iOS 11.0, *)) {
+        NSString *const safeAreaInsetsWindow = @"sw_safeAreaInsetsWindow";
+        UIWindow *window = objc_getAssociatedObject([UIDevice currentDevice], (__bridge const void * _Nonnull)(safeAreaInsetsWindow));
+        if(window == nil){
+            window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            objc_setAssociatedObject([UIDevice currentDevice], (__bridge const void * _Nonnull)(safeAreaInsetsWindow), window, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
+        return window.safeAreaInsets;
+    } else {
+        // Fallback on earlier versions
+        return UIEdgeInsetsZero;
+    }
 }
 
-+ (SWDeviceModelType)sw_deviceModelType {
++ (BOOL)sw_isNormalScreen {
+//    return [self sw_deviceModelType] == SWDeviceModelTypeNormal;
+    return UIEdgeInsetsEqualToEdgeInsets([self sw_safeAreaInsets], UIEdgeInsetsZero);
+}
+
++ (SWDeviceModelType)sw_deviceModelType __deprecated {
     static SWDeviceModelType deviceType = SWDeviceModelTypeNormal;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        //后面是开启放大模式的分辨率
         CGSize size = [UIScreen mainScreen].currentMode.size;
+        NSLog(@"---size:%@---nativeScale:%@---scale:%@---",NSStringFromCGSize(size),@([UIScreen mainScreen].nativeScale),@([UIScreen mainScreen].scale));
+        [self sw_deviceString];
         if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size)){
             //iPhoneX,XS,11Pro
             deviceType = SWDeviceModelTypeIPhoneX;
         }
-        else if (CGSizeEqualToSize(CGSizeMake(828, 1792), size)) {
+        else if (CGSizeEqualToSize(CGSizeMake(828, 1792), size)||CGSizeEqualToSize(CGSizeMake(750, 1624), size)) {
             //XR,11
             deviceType = SWDeviceModelTypeIPhoneXR;
         }
-        else if (CGSizeEqualToSize(CGSizeMake(1242, 2688), size)){
+        else if (CGSizeEqualToSize(CGSizeMake(1242, 2688), size)||CGSizeEqualToSize(CGSizeMake(1125, 2436), size)){
             //XSMax,11Pro Max
             deviceType = SWDeviceModelTypeIPhoneXSMax;
         }
-        else if (CGSizeEqualToSize(CGSizeMake(1125, 2436), size)){
+        else if (([UIScreen mainScreen].nativeScale == 3&&CGSizeEqualToSize(CGSizeMake(1125, 2436), size))||([UIScreen mainScreen].nativeScale == 3.515625 &&CGSizeEqualToSize(CGSizeMake(960, 2079), size))){
             deviceType = SWDeviceModelTypeIPhone12Mini;
         }
-        else if (CGSizeEqualToSize(CGSizeMake(1170, 2532), size)){
+        else if (CGSizeEqualToSize(CGSizeMake(1170, 2532), size)||CGSizeEqualToSize(CGSizeMake(960, 2079), size)){
             //iPhone12 iPhone12Pro
             deviceType = SWDeviceModelTypeIPhone12Pro;
         }
-        else if (CGSizeEqualToSize(CGSizeMake(1284, 2778), size)){
+        else if (CGSizeEqualToSize(CGSizeMake(1284, 2778), size)||CGSizeEqualToSize(CGSizeMake(1125, 2436), size)){
             deviceType = SWDeviceModelTypeIPhone12ProMax;
         }
     });
@@ -125,56 +145,55 @@
 }
 
 + (CGFloat)sw_navigationBarHeight {
-//    if([self sw_isIPhoneXSeries]) return 88;//44 + 44
-    SWDeviceModelType modelType = [self sw_deviceModelType];
-    if(modelType == SWDeviceModelTypeNormal) return 64;
-    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 88;
-    if(modelType == SWDeviceModelTypeIPhone12Mini) return 94;
-    if(modelType == SWDeviceModelTypeIPhone12) return 91;
-    if(modelType == SWDeviceModelTypeIPhone12Pro) return 91;
-    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 91;
-    return 88;
+//    SWDeviceModelType modelType = [self sw_deviceModelType];
+//    if(modelType == SWDeviceModelTypeNormal) return 64;
+//    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 88;
+//    if(modelType == SWDeviceModelTypeIPhone12Mini) return 94;
+//    if(modelType == SWDeviceModelTypeIPhone12) return 91;
+//    if(modelType == SWDeviceModelTypeIPhone12Pro) return 91;
+//    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 91;
+//    return 88;
+    return 44 + [self sw_safeAreaInsets].top;
 }
 
 + (CGFloat)sw_tabBarHeight {
-//    if([self sw_isIPhoneXSeries]) return 83;
-    SWDeviceModelType modelType = [self sw_deviceModelType];
-    if(modelType == SWDeviceModelTypeNormal) return 49;
-    return 83;
+//    SWDeviceModelType modelType = [self sw_deviceModelType];
+//    if(modelType == SWDeviceModelTypeNormal) return 49;
+//    return 83;
+    return 49 + [self sw_safeAreaInsets].bottom;
 }
 
 + (CGFloat)sw_statusBarHeight {
-//    if([self sw_isIPhoneXSeries]) return 44;
-    SWDeviceModelType modelType = [self sw_deviceModelType];
-    if(modelType == SWDeviceModelTypeNormal) return 20;
-    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 44;
-    if(modelType == SWDeviceModelTypeIPhone12Mini) return 44;
-    if(modelType == SWDeviceModelTypeIPhone12) return 47;
-    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
-    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
-
-    return 44;
+//    SWDeviceModelType modelType = [self sw_deviceModelType];
+//    if(modelType == SWDeviceModelTypeNormal) return 20;
+//    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 44;
+//    if(modelType == SWDeviceModelTypeIPhone12Mini) return 44;
+//    if(modelType == SWDeviceModelTypeIPhone12) return 47;
+//    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
+//    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
+//
+//    return 44;
+    return [UIApplication sharedApplication].statusBarFrame.size.height;
 }
 
 + (CGFloat)sw_safeTopInset {
-//    return self.sw_statusBarHeight - 20;
-//    return self.sw_safeBottomInset;
-    SWDeviceModelType modelType = [self sw_deviceModelType];
-    if(modelType == SWDeviceModelTypeNormal) return 0.0;
-    if(modelType == SWDeviceModelTypeIPhoneXR) return 48.0;
-    if(modelType == SWDeviceModelTypeIPhone11) return 48.0;
-    if(modelType == SWDeviceModelTypeIPhone12Mini) return 50;
-    if(modelType == SWDeviceModelTypeIPhone12) return 47;
-    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
-    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
-    return 44;
+//    SWDeviceModelType modelType = [self sw_deviceModelType];
+//    if(modelType == SWDeviceModelTypeNormal) return 0.0;
+//    if(modelType == SWDeviceModelTypeIPhoneXR) return 48.0;
+//    if(modelType == SWDeviceModelTypeIPhone11) return 48.0;
+//    if(modelType == SWDeviceModelTypeIPhone12Mini) return 50;
+//    if(modelType == SWDeviceModelTypeIPhone12) return 47;
+//    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
+//    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
+//    return 44;
+    return [self sw_safeAreaInsets].top;
 }
 
 + (CGFloat)sw_safeBottomInset {
-//    if([self sw_isIPhoneXSeries]) return 34.0f;
-    SWDeviceModelType modelType = [self sw_deviceModelType];
-    if(modelType == SWDeviceModelTypeNormal) return 0.0;
-    return 34.0;
+//    SWDeviceModelType modelType = [self sw_deviceModelType];
+//    if(modelType == SWDeviceModelTypeNormal) return 0.0;
+//    return 34.0;
+    return [self sw_safeAreaInsets].bottom;
 }
 
 /*
@@ -223,6 +242,7 @@
     char *machine = malloc(size);
     sysctlbyname("hw.machine", machine, &size, NULL, 0);
     NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    NSLog(@"platform:%@",platform);
     free(machine);
     //iPhone
     if ([platform isEqualToString:@"iPhone1,1"]) return @"iPhone 2G";
@@ -253,7 +273,17 @@
     if ([platform isEqualToString:@"iPhone10,4"]) return @"iPhone 8";
     if ([platform isEqualToString:@"iPhone10,5"]) return @"iPhone 8 Plus";
     if ([platform isEqualToString:@"iPhone10,6"]) return @"iPhone X";
-    
+    if ([platform isEqualToString:@"iPhone11,2"]) return @"iPhone XS";
+    if ([platform isEqualToString:@"iPhone11,6"]) return @"iPhone XS MAX";
+    if ([platform isEqualToString:@"iPhone11,8"]) return @"iPhone XR";
+    if ([platform isEqualToString:@"iPhone12,1"]) return @"iPhone 11";
+    if ([platform isEqualToString:@"iPhone12,3"]) return @"iPhone 11 Pro";
+    if ([platform isEqualToString:@"iPhone12,5"]) return @"iPhone 11 Pro Max";
+    if ([platform isEqualToString:@"iPhone12,8"]) return @"iPhone SE (2nd generation)";
+    if ([platform isEqualToString:@"iPhone13,1"]) return @"iPhone 12 mini";
+    if ([platform isEqualToString:@"iPhone13,2"]) return @"iPhone 12";
+    if ([platform isEqualToString:@"iPhone13,3"]) return @"iPhone 12 Pro";
+    if ([platform isEqualToString:@"iPhone13,4"]) return @"iPhone 12 Pro Max";
     
     //iPod
     if ([platform isEqualToString:@"iPod1,1"])   return @"iPod Touch 1";
@@ -262,7 +292,8 @@
     if ([platform isEqualToString:@"iPod4,1"])   return @"iPod Touch 4";
     if ([platform isEqualToString:@"iPod5,1"])   return @"iPod Touch 5";
     if ([platform isEqualToString:@"iPod7,1"])   return @"iPod Touch 6";
-    
+    if ([platform isEqualToString:@"iPod9,1"])   return @"iPod Touch 7";
+
     //iPad
     if ([platform isEqualToString:@"iPad1,1"])   return @"iPad 1";
     if ([platform isEqualToString:@"iPad2,1"])   return @"iPad 2 (WiFi)";
@@ -295,6 +326,44 @@
     if ([platform isEqualToString:@"iPad6,4"])   return @"iPad Pro (9.7 inch)";
     if ([platform isEqualToString:@"iPad6,7"])   return @"iPad Pro (12.9 inch)";
     if ([platform isEqualToString:@"iPad6,8"])   return @"iPad Pro (12.9 inch)";
+    if ([platform isEqualToString:@"iPad6,11"])  return @"iPad 5";
+    if ([platform isEqualToString:@"iPad6,12"])  return @"iPad 5";
+    if ([platform isEqualToString:@"iPad7,1"])  return @"iPad Pro (12.9-inch) 2nd";
+    if ([platform isEqualToString:@"iPad7,2"])  return @"iPad Pro (12.9-inch) 2nd";
+    if ([platform isEqualToString:@"iPad7,3"])  return @"iPad Pro (10.5-inch)";
+    if ([platform isEqualToString:@"iPad7,4"])  return @"iPad Pro (10.5-inch)";
+    if ([platform isEqualToString:@"iPad7,5"])  return @"iPad 6";
+    if ([platform isEqualToString:@"iPad7,6"])  return @"iPad 6";
+    if ([platform isEqualToString:@"iPad7,11"])  return @"iPad 7";
+    if ([platform isEqualToString:@"iPad7,12"])  return @"iPad 7";
+    if ([platform isEqualToString:@"iPad8,1"])  return @"iPad Pro (11-inch) ";
+    if ([platform isEqualToString:@"iPad8,2"])  return @"iPad Pro (11-inch) ";
+    if ([platform isEqualToString:@"iPad8,3"])  return @"iPad Pro (11-inch) ";
+    if ([platform isEqualToString:@"iPad8,4"])  return @"iPad Pro (11-inch) ";
+    if ([platform isEqualToString:@"iPad8,5"])  return @"iPad Pro (12.9-inch) 3rd";
+    if ([platform isEqualToString:@"iPad8,6"])  return @"iPad Pro (12.9-inch) 3rd";
+    if ([platform isEqualToString:@"iPad8,7"])  return @"iPad Pro (12.9-inch) 3rd";
+    if ([platform isEqualToString:@"iPad8,8"])  return @"iPad Pro (12.9-inch) 3rd";
+    if ([platform isEqualToString:@"iPad8,9"])  return @"iPad Pro (11-inch) 2nd";
+    if ([platform isEqualToString:@"iPad8,10"])  return @"iPad Pro (11-inch) 2nd";
+    if ([platform isEqualToString:@"iPad8,11"])  return @"iPad Pro (12.9-inch) 4th";
+    if ([platform isEqualToString:@"iPad8,12"])  return @"iPad Pro (12.9-inch) 4th";
+    if ([platform isEqualToString:@"iPad11,1"])  return @"iPad mini 5";
+    if ([platform isEqualToString:@"iPad11,2"])  return @"iPad mini 5";
+    if ([platform isEqualToString:@"iPad11,3"])  return @"iPad Air 3";
+    if ([platform isEqualToString:@"iPad11,4"])  return @"iPad Air 3";
+    if ([platform isEqualToString:@"iPad11,6"])  return @"iPad 8";
+    if ([platform isEqualToString:@"iPad11,7"])  return @"iPad 8";
+    if ([platform isEqualToString:@"iPad13,1"])  return @"iPad Air 4";
+    if ([platform isEqualToString:@"iPad13,2"])  return @"iPad Air 4";
+    if ([platform isEqualToString:@"iPad13,4"])  return @"iPad Pro (11-inch) 3rd";
+    if ([platform isEqualToString:@"iPad13,5"])  return @"iPad Pro (11-inch) 3rd";
+    if ([platform isEqualToString:@"iPad13,6"])  return @"iPad Pro (11-inch) 3rd";
+    if ([platform isEqualToString:@"iPad13,7"])  return @"iPad Pro (11-inch) 3rd";
+    if ([platform isEqualToString:@"iPad13,8"])  return @"iPad Pro (12.9-inch) 5th";
+    if ([platform isEqualToString:@"iPad13,9"])  return @"iPad Pro (12.9-inch) 5th";
+    if ([platform isEqualToString:@"iPad13,10"])  return @"iPad Pro (12.9-inch) 5th";
+    if ([platform isEqualToString:@"iPad13,11"])  return @"iPad Pro (12.9-inch) 5th";
     
     //Apple Watch
     if ([platform isEqualToString:@"Watch1,1"])   return @"Apple Watch 38mm";

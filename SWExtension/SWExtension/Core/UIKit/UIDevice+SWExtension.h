@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
 
 @interface UIDevice (SWExtension)
 
+
 /**
  是否是iOS7或者更高版本
  */
@@ -49,6 +50,10 @@ typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
  是否是指定的iOS版本或者更高版本 (e.g. 11.0)
  */
 + (BOOL)sw_isSpecifiedIOSOrLater:(NSString *)specifiedIOSVersion;
+
+/// 获取UIWindow的safeAreaInsets
++ (UIEdgeInsets)sw_safeAreaInsets;
+
 /**
  是否是iPhone X
  */
@@ -62,7 +67,7 @@ typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
 //是否是普通屏幕手机 否则是刘海屏
 + (BOOL)sw_isNormalScreen;
 
-+ (SWDeviceModelType)sw_deviceModelType;
++ (SWDeviceModelType)sw_deviceModelType __deprecated;
 
 /**
  导航高度(包含状态栏的高度)
@@ -73,7 +78,7 @@ typedef NS_ENUM(NSUInteger, SWDeviceModelType) {
  */
 + (CGFloat)sw_tabBarHeight;
 /**
- 状态栏高度
+ 状态栏高度, statusBar隐藏的时候高度为0
  */
 + (CGFloat)sw_statusBarHeight;
 /**
