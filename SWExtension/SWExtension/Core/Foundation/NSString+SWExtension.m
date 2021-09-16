@@ -42,6 +42,10 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (BOOL)sw_isEmptyString {
+    return self.sw_trimming.length == 0;
+}
+
 + (NSString *)sw_fixAccuracyWithString:(NSString *)incorrectString {
     double doubleValue = [incorrectString doubleValue];
     NSDecimalNumber *number  = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lf",doubleValue]];
@@ -75,6 +79,10 @@
         NSLog(@"deviceToken:%@",token);
         return token;
     }
+}
+
+- (NSString *)sw_stringByAddingPercentEncoding {
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
 

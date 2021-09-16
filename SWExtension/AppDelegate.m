@@ -43,6 +43,7 @@
     SWScreenHeight;
     NSLog(@"%d",[UIDevice sw_deviceModelType]);
     [self.window sw_setRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
+//    NSURL *url = [NSURL sw_URLWithString:@"http://zh.wikipedia.org/wiki/春节"];
     
 //    self.window.rootViewController = [ImagePickerController new];
         

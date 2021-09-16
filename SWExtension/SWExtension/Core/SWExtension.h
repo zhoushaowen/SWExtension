@@ -28,6 +28,7 @@
 #import "NSArray+SWExtension.h"
 #import "NSObject+SWExtensionMJ.h"
 #import "NSObject+SWMethodChange.h"
+#import "NSURL+SWExtension.h"
 
 //UIKit
 #import "UIImage+SWExtension.h"

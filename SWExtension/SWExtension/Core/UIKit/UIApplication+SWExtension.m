@@ -113,6 +113,18 @@
     return YES;
 }
 
++ (void)sw_openURL:(NSURL *)URL {
+    if(URL == nil) return;
+    if([[UIApplication sharedApplication] canOpenURL:URL]){
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:nil];
+        } else {
+            // Fallback on earlier versions
+            [[UIApplication sharedApplication] openURL:URL];
+        }
+    }
+}
+
 
 
 @end

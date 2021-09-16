@@ -50,4 +50,7 @@
 /// 拨打电话
 + (BOOL)sw_callPhoneNumber:(NSString *)phoneNumber;
 
+/// 打开url 比如app的下载地址
++ (void)sw_openURL:(NSURL *)URL;
+
 @end

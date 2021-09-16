@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *_Nullable)sw_decodeBase64String;
 /// 去掉字符串左右两边的空格和换行\n
 - (NSString * _Nullable)sw_trimming;
+/// 是否是空字符串 全是空格的字符串的字符串也算
+- (BOOL)sw_isEmptyString;
 
 
 /// 解决json序列化导致服务端返回的浮点数精度丢失的问题
@@ -42,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 解析deviceToken
 + (NSString *)sw_parseFromDeviceToken:(NSData *)deviceToken;
+
+/// 对包含中文等特殊字符串的url进行编码
+- (nullable NSString *)sw_stringByAddingPercentEncoding;
 
 
 NS_ASSUME_NONNULL_END

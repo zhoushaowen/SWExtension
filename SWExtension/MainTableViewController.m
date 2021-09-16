@@ -59,6 +59,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [UIApplication sw_openURL:[NSURL URLWithString:@"https://apps.apple.com/cn/app/wei-xin/id414478124"]];
+    return;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = (UIViewController *)[[NSClassFromString(_dataSource[indexPath.row]) alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
