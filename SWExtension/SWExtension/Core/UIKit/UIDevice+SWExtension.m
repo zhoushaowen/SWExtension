@@ -98,6 +98,7 @@
             window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
             objc_setAssociatedObject([UIDevice currentDevice], (__bridge const void * _Nonnull)(safeAreaInsetsWindow), window, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
+        //4.7的普通屏幕 ios14上返回{20,0,0,0} ios11上返回{0,0,0,0}
         return window.safeAreaInsets;
     } else {
         // Fallback on earlier versions
@@ -107,7 +108,7 @@
 
 + (BOOL)sw_isNormalScreen {
 //    return [self sw_deviceModelType] == SWDeviceModelTypeNormal;
-    return UIEdgeInsetsEqualToEdgeInsets([self sw_safeAreaInsets], UIEdgeInsetsZero);
+    return UIEdgeInsetsEqualToEdgeInsets([self sw_safeAreaInsets], UIEdgeInsetsZero)||UIEdgeInsetsEqualToEdgeInsets([self sw_safeAreaInsets], UIEdgeInsetsMake(20, 0, 0, 0));
 }
 
 + (SWDeviceModelType)sw_deviceModelType __deprecated {
@@ -153,6 +154,9 @@
 //    if(modelType == SWDeviceModelTypeIPhone12Pro) return 91;
 //    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 91;
 //    return 88;
+    if([self sw_isNormalScreen]){
+        return 64;
+    }
     return 44 + [self sw_safeAreaInsets].top;
 }
 
