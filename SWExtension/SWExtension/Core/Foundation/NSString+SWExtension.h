@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString * _Nullable)sw_trimming;
 /// 是否是空字符串 全是空格的字符串的字符串也算
 - (BOOL)sw_isEmptyString;
+/// 是否是非空字符串 全是空格的字符串的字符串也算
+- (BOOL)sw_isNotEmptyString;
 
 
 /// 解决json序列化导致服务端返回的浮点数精度丢失的问题
@@ -48,6 +50,24 @@ NS_ASSUME_NONNULL_BEGIN
 /// 对包含中文等特殊字符串的url进行编码
 - (nullable NSString *)sw_stringByAddingPercentEncoding;
 
+/// 阿拉伯数字转中文数字
+/// @param integer 阿拉伯数字
++ (NSString *)sw_integerToChineseNumber:(NSInteger)integer;
+/**
+ 将中文字符串转换为拼音格式（带声调）
+ @return 返回带声调拼音字符串
+ */
+- (NSString *)sw_transformToPinyinTone;
+/**
+ 将中文字符串转换为拼音格式（不带声调）
+ @return 返回不带声调拼音字符串
+ */
+- (NSString *)sw_transformToPinyin;
+/**
+ 将中字符串转换为拼音首字母
+ @return 拼音首字母字符串
+ */
+- (NSString *)sw_transformToFirstLetter;
 
 NS_ASSUME_NONNULL_END
 
