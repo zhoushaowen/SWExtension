@@ -42,12 +42,13 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (BOOL)sw_isEmptyString {
-    return self.sw_trimming.length == 0;
-}
+//有bug 如果是nil默认返回是NO
+//- (BOOL)sw_isEmptyString {
+//    return self.sw_trimming.length == 0;
+//}
 
 - (BOOL)sw_isNotEmptyString {
-    return ![self sw_isEmptyString];
+    return self.sw_trimming.length > 0;
 }
 
 + (NSString *)sw_fixAccuracyWithString:(NSString *)incorrectString {

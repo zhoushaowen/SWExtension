@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 去掉字符串左右两边的空格和换行\n
 - (NSString * _Nullable)sw_trimming;
 /// 是否是空字符串 全是空格的字符串的字符串也算
-- (BOOL)sw_isEmptyString;
+//- (BOOL)sw_isEmptyString;
 /// 是否是非空字符串 全是空格的字符串的字符串也算
 - (BOOL)sw_isNotEmptyString;
 
