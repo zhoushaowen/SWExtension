@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (SWSafeServerResponse)
-
-
+- (NSArray *)sw_safeArray;
+- (NSDictionary *)sw_safeDictionary;
 @end
 
 NS_ASSUME_NONNULL_END

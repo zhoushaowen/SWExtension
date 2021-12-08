@@ -48,6 +48,7 @@
     return nil;
 }
 
+
 @end
 
 @implementation NSObject (SWSafeServerResponse)
@@ -66,9 +67,9 @@
        aSelector == NSSelectorFromString(@"objectAtIndexedSubscript:") ||
        aSelector == @selector(objectAtIndex:) ||
        aSelector == @selector(firstObject) ||
-       aSelector == @selector(lastObject) 
+       aSelector == @selector(lastObject)
        ){
-        NSLog(@"%@没有实现%@方法",[self class],NSStringFromSelector(aSelector));
+        NSLog(@"⚠️warning: %@没有实现%@方法!!!",[self class],NSStringFromSelector(aSelector));
         //接盘侠
         return [[SWSafeServerResponseReceiver alloc] init];
     }
@@ -94,5 +95,12 @@
 //    if(self.count == 0) return nil;
 //    return [self objectAtIndex:index];
 //}
-
+- (NSArray *)sw_safeArray {
+    if([self isKindOfClass:[NSArray class]]) return (NSArray *)self;
+    return nil;
+}
+- (NSDictionary *)sw_safeDictionary {
+    if([self isKindOfClass:[NSDictionary class]]) return (NSDictionary *)self;
+    return nil;
+}
 @end

@@ -12,4 +12,5 @@
 
 @interface NSDictionary (SWChineseOutput)
 
+
 @end

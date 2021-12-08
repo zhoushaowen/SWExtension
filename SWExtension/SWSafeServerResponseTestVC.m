@@ -7,6 +7,7 @@
 //
 
 #import "SWSafeServerResponseTestVC.h"
+#import <SWExtension/SWExtension.h>
 
 @interface SWSafeServerResponseTestVC ()
 
@@ -29,6 +30,12 @@
     NSLog(@"%@",arr[1]);
     NSLog(@"%@",[arr objectAtIndex:2]);
     NSLog(@"%@",arr.firstObject);
+    [arr.sw_safeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+    }];
+    [dic.sw_safeDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+    }];
 }
 
 - (void)test2 {

@@ -46,7 +46,6 @@
 //    NSURL *url = [NSURL sw_URLWithString:@"http://zh.wikipedia.org/wiki/春节"];
     
 //    self.window.rootViewController = [ImagePickerController new];
-        
     return YES;
 }
 
