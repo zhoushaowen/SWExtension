@@ -37,6 +37,7 @@
     NSLog(@"%@",[number intValue]);
     NSString *str = @{};
     NSLog(@"%@",str.length);
+    NSLog(@"%@",[str respondsToSelector:@selector(length)] ? @"YES":@"NO");
     [arr.sw_safeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
     }];

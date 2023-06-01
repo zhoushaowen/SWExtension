@@ -34,7 +34,7 @@
             }
         }
     }
-    return nil;
+    return signature;
 }
 
 - (void)sw_forwardInvocation:(NSInvocation *)anInvocation {
