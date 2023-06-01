@@ -24,12 +24,19 @@
 }
 
 - (void)test1 {
+    NSNull *null = [NSNull null];
+    NSArray *arr0 = (NSArray *)null;
+    NSLog(@"%@",[arr0 objectAtIndex:1]);
     NSDictionary *dic = @"1";
     NSLog(@"%@",dic[@"a"]);
     NSArray *arr = @"1";
     NSLog(@"%@",arr[1]);
     NSLog(@"%@",[arr objectAtIndex:2]);
     NSLog(@"%@",arr.firstObject);
+    NSNumber *number = @[];
+    NSLog(@"%@",[number intValue]);
+    NSString *str = @{};
+    NSLog(@"%@",str.length);
     [arr.sw_safeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
     }];

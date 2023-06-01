@@ -10,91 +10,47 @@
 #import <objc/runtime.h>
 #import "NSObject+SWMethodChange.h"
 
-@interface SWSafeServerResponseReceiver : NSObject
-
-- (id)objectForKey:(id)key;
-- (id)objectForKeyedSubscript:(id)key;
-- (id)objectAtIndexedSubscript:(NSInteger)index;
-- (id)objectAtIndex:(NSInteger)index;
-- (id)firstObject;
-- (id)lastObject;
-
-@end
-
-@implementation SWSafeServerResponseReceiver
-
-
-- (id)objectForKey:(id)key {
-    return nil;
-}
-
-- (id)objectForKeyedSubscript:(id)key {
-    return nil;
-}
-
-- (id)objectAtIndexedSubscript:(NSInteger)index {
-    return nil;
-}
-
-- (id)objectAtIndex:(NSInteger)index {
-    return nil;
-}
-
-- (id)firstObject {
-    return nil;
-}
-
-- (id)lastObject {
-    return nil;
-}
-
-
-@end
-
 @implementation NSObject (SWSafeServerResponse)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self sw_exchangeMethodWithSystemSelector:@selector(forwardingTargetForSelector:) customSelector:@selector(sw_forwardingTargetForSelector:)];
+        [self sw_exchangeMethodWithSystemSelector:@selector(methodSignatureForSelector:) customSelector:@selector(sw_methodSignatureForSelector:)];
+        [self sw_exchangeMethodWithSystemSelector:@selector(forwardInvocation:) customSelector:@selector(sw_forwardInvocation:)];
+
     });
 }
 
 #pragma mark - 防止对服务器返回非数组类型的对象执行取值操作导致的crash
-- (id)sw_forwardingTargetForSelector:(SEL)aSelector {
-    if(aSelector == @selector(objectForKey:) ||
-       aSelector == NSSelectorFromString(@"objectForKeyedSubscript:") ||
-       aSelector == NSSelectorFromString(@"objectAtIndexedSubscript:") ||
-       aSelector == @selector(objectAtIndex:) ||
-       aSelector == @selector(firstObject) ||
-       aSelector == @selector(lastObject)
-       ){
-        NSLog(@"⚠️warning: %@没有实现%@方法!!!",[self class],NSStringFromSelector(aSelector));
-        //接盘侠
-        return [[SWSafeServerResponseReceiver alloc] init];
+- (NSMethodSignature *)sw_methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [self sw_methodSignatureForSelector:aSelector];
+    if(signature == nil){
+        NSArray *classArray = @[[NSMutableArray class],[NSMutableDictionary class],[NSNumber class],[NSMutableString class],[NSDate class]];
+        for(Class class in classArray){
+            if([class instancesRespondToSelector:aSelector]){
+                signature = [class instanceMethodSignatureForSelector:aSelector];
+                NSLog(@"⚠️warning: %@没有实现%@方法!!!",[self class],NSStringFromSelector(aSelector));
+                return signature;
+            }
+        }
     }
-    return [self sw_forwardingTargetForSelector:aSelector];
+    return nil;
 }
 
-//- (NSMethodSignature *)sw_methodSignatureForSelector:(SEL)aSelector {
-//    if(aSelector == @selector(objectForKey:) ||
-//       aSelector == NSSelectorFromString(@"objectForKeyedSubscript:") ||
-//       aSelector == NSSelectorFromString(@"objectAtIndexedSubscript:") ||
-//       aSelector == @selector(objectAtIndex:)
-//       ){
-//        return [NSMethodSignature signatureWithObjCTypes:"@@:@"];
-//    }
-//    return [self sw_methodSignatureForSelector:aSelector];
-//}
+- (void)sw_forwardInvocation:(NSInvocation *)anInvocation {
+    NSArray *classArray = @[[NSMutableArray class],[NSMutableDictionary class],[NSNumber class],[NSMutableString class],[NSDate class]];
+    for(Class class in classArray){
+        if([class instanceMethodForSelector:anInvocation.selector] && [class instanceMethodSignatureForSelector:anInvocation.selector] == anInvocation.methodSignature){
+            anInvocation.target = nil;
+            [anInvocation invoke];
+            return;
+        }
+    }
+    [self sw_forwardInvocation:anInvocation];
 
-//#pragma mark - 避免操作数组crash的方法
-//- (id)sw_safe_objectAtIndex:(NSUInteger)index {
-//    if(index > self.count - 1){
-//        return nil;
-//    }
-//    if(self.count == 0) return nil;
-//    return [self objectAtIndex:index];
-//}
+}
+
+
 - (NSArray *)sw_safeArray {
     if([self isKindOfClass:[NSArray class]]) return (NSArray *)self;
     return nil;
