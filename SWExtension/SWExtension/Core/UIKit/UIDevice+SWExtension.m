@@ -68,38 +68,18 @@
 }
 
 + (BOOL)sw_isIPhoneXSeries {
-//    static BOOL flag;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        //        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//        //        CGFloat height = [UIScreen mainScreen].bounds.size.height;
-//        //        if((width == 375 && height == 812) || (height == 375 && width == 812)) {//iPhone X,iPhone XS
-//        //            flag = YES;
-//        //        }else if ((width == 414 && height == 896) || (height == 896 && width == 414)){//iPhone XR,iPhone XS Max
-//        //            flag = YES;
-//        //        }
-//        CGSize size = [UIScreen mainScreen].currentMode.size;
-//        if(CGSizeEqualToSize(CGSizeMake(1125, 2436), size) ||//iPhone X
-//           CGSizeEqualToSize(CGSizeMake(828, 1792), size) ||//iPhone XR
-//           CGSizeEqualToSize(CGSizeMake(1242, 2688), size) //iPhone XS Max
-//           ){
-//            flag = YES;
-//        }
-//    });
-//    return flag;
     return ![self sw_isNormalScreen];
 }
 
 + (UIEdgeInsets)sw_safeAreaInsets {
     if (@available(iOS 11.0, *)) {
-        NSString *const safeAreaInsetsWindow = @"sw_safeAreaInsetsWindow";
-        UIWindow *window = objc_getAssociatedObject([UIDevice currentDevice], (__bridge const void * _Nonnull)(safeAreaInsetsWindow));
-        if(window == nil){
-            window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            objc_setAssociatedObject([UIDevice currentDevice], (__bridge const void * _Nonnull)(safeAreaInsetsWindow), window, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        NSValue *insetsValue = objc_getAssociatedObject([UIDevice currentDevice], @selector(sw_safeAreaInsets));
+        if(insetsValue == nil){
+            UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            objc_setAssociatedObject([UIDevice currentDevice], @selector(sw_safeAreaInsets), [NSValue valueWithUIEdgeInsets:window.safeAreaInsets], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         //4.7的普通屏幕 ios14上返回{20,0,0,0} ios11上返回{0,0,0,0}
-        return window.safeAreaInsets;
+        return insetsValue.UIEdgeInsetsValue;
     } else {
         // Fallback on earlier versions
         return UIEdgeInsetsZero;
@@ -107,7 +87,6 @@
 }
 
 + (BOOL)sw_isNormalScreen {
-//    return [self sw_deviceModelType] == SWDeviceModelTypeNormal;
     return UIEdgeInsetsEqualToEdgeInsets([self sw_safeAreaInsets], UIEdgeInsetsZero)||UIEdgeInsetsEqualToEdgeInsets([self sw_safeAreaInsets], UIEdgeInsetsMake(20, 0, 0, 0));
 }
 
@@ -146,14 +125,6 @@
 }
 
 + (CGFloat)sw_navigationBarHeight {
-//    SWDeviceModelType modelType = [self sw_deviceModelType];
-//    if(modelType == SWDeviceModelTypeNormal) return 64;
-//    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 88;
-//    if(modelType == SWDeviceModelTypeIPhone12Mini) return 94;
-//    if(modelType == SWDeviceModelTypeIPhone12) return 91;
-//    if(modelType == SWDeviceModelTypeIPhone12Pro) return 91;
-//    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 91;
-//    return 88;
     if([self sw_isNormalScreen]){
         return 64;
     }
@@ -161,42 +132,19 @@
 }
 
 + (CGFloat)sw_tabBarHeight {
-//    SWDeviceModelType modelType = [self sw_deviceModelType];
-//    if(modelType == SWDeviceModelTypeNormal) return 49;
-//    return 83;
     return 49 + [self sw_safeAreaInsets].bottom;
 }
 
 + (CGFloat)sw_statusBarHeight {
-//    SWDeviceModelType modelType = [self sw_deviceModelType];
-//    if(modelType == SWDeviceModelTypeNormal) return 20;
-//    if(modelType <= SWDeviceModelTypeIPhone11ProMax) return 44;
-//    if(modelType == SWDeviceModelTypeIPhone12Mini) return 44;
-//    if(modelType == SWDeviceModelTypeIPhone12) return 47;
-//    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
-//    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
-//
-//    return 44;
+    //注意:在iPhoneX之后的某些机型上状态栏高度和safeAreaInsets.top不一定相等
     return [UIApplication sharedApplication].statusBarFrame.size.height;
 }
 
 + (CGFloat)sw_safeTopInset {
-//    SWDeviceModelType modelType = [self sw_deviceModelType];
-//    if(modelType == SWDeviceModelTypeNormal) return 0.0;
-//    if(modelType == SWDeviceModelTypeIPhoneXR) return 48.0;
-//    if(modelType == SWDeviceModelTypeIPhone11) return 48.0;
-//    if(modelType == SWDeviceModelTypeIPhone12Mini) return 50;
-//    if(modelType == SWDeviceModelTypeIPhone12) return 47;
-//    if(modelType == SWDeviceModelTypeIPhone12Pro) return 47;
-//    if(modelType == SWDeviceModelTypeIPhone12ProMax) return 47;
-//    return 44;
     return [self sw_safeAreaInsets].top;
 }
 
 + (CGFloat)sw_safeBottomInset {
-//    SWDeviceModelType modelType = [self sw_deviceModelType];
-//    if(modelType == SWDeviceModelTypeNormal) return 0.0;
-//    return 34.0;
     return [self sw_safeAreaInsets].bottom;
 }
 

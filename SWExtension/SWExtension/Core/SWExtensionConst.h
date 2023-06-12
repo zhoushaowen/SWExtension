@@ -64,7 +64,8 @@ static dispatch_once_t onceToken2;\
 #define SWStatusBarHeight UIDevice.sw_statusBarHeight
 #define SWTabBarHeight UIDevice.sw_tabBarHeight
 #define SWIsIPhoneXSeries UIDevice.sw_isIPhoneXSeries
-#define swIsNormalScreen UIDevice.sw_isNormalScreen
+#define SWIsNormalScreen UIDevice.sw_isNormalScreen
+#define SWSafeAreaInsets UIDevice.sw_safeAreaInsets
 #define SWImageWithName(name) [UIImage imageNamed:@#name]
 
 

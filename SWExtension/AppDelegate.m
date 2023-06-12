@@ -33,14 +33,7 @@
 //    NSString *sub = [str sw_safeSubstringWithRange:NSMakeRange(3, 1)];
 //    NSString *sub = [str sw_safeSubstringWithRange:NSMakeRange(0, 4)];
 //    NSString *sub = [str sw_safeSubstringWithRange:NSMakeRange(NSNotFound, 0)];
-    SWUserDefaultsSetObj(@"a", @"hahaha");
-    NSLog(@"%@",SWUserDefaultsGetObj(@"a"));
-    SWIsIPhoneXSeries;
-    SWSafeTopInset;
-    SWSafeBottomInset;
-    SWNavigationBarHeight;
-    SWScreenWidth;
-    SWScreenHeight;
+    NSLog(@"SWScreenWidth:%f,SWScreenHeight:%f,SWIsNormalScreen:%d,SWSafeAreaInsets:%@,SWNavigationBarHeight:%f,SWStatusBarHeight:%f,SWTabBarHeight:%f",SWScreenWidth,SWScreenHeight,SWIsNormalScreen,NSStringFromUIEdgeInsets(SWSafeAreaInsets),SWNavigationBarHeight,SWStatusBarHeight,SWTabBarHeight);
     NSLog(@"%d",[UIDevice sw_deviceModelType]);
     [self.window sw_setRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
 //    NSURL *url = [NSURL sw_URLWithString:@"http://zh.wikipedia.org/wiki/春节"];
