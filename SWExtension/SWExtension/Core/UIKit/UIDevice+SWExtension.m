@@ -76,7 +76,8 @@
         NSValue *insetsValue = objc_getAssociatedObject([UIDevice currentDevice], @selector(sw_safeAreaInsets));
         if(insetsValue == nil){
             UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            objc_setAssociatedObject([UIDevice currentDevice], @selector(sw_safeAreaInsets), [NSValue valueWithUIEdgeInsets:window.safeAreaInsets], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            insetsValue = [NSValue valueWithUIEdgeInsets:window.safeAreaInsets];
+            objc_setAssociatedObject([UIDevice currentDevice], @selector(sw_safeAreaInsets), insetsValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         //4.7的普通屏幕 ios14上返回{20,0,0,0} ios11上返回{0,0,0,0}
         return insetsValue.UIEdgeInsetsValue;
