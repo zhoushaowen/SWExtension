@@ -1,6 +1,6 @@
 //
 //  UIView+SWHitTestExtension.h
-//  hitTest练习
+//  hitTest
 //
 //  Created by zhoushaowen on 2021/1/25.
 //  Copyright © 2021 WanHang. All rights reserved.
@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong,nullable) UIView *(^sw_hitTestTargetView)(CGPoint point,UIEvent *event,UIView *originalTargetView);
 
-/// 手势可以穿透的view
-@property (nonatomic,strong,nullable) UIView *(^sw_eventThroughView)(CGPoint point,UIEvent *event,UIView *originalTargetView);
 
 
 @end
